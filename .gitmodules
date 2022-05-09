@@ -1,0 +1,18 @@
+[submodule ".vim/pack/vendor/start/ctrlp.vim"]
+	path = .vim/pack/vendor/start/ctrlp.vim
+	url = https://github.com/kien/ctrlp.vim
+[submodule ".vim/pack/vendor/start/lightline"]
+	path = .vim/pack/vendor/start/lightline
+	url = https://github.com/itchyny/lightline.vim
+[submodule ".vim/pack/vendor/start/vim-monokai-tasty"]
+	path = .vim/pack/vendor/start/vim-monokai-tasty
+	url = https://github.com/patstockwell/vim-monokai-tasty
+[submodule ".vim/pack/vendor/start/nerdcommenter"]
+	path = .vim/pack/vendor/start/nerdcommenter
+	url = https://github.com/preservim/nerdcommenter
+[submodule ".vim/pack/vendor/start/nerdtree"]
+	path = .vim/pack/vendor/start/nerdtree
+	url = https://github.com/preservim/nerdtree
+[submodule ".vim/pack/vendor/start/vim-fugitive"]
+	path = .vim/pack/vendor/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
