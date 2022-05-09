@@ -1,5 +1,15 @@
 # Dotfiles for WSL2
 
+## Install WSL2
+```PowerShell
+wsl --install
+```
+
+## Install oh-my-zsh
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
 ## Add multiple submodules
 ```bash
 # Ref: https://stackoverflow.com/questions/10606101/automatically-add-all-submodules-to-a-repo
