@@ -1,5 +1,18 @@
 # Dotfiles for WSL2
 
+## Add multiple submodules
+```bash
+# Ref: https://stackoverflow.com/questions/10606101/automatically-add-all-submodules-to-a-repo
+for x in $(find . -type d) ; do
+    if [ -d "${x}/.git" ] ; then
+        cd "${x}"
+        origin="$(git config --get remote.origin.url)"
+        cd - 1>/dev/null
+        git submodule add "${origin}" "${x}"
+    fi
+done
+```
+
 ## Version manager for Node.js
 ```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
