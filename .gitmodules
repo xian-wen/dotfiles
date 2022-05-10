@@ -25,3 +25,6 @@
 [submodule ".vim/pack/vendor/start/lightline.vim"]
 	path = .vim/pack/vendor/start/lightline.vim
 	url = https://github.com/itchyny/lightline.vim
+[submodule ".vim/pack/vendor/start/syntastic"]
+	path = .vim/pack/vendor/start/syntastic
+	url = https://github.com/vim-syntastic/syntastic.git
