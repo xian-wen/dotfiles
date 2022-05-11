@@ -28,3 +28,6 @@
 [submodule ".vim/pack/vendor/start/syntastic"]
 	path = .vim/pack/vendor/start/syntastic
 	url = https://github.com/vim-syntastic/syntastic.git
+[submodule ".vim/pack/vendor/start/YouCompleteMe"]
+	path = .vim/pack/vendor/start/YouCompleteMe
+	url = https://github.com/ycm-core/YouCompleteMe
