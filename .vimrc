@@ -89,6 +89,10 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+" Set indent.
+" https://stackoverflow.com/questions/1878974/redefine-tab-as-4-spaces
+set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
