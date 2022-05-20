@@ -89,14 +89,14 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-" Set indent.
-" https://stackoverflow.com/questions/1878974/redefine-tab-as-4-spaces
-set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
-
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" Set indent.
+" https://stackoverflow.com/questions/1878974/redefine-tab-as-4-spaces
+set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 " Try to prevent bad habits like using the arrow keys for movement. This is
 " not the only possible bad habit. For example, holding down the h/j/k/l keys
@@ -111,7 +111,7 @@ nnoremap <Down>  :echoe "Use j"<CR>
 nnoremap <F5>    :NERDTreeToggle<CR>
 
 " ...and in insert mode
-inoremap <Left>  <ESC>:echoe "Use h"<CR>
-inoremap <Right> <ESC>:echoe "Use l"<CR>
-inoremap <Up>    <ESC>:echoe "Use k"<CR>
-inoremap <Down>  <ESC>:echoe "Use j"<CR>
+" inoremap <Left>  <ESC>:echoe "Use h"<CR>
+" inoremap <Right> <ESC>:echoe "Use l"<CR>
+" inoremap <Up>    <ESC>:echoe "Use k"<CR>
+" inoremap <Down>  <ESC>:echoe "Use j"<CR>
