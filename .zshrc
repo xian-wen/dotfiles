@@ -1,4 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -121,5 +120,8 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 # Golang
 export PATH=$PATH:/usr/local/go/bin
+
+# CS61B
+export REPO_DIR=/mnt/c/Users/xian_wen/Desktop/IdeaProjects/cs61b/sp21/cs61b-test-sp21
 
 source /home/xian_wen/.config/broot/launcher/bash/br
