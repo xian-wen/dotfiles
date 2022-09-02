@@ -19,6 +19,11 @@ wsl --install -d Ubuntu
 wsl -l -v
 ```
 
+## Update Ubuntu
+```bash
+sudo do-release-upgrade
+```
+
 ## Install oh-my-zsh
 ```bash
 # Ref: https://github.com/ohmyzsh/ohmyzsh
