@@ -68,7 +68,7 @@ npm install -g yrm
 
 ## PIP registry manager
 ```bash
-pip install pqi
+sudo pip install pqi
 
 ```
 
