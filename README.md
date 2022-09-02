@@ -77,6 +77,7 @@ pip install pqi
 # Ref: https://github.com/sharkdp/bat
 sudo apt install bat
 
+# Replace batcat with bat.
 # Ref: https://github.com/sharkdp/bat/issues/982
 sudo ln -s /usr/bin/batcat /usr/local/bin/bat
 ```
