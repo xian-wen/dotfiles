@@ -15,6 +15,10 @@ wsl -l -o
 # Install WSL2 and Ubuntu.
 wsl --install -d Ubuntu
 
+# If failed, try run the command below and reinstall.
+# Ref: https://github.com/microsoft/WSL/issues/5906#issuecomment-1047496562
+wslconfig /u Ubuntu
+
 # List the installed distributions.
 wsl -l -v
 ```
@@ -65,4 +69,20 @@ npm install -g yrm
 ## PIP registry manager
 ```bash
 pip install pqi
+
+```
+
+## Install bat
+```bash
+# Ref: https://github.com/sharkdp/bat
+sudo apt install bat
+
+# Ref: https://github.com/sharkdp/bat/issues/982
+sudo ln -s /usr/bin/batcat /usr/local/bin/bat
+```
+
+## Docker desktop failed to stop
+```PowerShell
+# Ref: https://github.com/docker/for-win/issues/7295#issuecomment-650590135
+wsl --unregister docker-desktop
 ```
