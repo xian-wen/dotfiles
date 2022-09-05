@@ -28,6 +28,12 @@ wsl -l -v
 sudo do-release-upgrade
 ```
 
+## Change the default editor to vim
+```bash
+# Ref: https://askubuntu.com/questions/483308/what-are-the-differences-between-vim-basic-and-vim-tiny
+sudo update-alternatives --config editor
+```
+
 ## Install oh-my-zsh
 ```bash
 # Ref: https://github.com/ohmyzsh/ohmyzsh
