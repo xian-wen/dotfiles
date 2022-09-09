@@ -93,3 +93,11 @@ sudo ln -s /usr/bin/batcat /usr/local/bin/bat
 # Ref: https://github.com/docker/for-win/issues/7295#issuecomment-650590135
 wsl --unregister docker-desktop
 ```
+
+## The ycmd server SHUT DOWN
+```bash
+# Ref: https://stackoverflow.com/questions/47667119/ycm-error-the-ycmd-server-shut-down-restart-wit-the-instructions-in-the-docu
+cd ~/.vim/pack/vendor/start/YouCompleteMe
+python3 install.py
+```
+
