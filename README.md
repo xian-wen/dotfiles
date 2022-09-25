@@ -28,12 +28,6 @@ wsl -l -v
 sudo do-release-upgrade
 ```
 
-## Change the default editor to vim
-```bash
-# Ref: https://askubuntu.com/questions/483308/what-are-the-differences-between-vim-basic-and-vim-tiny
-sudo update-alternatives --config editor
-```
-
 ## Install oh-my-zsh
 ```bash
 # Install ZSH
@@ -115,10 +109,19 @@ sudo snap install cmake --classic
 wsl --unregister docker-desktop
 ```
 
-## The ycmd server SHUT DOWN
+## Vim
 ```bash
+# Change the default editor to vim
+# Ref: https://askubuntu.com/questions/483308/what-are-the-differences-between-vim-basic-and-vim-tiny
+sudo update-alternatives --config editor
+
+# YouCompleteMe error: ycmd server SHUT DOWN
 # Ref: https://stackoverflow.com/questions/47667119/ycm-error-the-ycmd-server-shut-down-restart-wit-the-instructions-in-the-docu
 cd ~/.vim/pack/vendor/start/YouCompleteMe
-python3 install.py
+python3 install.py --all
+
+# YouCompleteMe error: Python headers are missing
+# Ref: https://blog.csdn.net/weixin_45525272/article/details/109322049
+sudo apt-get install python3-dev
 ```
 
