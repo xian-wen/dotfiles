@@ -36,6 +36,13 @@ sudo update-alternatives --config editor
 
 ## Install oh-my-zsh
 ```bash
+# Ref: https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH
+sudo apt install zsh
+chsh -s $(which zsh)
+
+# Ref: https://github.com/powerline/fonts
+sudo apt-get install fonts-powerline
+
 # Ref: https://github.com/ohmyzsh/ohmyzsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
