@@ -36,13 +36,22 @@ sudo update-alternatives --config editor
 
 ## Install oh-my-zsh
 ```bash
+# Install ZSH
 # Ref: https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH
 sudo apt install zsh
 chsh -s $(which zsh)
 
+# If change shell needs input password, manually modify /etc/passwd
+# Ref: https://serverfault.com/questions/500865/chsh-pam-authentication-failed
+vim /etc/passwd
+root:x:0:0:root:/root:zsh
+xian_wen:x:1000:1000:,,,:/home/xian_wen:/usr/bin/zsh
+
+# Install powerline fonts
 # Ref: https://github.com/powerline/fonts
 sudo apt-get install fonts-powerline
 
+# Install oh-my-zsh
 # Ref: https://github.com/ohmyzsh/ohmyzsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
