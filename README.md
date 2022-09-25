@@ -104,6 +104,11 @@ sudo apt install bat
 sudo ln -s /usr/bin/batcat /usr/local/bin/bat
 ```
 
+# Install cmake
+```bash
+sudo snap install cmake --classic
+```
+
 ## Docker desktop failed to stop
 ```PowerShell
 # Ref: https://github.com/docker/for-win/issues/7295#issuecomment-650590135
