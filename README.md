@@ -4,6 +4,9 @@
 ```bash
 # Ref: https://stackoverflow.com/questions/3796927/how-do-i-git-clone-a-repo-including-its-submodules
 git clone --recurse-submodules -j8 git@github.com:xian-wen/dotfiles.git .dotfiles
+
+# Create a symbolic link, use zsh as an example.
+ln -sf /home/xian_wen/.dotfiles/.zshrc ~/.zshrc
 ```
 
 ## Install WSL2
