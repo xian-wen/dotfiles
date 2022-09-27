@@ -50,42 +50,31 @@ sudo apt-get install fonts-powerline
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-## Add multiple submodules
+## Install tmux and tpm
 ```bash
-# Ref: https://stackoverflow.com/questions/10606101/automatically-add-all-submodules-to-a-repo
-for x in $(find . -type d) ; do
-    if [ -d "${x}/.git" ] ; then
-        cd "${x}"
-        origin="$(git config --get remote.origin.url)"
-        cd - 1>/dev/null
-        git submodule add "${origin}" "${x}"
-    fi
-done
+# Install tmux
+sudo apt install tmux
+
+# Install tmux plugin manager, <prefix>+I to install plugins in tmux session.
+# Ref: https://github.com/tmux-plugins/tpm
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
-## Version manager for Node.js
+## Install Vim plugins
 ```bash
-# Ref: https://github.com/nvm-sh/nvm
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+# Change the default editor to vim
+# Ref: https://askubuntu.com/questions/483308/what-are-the-differences-between-vim-basic-and-vim-tiny
+sudo update-alternatives --config editor
 
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-```
+# YouCompleteMe error: ycmd server SHUT DOWN
+# Ref: https://stackoverflow.com/questions/47667119/ycm-error-the-ycmd-server-shut-down-restart-wit-the-instructions-in-the-docu
+# Ref: https://github.com/ycm-core/YouCompleteMe/wiki/Troubleshooting-steps-for-ycmd-server-SHUT-DOWN
+cd ~/.vim/pack/vendor/start/YouCompleteMe
+python3 install.py
 
-## NPM registry manager
-```bash
-npm install -g nrm
-```
-
-## YARN registry manager
-```bash
-npm install -g yrm
-```
-
-## PIP registry manager
-```bash
-sudo pip install pqi
-
+# YouCompleteMe error: Python headers are missing
+# Ref: https://blog.csdn.net/weixin_45525272/article/details/109322049
+sudo apt-get install python3-dev
 ```
 
 ## Install bat
@@ -108,26 +97,46 @@ sudo dpkg -i bat_0.22.1_amd64.deb
 sudo snap install cmake --classic
 ```
 
+## Install pip registry manager
+```bash
+sudo pip install pqi
+```
+
+## Install node.js version manager
+```bash
+# Ref: https://github.com/nvm-sh/nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+```
+
+## Install npm registry manager
+```bash
+npm install -g nrm
+```
+
+## Install yarn registry manager
+```bash
+npm install -g yrm
+```
+
+## Add multiple submodules
+```bash
+# Ref: https://stackoverflow.com/questions/10606101/automatically-add-all-submodules-to-a-repo
+for x in $(find . -type d) ; do
+    if [ -d "${x}/.git" ] ; then
+        cd "${x}"
+        origin="$(git config --get remote.origin.url)"
+        cd - 1>/dev/null
+        git submodule add "${origin}" "${x}"
+    fi
+done
+```
+
 ## Docker desktop failed to stop
 ```PowerShell
 # Ref: https://github.com/docker/for-win/issues/7295#issuecomment-650590135
 wsl --unregister docker-desktop
-```
-
-## Vim
-```bash
-# Change the default editor to vim
-# Ref: https://askubuntu.com/questions/483308/what-are-the-differences-between-vim-basic-and-vim-tiny
-sudo update-alternatives --config editor
-
-# YouCompleteMe error: ycmd server SHUT DOWN
-# Ref: https://stackoverflow.com/questions/47667119/ycm-error-the-ycmd-server-shut-down-restart-wit-the-instructions-in-the-docu
-# Ref: https://github.com/ycm-core/YouCompleteMe/wiki/Troubleshooting-steps-for-ycmd-server-SHUT-DOWN
-cd ~/.vim/pack/vendor/start/YouCompleteMe
-python3 install.py
-
-# YouCompleteMe error: Python headers are missing
-# Ref: https://blog.csdn.net/weixin_45525272/article/details/109322049
-sudo apt-get install python3-dev
 ```
 
