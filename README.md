@@ -60,7 +60,7 @@ sudo apt install tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
-## Install Vim plugins
+## Install vim plugins
 ```bash
 # Change the default editor to vim
 # Ref: https://askubuntu.com/questions/483308/what-are-the-differences-between-vim-basic-and-vim-tiny
