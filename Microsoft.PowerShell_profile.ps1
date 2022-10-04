@@ -1,6 +1,7 @@
-Import-Module posh-git
 Import-Module oh-my-posh
 Set-PoshPrompt ys
+
+Import-Module posh-git
 
 # Ref: https://github.com/PowerShell/PSReadLine/blob/master/PSReadLine/SamplePSReadLineProfile.ps1
 Import-Module PSReadLine
