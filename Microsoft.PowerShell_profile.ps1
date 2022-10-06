@@ -1,5 +1,6 @@
-Import-Module oh-my-posh
-Set-PoshPrompt ys
+# Ref: https://ohmyposh.dev/docs/installation/windows
+oh-my-posh init pwsh | Invoke-Expression
+oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\montys.omp.json" | Invoke-Expression
 
 Import-Module posh-git
 

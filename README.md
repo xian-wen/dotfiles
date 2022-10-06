@@ -148,9 +148,8 @@ wsl --unregister docker-desktop
 ## Install Oh-My-Posh
 ```PowerShell
 # Install oh-my-posh
-# Ref: https://blog.walterlv.com/post/beautify-powershell-like-zsh.html
-# Ref: https://zhuanlan.zhihu.com/p/137595941
-Install-Module oh-my-posh -Scope CurrentUser -Force
+# Ref: https://ohmyposh.dev/docs/installation/windows
+winget install JanDeDobbeleer.OhMyPosh -s winget
 
 # Install Nerd Fonts
 # Ref: https://ohmyposh.dev/docs/installation/fonts
@@ -158,12 +157,12 @@ oh-my-posh font install
 # Or manually install fonts in Settings > Personalization > Fonts
 # Ref: https://www.nerdfonts.com/
 
+# Copy Microsoft.PowerShell_profile.ps1 into $PROFILE
+cp ~/.dotfiles/Microsoft.PowerShell_profile.ps1 /mnt/c/Users/xian_wen/Documents/PowerShell
+
 # Get themes
 # Ref: https://ohmyposh.dev/docs/themes
 Get-PoshThemes
-
-# Copy Microsoft.PowerShell_profile.ps1 into $PROFILE
-cp ~/.dotfiles/Microsoft.PowerShell_profile.ps1 /mnt/c/Users/xian_wen/Documents/PowerShell
 ```
 
 ## Install Posh-git
