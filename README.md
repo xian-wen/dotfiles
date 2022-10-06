@@ -95,7 +95,7 @@ curl -OL https://github.com/sharkdp/bat/releases/download/v0.22.1/bat_0.22.1_amd
 sudo dpkg -i bat_0.22.1_amd64.deb
 ```
 
-# Install cmake
+## Install cmake
 ```bash
 sudo snap install cmake --classic
 ```
@@ -150,7 +150,7 @@ wsl --unregister docker-desktop
 # Install oh-my-posh
 # Ref: https://blog.walterlv.com/post/beautify-powershell-like-zsh.html
 # Ref: https://zhuanlan.zhihu.com/p/137595941
-Install-Module oh-my-posh -Scope CurrentUser
+Install-Module oh-my-posh -Scope CurrentUser -Force
 
 # Install Nerd Fonts
 # Ref: https://ohmyposh.dev/docs/installation/fonts
@@ -166,15 +166,15 @@ Get-PoshThemes
 cp ~/.dotfiles/Microsoft.PowerShell_profile.ps1 /mnt/c/Users/xian_wen/Documents/PowerShell
 ```
 
-# Install Posh-git
+## Install Posh-git
 ```PowerShell
 # Ref: https://github.com/dahlbyk/posh-git
-Install-Module posh-git -Scope CurrentUser
+Install-Module posh-git -Scope CurrentUser -Force
 ```
 
 ## Install PSReadLine
 ```PowerShell
 # Ref: https://github.com/PowerShell/PSReadLine
-Install-Module PSReadLine -Scope CurrentUser
+Install-Module PSReadLine -Scope CurrentUser -Force
 ```
 
