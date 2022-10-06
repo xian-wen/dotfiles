@@ -50,7 +50,7 @@ root:x:0:0:root:/root:bash
 xian_wen:x:1000:1000:,,,:/home/xian_wen:/usr/bin/zsh
 
 # If compinit:503: no such file or directory: /usr/share/zsh/vendor-completions/_docker,
-# then add docker in zsh plugins.
+# then add docker in zsh plugins, ignore this right now, see the updated .zshrc.
 # Ref: https://github.com/docker/for-win/issues/8336#issuecomment-719477466
 plugins=(
 docker
