@@ -38,29 +38,38 @@ sudo apt autoremove (optional)
 
 ## Install oh-my-zsh
 ```bash
-# Install ZSH
+# Install ZSH.
 # Ref: https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH
 sudo apt install zsh
 chsh -s $(which zsh)
 
-# If change shell needs input password, manually modify /etc/passwd
+# If change shell needs input password, manually modify /etc/passwd.
 # Ref: https://serverfault.com/questions/500865/chsh-pam-authentication-failed
 vim /etc/passwd
 root:x:0:0:root:/root:bash
 xian_wen:x:1000:1000:,,,:/home/xian_wen:/usr/bin/zsh
 
-# Install powerline fonts
+# If compinit:503: no such file or directory: /usr/share/zsh/vendor-completions/_docker,
+# then add docker in zsh plugins.
+# Ref: https://github.com/docker/for-win/issues/8336#issuecomment-719477466
+plugins=(
+docker
+zsh-syntax-highlighting
+zsh-autosuggestions
+)
+
+# Install powerline fonts.
 # Ref: https://github.com/powerline/fonts
 sudo apt-get install fonts-powerline
 
-# Install oh-my-zsh
+# Install oh-my-zsh.
 # Ref: https://github.com/ohmyzsh/ohmyzsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
 ## Install tmux and tpm
 ```bash
-# Install tmux
+# Install tmux.
 sudo apt install tmux
 
 # Install tmux plugin manager, <prefix>+I to install plugins in tmux session.
@@ -70,17 +79,17 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 ## Install vim plugins
 ```bash
-# Change the default editor to vim
+# Change the default editor to vim.
 # Ref: https://askubuntu.com/questions/483308/what-are-the-differences-between-vim-basic-and-vim-tiny
 sudo update-alternatives --config editor
 
-# YouCompleteMe error: ycmd server SHUT DOWN
+# YouCompleteMe error: ycmd server SHUT DOWN.
 # Ref: https://stackoverflow.com/questions/47667119/ycm-error-the-ycmd-server-shut-down-restart-wit-the-instructions-in-the-docu
 # Ref: https://github.com/ycm-core/YouCompleteMe/wiki/Troubleshooting-steps-for-ycmd-server-SHUT-DOWN
 cd ~/.vim/pack/vendor/start/YouCompleteMe
 python3 install.py
 
-# YouCompleteMe error: Python headers are missing
+# YouCompleteMe error: Python headers are missing.
 # Ref: https://blog.csdn.net/weixin_45525272/article/details/109322049
 sudo apt-get install python3-dev
 ```
@@ -152,20 +161,20 @@ wsl --unregister docker-desktop
 
 ## Install Oh-My-Posh
 ```PowerShell
-# Install oh-my-posh
+# Install oh-my-posh.
 # Ref: https://ohmyposh.dev/docs/installation/windows
 winget install JanDeDobbeleer.OhMyPosh -s winget
 
-# Install Nerd Fonts
+# Install Nerd Fonts.
 # Ref: https://ohmyposh.dev/docs/installation/fonts
 oh-my-posh font install
 # Or manually install fonts in Settings > Personalization > Fonts
 # Ref: https://www.nerdfonts.com/
 
-# Copy Microsoft.PowerShell_profile.ps1 into $PROFILE
+# Copy Microsoft.PowerShell_profile.ps1 into $PROFILE.
 cp ~/.dotfiles/Microsoft.PowerShell_profile.ps1 /mnt/c/Users/xian_wen/Documents/PowerShell
 
-# Get themes
+# Get themes.
 # Ref: https://ohmyposh.dev/docs/themes
 Get-PoshThemes
 ```
