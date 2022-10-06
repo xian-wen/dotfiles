@@ -29,6 +29,11 @@ wsl -l -v
 ## Update Ubuntu
 ```bash
 sudo do-release-upgrade
+
+# If seeing this message: Failed to retrieve available kernel versions.
+# Ref: https://github.com/microsoft/WSL/issues/7054#issuecomment-1121779380
+sudo apt purge needrestart
+sudo apt autoremove (optional)
 ```
 
 ## Install oh-my-zsh
