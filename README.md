@@ -65,6 +65,20 @@ sudo apt-get install fonts-powerline
 # Install oh-my-zsh.
 # Ref: https://github.com/ohmyzsh/ohmyzsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# Install Powerlevel10k.
+# Ref: https://github.com/romkatv/powerlevel10k#oh-my-zsh
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+# Configure Powerlevel10k.
+p10k configure
+
+# Install zsh-autosuggestions.
+# Ref: https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+# Install zsh-syntax-highlighting.
+# Ref: https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
 
 ## Install tmux and tpm
