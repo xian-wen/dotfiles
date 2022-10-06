@@ -128,6 +128,16 @@ sudo dpkg -i bat_0.22.1_amd64.deb
 sudo snap install cmake --classic
 ```
 
+## Install pwndbg
+```bash
+# Ref: https://github.com/pwndbg/pwndbg
+git clone https://github.com/pwndbg/pwndbg
+cd pwndbg
+./setup.sh
+
+```
+
+
 ## Install pip registry manager
 ```bash
 sudo pip install pqi
