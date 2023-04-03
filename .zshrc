@@ -117,7 +117,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # Golang
 export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:$HOME/go/bin/hello
+export PATH=$PATH:$HOME/go/bin
 
 # CS61B
 export REPO_DIR=/mnt/c/Users/xian_wen/Desktop/IdeaProjects/cs61b/sp21/cs61b-test-sp21
