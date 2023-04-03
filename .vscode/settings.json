@@ -1,0 +1,9 @@
+{
+    "workbench.colorTheme": "Monokai",
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.fontSize": 18,
+    "editor.fontFamily": "'FiraCode Nerd Font', Consolas, 'Courier New', monospace",
+    "editor.mouseWheelZoom": true,
+    "editor.cursorStyle": "block",
+    "editor.rulers": [80,120]
+}
