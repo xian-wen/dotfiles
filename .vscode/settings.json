@@ -5,5 +5,15 @@
     "editor.fontFamily": "'FiraCode Nerd Font', Consolas, 'Courier New', monospace",
     "editor.mouseWheelZoom": true,
     "editor.cursorStyle": "block",
-    "editor.rulers": [80,120]
+    "editor.rulers": [
+        80,
+        120
+    ],
+    "leetcode.editor.shortcuts": [
+        "submit",
+        "test",
+        "star",
+        "solution",
+        "description"
+    ]
 }
