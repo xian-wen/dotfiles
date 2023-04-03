@@ -9,6 +9,7 @@
         80,
         120
     ],
+    "leetcode.defaultLanguage": "java",
     "leetcode.editor.shortcuts": [
         "submit",
         "test",
