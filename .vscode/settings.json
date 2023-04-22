@@ -17,5 +17,9 @@
         "solution",
         "description"
     ],
-    "leetcode.workspaceFolder": "/mnt/c/Users/xian_wen/Desktop/IdeaProjects/leetcode/java"
+    "leetcode.workspaceFolder": "/mnt/c/Users/xian_wen/Desktop/IdeaProjects/leetcode/java",
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "editor.wordWrap": "on"
 }
