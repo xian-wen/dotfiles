@@ -1,0 +1,8 @@
+# wsl: A localhost proxy configuration was detected but not mirrored into WSL. WSL in NAT mode does not support localhost proxies.
+# Ref: https://github.com/microsoft/WSL/issues/10753#issuecomment-1814839310
+[experimental]
+autoMemoryReclaim=gradual  # gradual  | dropcache | disabled
+networkingMode=mirrored
+dnsTunneling=true
+firewall=true
+autoProxy=true
