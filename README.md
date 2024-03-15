@@ -208,7 +208,7 @@ oh-my-posh font install
 # Ref: https://www.nerdfonts.com/
 
 # Copy Microsoft.PowerShell_profile.ps1 into $PROFILE.
-cp ~/.dotfiles/Microsoft.PowerShell_profile.ps1 /mnt/c/Users/Xianwen/Documents/PowerShell
+cp ~/.dotfiles/powershell/Microsoft.PowerShell_profile.ps1 /mnt/c/Users/Xianwen/Documents/PowerShell
 
 # Get themes.
 # Ref: https://ohmyposh.dev/docs/themes
