@@ -60,7 +60,7 @@ zsh-autosuggestions
 
 # Install powerline fonts.
 # Ref: https://github.com/powerline/fonts
-sudo apt-get install fonts-powerline
+sudo apt install fonts-powerline
 
 # Install oh-my-zsh.
 # Ref: https://github.com/ohmyzsh/ohmyzsh
@@ -114,7 +114,10 @@ python3 install.py
 
 # YouCompleteMe error: Python headers are missing.
 # Ref: https://blog.csdn.net/weixin_45525272/article/details/109322049
-sudo apt-get install python3-dev
+sudo apt install python3-dev
+
+# YouCompleteMe error: No CMAKE_CXX_COMPILER could be found.
+sudo apt install build-essential
 ```
 
 ## Install bat
