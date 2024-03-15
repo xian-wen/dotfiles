@@ -6,7 +6,7 @@
 git clone --recurse-submodules -j8 git@github.com:xian-wen/dotfiles.git .dotfiles
 
 # Create a symbolic link, use zsh as an example.
-ln -sf /home/xian_wen/.dotfiles/.zshrc ~/.zshrc
+ln -sf /home/xianwen/.dotfiles/.zshrc ~/.zshrc
 ```
 
 ## Install WSL2
@@ -47,7 +47,7 @@ chsh -s $(which zsh)
 # Ref: https://serverfault.com/questions/500865/chsh-pam-authentication-failed
 vim /etc/passwd
 root:x:0:0:root:/root:bash
-xian_wen:x:1000:1000:,,,:/home/xian_wen:/usr/bin/zsh
+xianwen:x:1000:1000:,,,:/home/xianwen:/usr/bin/zsh
 
 # If compinit:503: no such file or directory: /usr/share/zsh/vendor-completions/_docker,
 # then add docker in zsh plugins, ignore this right now, see the updated .zshrc.
@@ -65,6 +65,15 @@ sudo apt-get install fonts-powerline
 # Install oh-my-zsh.
 # Ref: https://github.com/ohmyzsh/ohmyzsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# Create a symbolic link for plugins and themes, no need to clone them like below.
+ln -sf /home/xianwen/.dotfiles/.oh-my-zsh/custom ~/.oh-my-zsh
+
+# Manual update oh-my-zsh
+# Ref: https://github.com/ohmyzsh/ohmyzsh?tab=readme-ov-file#manual-updates
+omz update
+
+====== END ======
 
 # Install Powerlevel10k.
 # Ref: https://github.com/romkatv/powerlevel10k#oh-my-zsh
@@ -196,7 +205,7 @@ oh-my-posh font install
 # Ref: https://www.nerdfonts.com/
 
 # Copy Microsoft.PowerShell_profile.ps1 into $PROFILE.
-cp ~/.dotfiles/Microsoft.PowerShell_profile.ps1 /mnt/c/Users/xian_wen/Documents/PowerShell
+cp ~/.dotfiles/Microsoft.PowerShell_profile.ps1 /mnt/c/Users/Xianwen/Documents/PowerShell
 
 # Get themes.
 # Ref: https://ohmyposh.dev/docs/themes
