@@ -134,7 +134,7 @@ sudo dpkg -i bat_0.22.1_amd64.deb
 
 ## Install cmake
 ```bash
-sudo snap install cmake --classic
+sudo apt install cmake
 ```
 
 ## Install pwndbg
