@@ -92,6 +92,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 ## Install tmux and tpm
 ```bash
+# The built-in byobu in Ubuntu may be a better replacement for tmux.
 # Install tmux.
 sudo apt install tmux
 
@@ -146,9 +147,7 @@ sudo apt install cmake
 git clone https://github.com/pwndbg/pwndbg
 cd pwndbg
 ./setup.sh
-
 ```
-
 
 ## Install pip registry manager
 ```bash
