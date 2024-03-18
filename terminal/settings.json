@@ -45,7 +45,7 @@
             "cursorShape": "filledBox",
             "font": 
             {
-                "face": "FiraCode Nerd Font Mono",
+                "face": "JetBrains Mono",
                 "size": 13.0,
                 "weight": "medium"
             },
@@ -88,6 +88,12 @@
                 "hidden": false,
                 "name": "Azure Cloud Shell",
                 "source": "Windows.Terminal.Azure"
+            },
+            {
+                "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed2b}",
+                "hidden": false,
+                "name": "Git Bash",
+                "source": "Git"
             }
         ]
     },
