@@ -197,7 +197,7 @@ wsl --unregister docker-desktop
 ## Install Oh-My-Posh
 ```PowerShell
 # Install oh-my-posh.
-# Ref: https://ohmyposh.dev/docs/installation/windows
+# Ref: https://ohmyposh.dev/docs/installation/windows#installation
 winget install JanDeDobbeleer.OhMyPosh -s winget
 
 # Install Nerd Fonts.
@@ -212,6 +212,10 @@ cp ~/.dotfiles/powershell/Microsoft.PowerShell_profile.ps1 /mnt/c/Users/Xianwen/
 # Get themes.
 # Ref: https://ohmyposh.dev/docs/themes
 Get-PoshThemes
+
+# Update oh-my-posh
+# Ref: https://ohmyposh.dev/docs/installation/windows#update
+winget upgrade JanDeDobbeleer.OhMyPosh -s winget
 ```
 
 ## Install Posh-git
