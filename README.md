@@ -66,6 +66,10 @@ sudo apt install fonts-powerline
 # Ref: https://github.com/ohmyzsh/ohmyzsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+# If curl: Failed to connect to raw.githubusercontent.com port 443: Connection refused
+# Add this into the /etc/hosts file.
+185.199.108.133 raw.githubusercontent.com
+
 # Create a symbolic link for plugins and themes, no need to clone them like below.
 ln -sf /home/xianwen/.dotfiles/.oh-my-zsh/custom ~/.oh-my-zsh
 
