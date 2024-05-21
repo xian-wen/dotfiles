@@ -2,8 +2,7 @@
 
 ## Restore .dotfiles
 ```bash
-# Ref: https://stackoverflow.com/questions/3796927/how-do-i-git-clone-a-repo-including-its-submodules
-git clone --recurse-submodules -j8 git@github.com:xian-wen/dotfiles.git .dotfiles
+git clone git@github.com:xian-wen/dotfiles.git .dotfiles
 
 # Create a symbolic link, use zsh as an example.
 ln -sf /home/xianwen/.dotfiles/.zshrc ~/.zshrc
@@ -70,14 +69,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # Add this into the /etc/hosts file.
 185.199.108.133 raw.githubusercontent.com
 
-# Create a symbolic link for plugins and themes, no need to clone them like below.
-ln -sf /home/xianwen/.dotfiles/.oh-my-zsh/custom ~/.oh-my-zsh
-
 # Manual update oh-my-zsh
 # Ref: https://github.com/ohmyzsh/ohmyzsh?tab=readme-ov-file#manual-updates
 omz update
-
-====== END ======
 
 # Install Powerlevel10k.
 # Ref: https://github.com/romkatv/powerlevel10k#oh-my-zsh
@@ -87,11 +81,11 @@ p10k configure
 
 # Install zsh-autosuggestions.
 # Ref: https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 # Install zsh-syntax-highlighting.
 # Ref: https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
 
 ## Install tmux and tpm
@@ -110,6 +104,20 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # Change the default editor to vim.
 # Ref: https://askubuntu.com/questions/483308/what-are-the-differences-between-vim-basic-and-vim-tiny
 sudo update-alternatives --config editor
+
+# Install vim-plug as the plugins manager.
+# Ref: https://github.com/junegunn/vim-plug?tab=readme-ov-file#unix
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# Install plugins (in vim).
+# Ref: https://github.com/junegunn/vim-plug?tab=readme-ov-file#commands
+:PlugInstall
+
+# Update plugins (in vim).
+:PlugUpdate
+
+# Upgrade vim-plug itself (in vim).
+:PlugUpgrade
 
 # YouCompleteMe error: ycmd server SHUT DOWN.
 # Ref: https://stackoverflow.com/questions/47667119/ycm-error-the-ycmd-server-shut-down-restart-wit-the-instructions-in-the-docu
