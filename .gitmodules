@@ -1,30 +1,3 @@
-[submodule ".vim/pack/vendor/start/ctrlp.vim"]
-	path = .vim/pack/vendor/start/ctrlp.vim
-	url = https://github.com/kien/ctrlp.vim
-[submodule ".vim/pack/vendor/start/vim-monokai-tasty"]
-	path = .vim/pack/vendor/start/vim-monokai-tasty
-	url = https://github.com/patstockwell/vim-monokai-tasty
-[submodule ".vim/pack/vendor/start/nerdcommenter"]
-	path = .vim/pack/vendor/start/nerdcommenter
-	url = https://github.com/preservim/nerdcommenter
-[submodule ".vim/pack/vendor/start/nerdtree"]
-	path = .vim/pack/vendor/start/nerdtree
-	url = https://github.com/preservim/nerdtree
-[submodule ".vim/pack/vendor/start/vim-fugitive"]
-	path = .vim/pack/vendor/start/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive
-[submodule ".vim/pack/vendor/start/lightline.vim"]
-	path = .vim/pack/vendor/start/lightline.vim
-	url = https://github.com/itchyny/lightline.vim
-[submodule ".vim/pack/vendor/start/syntastic"]
-	path = .vim/pack/vendor/start/syntastic
-	url = https://github.com/vim-syntastic/syntastic.git
-[submodule ".vim/pack/vendor/start/YouCompleteMe"]
-	path = .vim/pack/vendor/start/YouCompleteMe
-	url = https://github.com/ycm-core/YouCompleteMe
-[submodule ".vim/pack/vendor/start/auto-pairs"]
-	path = .vim/pack/vendor/start/auto-pairs
-	url = https://github.com/jiangmiao/auto-pairs
 [submodule ".oh-my-zsh/custom/plugins/zsh-autosuggestions"]
 	path = .oh-my-zsh/custom/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
