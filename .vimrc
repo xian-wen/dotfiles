@@ -11,24 +11,6 @@
 " `vim -u foo`).
 set nocompatible
 
-" Set theme to vim-monokai-tasty.
-let g:vim_monokai_tasty_italic = 1                    " allow italics, set this before the colorscheme
-colorscheme vim-monokai-tasty                         " set the colorscheme
-
-" Optional themes for airline/lightline
-let g:airline_theme='monokai_tasty'                   " airline theme
-" let g:lightline = { 'colorscheme': 'monokai_tasty' }  " lightline theme
-let g:lightline = { 'colorscheme': 'powerline' }  " lightline theme
-
-" If you don't like a particular colour choice from `vim-monokai-tasty`, you can
-" override it here. For example, to change the colour of the search hightlight:
-hi Search guifg=#bada55 guibg=#000000 gui=bold ctermfg=green ctermbg=black cterm=bold
-
-" If you don't know what the name of a particular hightlight is, you can use
-" `What`. It will print out the syntax group that the cursor is currently above.
-" from https://www.reddit.com/r/vim/comments/6z4aau/how_to_stop_vim_from_autohighlighting_italics_in/
-command! What echo synIDattr(synID(line('.'), col('.'), 1), 'name')
-
 " Get rid of the -- INSERT --.
 set noshowmode
 
@@ -84,16 +66,6 @@ set noerrorbells visualbell t_vb=
 " sometimes be convenient.
 set mouse+=a
 
-" Syntastic setting.
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
 " Set indent.
 " https://stackoverflow.com/questions/1878974/redefine-tab-as-4-spaces
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
@@ -115,3 +87,44 @@ nnoremap <F5>    :NERDTreeToggle<CR>
 " inoremap <Right> <ESC>:echoe "Use l"<CR>
 " inoremap <Up>    <ESC>:echoe "Use k"<CR>
 " inoremap <Down>  <ESC>:echoe "Use j"<CR>
+
+" vim-plug: Vim plugin manager
+call plug#begin()
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-fugitive'
+Plug 'patstockwell/vim-monokai-tasty'
+Plug 'valloric/youcompleteme', { 'do': './install.py --clangd-completer --java-completer --go-completer' }
+call plug#end()
+
+" Set theme to vim-monokai-tasty.
+let g:vim_monokai_tasty_italic = 1                    " allow italics, set this before the colorscheme
+colorscheme vim-monokai-tasty                         " set the colorscheme
+
+" Optional themes for airline/lightline
+let g:airline_theme='monokai_tasty'                   " airline theme
+" let g:lightline = { 'colorscheme': 'monokai_tasty' }  " lightline theme
+let g:lightline = { 'colorscheme': 'powerline' }  " lightline theme
+
+" If you don't like a particular colour choice from `vim-monokai-tasty`, you can
+" override it here. For example, to change the colour of the search hightlight:
+hi Search guifg=#bada55 guibg=#000000 gui=bold ctermfg=green ctermbg=black cterm=bold
+
+" If you don't know what the name of a particular hightlight is, you can use
+" `What`. It will print out the syntax group that the cursor is currently above.
+" from https://www.reddit.com/r/vim/comments/6z4aau/how_to_stop_vim_from_autohighlighting_italics_in/
+command! What echo synIDattr(synID(line('.'), col('.'), 1), 'name')
+
+" Syntastic setting.
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
