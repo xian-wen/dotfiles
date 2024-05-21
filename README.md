@@ -183,21 +183,8 @@ npm install -g nrm
 ## Install yarn registry manager
 ```bash
 npm install -g yrm
-```
 
-## Add multiple submodules
-```bash
-# Ref: https://stackoverflow.com/questions/10606101/automatically-add-all-submodules-to-a-repo
-for x in $(find . -type d) ; do
-    if [ -d "${x}/.git" ] ; then
-        cd "${x}"
-        origin="$(git config --get remote.origin.url)"
-        cd - 1>/dev/null
-        git submodule add "${origin}" "${x}"
-    fi
-done
 ```
-
 ## Docker desktop failed to stop
 ```PowerShell
 # Ref: https://github.com/docker/for-win/issues/7295#issuecomment-650590135
