@@ -135,7 +135,7 @@ sudo apt install build-essential
 
 ## Install Ctags
 ```bash
-sudo apt install universal-ctags
+sudo apt install exuberant-ctags
 
 # Ignore all ctags files.
 # Ref: https://ricostacruz.com/til/navigate-code-with-ctags
