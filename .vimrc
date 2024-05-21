@@ -90,11 +90,13 @@ nnoremap <F5>    :NERDTreeToggle<CR>
 
 " vim-plug: Vim plugin manager
 call plug#begin()
+Plug 'universal-ctags/ctags'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
+Plug 'craigemery/vim-autotag'
 Plug 'tpope/vim-fugitive'
 Plug 'patstockwell/vim-monokai-tasty'
 Plug 'valloric/youcompleteme', { 'do': './install.py --clangd-completer --java-completer --go-completer' }

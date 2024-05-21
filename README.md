@@ -133,6 +133,15 @@ sudo apt install python3-dev
 sudo apt install build-essential
 ```
 
+## Install Ctags
+```bash
+sudo apt install universal-ctags
+
+# Ignore all ctags files.
+# Ref: https://ricostacruz.com/til/navigate-code-with-ctags
+git config --global core.excludesfile $HOME/.global_ignore
+```
+
 ## Install bat
 ```bash
 # Ref: https://github.com/sharkdp/bat
