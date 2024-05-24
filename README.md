@@ -122,8 +122,8 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 # YouCompleteMe error: ycmd server SHUT DOWN.
 # Ref: https://stackoverflow.com/questions/47667119/ycm-error-the-ycmd-server-shut-down-restart-wit-the-instructions-in-the-docu
 # Ref: https://github.com/ycm-core/YouCompleteMe/wiki/Troubleshooting-steps-for-ycmd-server-SHUT-DOWN
-cd ~/.vim/pack/vendor/start/YouCompleteMe
-python3 install.py
+cd ~/.vim/plugged/youcompleteme
+./install.py --clangd-completer --java-completer --go-completer
 
 # YouCompleteMe error: Python headers are missing.
 # Ref: https://blog.csdn.net/weixin_45525272/article/details/109322049
