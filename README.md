@@ -202,6 +202,19 @@ wsl --unregister docker-desktop
 
 # Dotfiles for PowerShell
 
+## Install PowerShell
+```PowerShell
+# Search for the latest version of PowerShell.
+# Ref: https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.4
+winget search Microsoft.PowerShell
+
+# Install PowerShell.
+winget install --id Microsoft.Powershell --source winget
+
+# Check update.
+winget list --name PowerShell --upgrade-available
+```
+
 ## Install Oh-My-Posh
 ```PowerShell
 # Install oh-my-posh.
