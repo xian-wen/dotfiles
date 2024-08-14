@@ -44,7 +44,7 @@ chsh -s $(which zsh)
 
 # If change shell needs input password, manually modify /etc/passwd.
 # Ref: https://serverfault.com/questions/500865/chsh-pam-authentication-failed
-vim /etc/passwd
+sudo vim /etc/passwd
 root:x:0:0:root:/root:bash
 xianwen:x:1000:1000:,,,:/home/xianwen:/usr/bin/zsh
 
