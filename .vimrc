@@ -2,6 +2,9 @@
 
 " If you open this file in Vim, it'll be syntax highlighted for you.
 
+" Get the defaults that most users want.
+source $VIMRUNTIME/defaults.vim
+
 " Vim is based on Vi. Setting `nocompatible` switches from the default
 " Vi-compatibility mode and enables useful Vim functionality. This
 " configuration option turns out not to be necessary for the file named
@@ -106,7 +109,7 @@ call plug#end()
 let g:vim_monokai_tasty_italic = 1                    " allow italics, set this before the colorscheme
 colorscheme vim-monokai-tasty                         " set the colorscheme
 
-" Optional themes for airline/lightline
+" Optional themes for airline/lightline.
 let g:airline_theme='monokai_tasty'                   " airline theme
 " let g:lightline = { 'colorscheme': 'monokai_tasty' }  " lightline theme
 let g:lightline = { 'colorscheme': 'powerline' }  " lightline theme
