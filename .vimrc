@@ -71,7 +71,7 @@ set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 " Unbind some useless/annoying default key bindings.
 " 'Q' in normal mode enters Ex mode. You almost never want this.
-nmap Q <Nop> 
+nmap Q <Nop>
 
 " Try to prevent bad habits like using the arrow keys for movement. This is
 " not the only possible bad habit. For example, holding down the h/j/k/l keys
