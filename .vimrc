@@ -91,6 +91,9 @@ nnoremap <F5>    :NERDTreeToggle<CR>
 " inoremap <Up>    <ESC>:echoe "Use k"<CR>
 " inoremap <Down>  <ESC>:echoe "Use j"<CR>
 
+" Load the man filetype plugin.
+runtime! ftplugin/man.vim
+
 " vim-plug: Vim plugin manager
 call plug#begin()
 Plug 'universal-ctags/ctags'
