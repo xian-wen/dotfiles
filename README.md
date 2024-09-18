@@ -10,8 +10,8 @@ ln -sf /home/xianwen/.dotfiles/.zshrc ~/.zshrc
 
 ## Install WSL2
 ```PowerShell
-# Ref: https://docs.microsoft.com/en-us/windows/wsl/install
 # List all the available distributions online.
+# Ref: https://docs.microsoft.com/en-us/windows/wsl/install
 wsl -l -o
 
 # Install WSL2 and Ubuntu.
@@ -23,13 +23,17 @@ wslconfig /u Ubuntu
 
 # List the installed distributions.
 wsl -l -v
+
+# If Docker desktop failed to stop.
+# Ref: https://github.com/docker/for-win/issues/7295#issuecomment-650590135
+wsl --unregister docker-desktop
 ```
 
 ## Update Ubuntu
 ```bash
 sudo do-release-upgrade
 
-# If seeing this message: Failed to retrieve available kernel versions.
+# If Failed to retrieve available kernel versions.
 # Ref: https://github.com/microsoft/WSL/issues/7054#issuecomment-1121779380
 sudo apt purge needrestart
 sudo apt autoremove (optional)
@@ -119,27 +123,12 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 # Upgrade vim-plug itself (in vim).
 :PlugUpgrade
 
-# YouCompleteMe error: ycmd server SHUT DOWN.
+# If YouCompleteMe error: ycmd server SHUT DOWN.
 # Ref: https://stackoverflow.com/questions/47667119/ycm-error-the-ycmd-server-shut-down-restart-wit-the-instructions-in-the-docu
 # Ref: https://github.com/ycm-core/YouCompleteMe/wiki/Troubleshooting-steps-for-ycmd-server-SHUT-DOWN
-cd ~/.vim/plugged/youcompleteme
-./install.py --clangd-completer --java-completer --go-completer
-
-# YouCompleteMe error: Python headers are missing.
-# Ref: https://blog.csdn.net/weixin_45525272/article/details/109322049
-sudo apt install python3-dev
-
-# YouCompleteMe error: No CMAKE_CXX_COMPILER could be found.
-sudo apt install build-essential
-```
-
-## Install Ctags
-```bash
-sudo apt install exuberant-ctags
-
-# Ignore all ctags files.
-# Ref: https://ricostacruz.com/til/navigate-code-with-ctags
-git config --global core.excludesfile $HOME/.global_ignore
+sudo apt install build-essential cmake python3-dev
+cd ~/.vim/plugged/YouCompleteMe
+./install.py --clangd-completer --java-completer --go-completer --rust-completer
 ```
 
 ## Install bat
@@ -157,9 +146,19 @@ curl -OL https://github.com/sharkdp/bat/releases/download/v0.22.1/bat_0.22.1_amd
 sudo dpkg -i bat_0.22.1_amd64.deb
 ```
 
-## Install cmake
+## Install fzf
 ```bash
-sudo apt install cmake
+# Ref: https://github.com/junegunn/fzf
+sudo apt install fzf
+```
+
+## Install ctags
+```bash
+sudo apt install universal-ctags
+
+# Ignore all ctags files.
+# Ref: https://ricostacruz.com/til/navigate-code-with-ctags
+git config --global core.excludesfile $HOME/.global_ignore
 ```
 
 ## Install pwndbg
@@ -175,13 +174,13 @@ cd pwndbg
 sudo pip install pqi
 ```
 
-## Install node.js version manager
+## Install node version manager
 ```bash
 # Ref: https://github.com/nvm-sh/nvm
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+# Install node.js (latest LTS version)
+nvm install --lts
 ```
 
 ## Install npm registry manager
@@ -192,12 +191,6 @@ npm install -g nrm
 ## Install yarn registry manager
 ```bash
 npm install -g yrm
-
-```
-## Docker desktop failed to stop
-```PowerShell
-# Ref: https://github.com/docker/for-win/issues/7295#issuecomment-650590135
-wsl --unregister docker-desktop
 ```
 
 # Dotfiles for PowerShell
@@ -251,3 +244,8 @@ Install-Module posh-git -Scope CurrentUser -Force
 Install-Module PSReadLine -Scope CurrentUser -Force
 ```
 
+## Install fzf
+```PowerShell
+# Ref: https://github.com/junegunn/fzf
+winget install fzf
+```

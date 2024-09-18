@@ -15,7 +15,7 @@ source $VIMRUNTIME/defaults.vim
 set nocompatible
 
 " Get rid of the -- INSERT --.
-set noshowmode
+set noshowmode showcmd
 
 " Turn on syntax highlighting.
 syntax on
@@ -83,8 +83,6 @@ nnoremap <Left>  :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up>    :echoe "Use k"<CR>
 nnoremap <Down>  :echoe "Use j"<CR>
-nnoremap <F5>    :NERDTreeToggle<CR>
-
 " ...and in insert mode
 " inoremap <Left>  <ESC>:echoe "Use h"<CR>
 " inoremap <Right> <ESC>:echoe "Use l"<CR>
@@ -94,45 +92,88 @@ nnoremap <F5>    :NERDTreeToggle<CR>
 " Load the man filetype plugin.
 runtime! ftplugin/man.vim
 
-" vim-plug: Vim plugin manager
+" vim-plug: vim plugin manager
+" https://github.com/junegunn/vim-plug
 call plug#begin()
+" The default plugin directory will be as follows:
+"   - Vim (Linux/macOS): '~/.vim/plugged'
+"   - Vim (Windows): '~/vimfiles/plugged'
+"   - Neovim (Linux/macOS/Windows): stdpath('data') . '/plugged'
+" You can specify a custom plugin directory by passing it as the argument
+"   - e.g. `call plug#begin('~/.vim/plugged')`
+"   - Avoid using standard Vim directory names like 'plugin'
+" Make sure you use single quotes
+
+" https://github.com/dense-analysis/ale
+Plug 'dense-analysis/ale'
+" https://github.com/universal-ctags/ctags
 Plug 'universal-ctags/ctags'
-Plug 'ctrlpvim/ctrlp.vim'
+" Post-update hook can be a lambda expression
+" https://github.com/junegunn/fzf
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" https://github.com/junegunn/fzf.vim
+Plug 'junegunn/fzf.vim'
+" https://github.com/itchyny/lightline.vim 
 Plug 'itchyny/lightline.vim'
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
+" https://github.com/preservim/nerdcommenter
+Plug 'preservim/nerdcommenter'
+" https://github.com/preservim/nerdtree
+Plug 'preservim/nerdtree'
+" https://github.com/craigemery/vim-autotag
 Plug 'craigemery/vim-autotag'
+" https://github.com/tpope/vim-fugitive
 Plug 'tpope/vim-fugitive'
+" https://github.com/patstockwell/vim-monokai-tasty
 Plug 'patstockwell/vim-monokai-tasty'
-Plug 'valloric/youcompleteme', { 'do': './install.py --clangd-completer --java-completer --go-completer' }
+" https://github.com/ycm-core/YouCompleteMe
+Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --clangd-completer' }
+
+" Call plug#end to update &runtimepath and initialize the plugin system.
+" - It automatically executes `filetype plugin indent on` and `syntax enable`
 call plug#end()
+" You can revert the settings after the call like so:
+"   filetype indent off   " Disable file-type-specific indentation
+"   syntax off            " Disable syntax highlighting
 
-" Set theme to vim-monokai-tasty.
+" vim-monokai-tasty settings.
 let g:vim_monokai_tasty_italic = 1                    " allow italics, set this before the colorscheme
+let g:vim_monokai_tasty_machine_tint = 1              " use `mahcine` colour variant
+let g:vim_monokai_tasty_highlight_active_window = 1   " make the active window stand out
 colorscheme vim-monokai-tasty                         " set the colorscheme
-
-" Optional themes for airline/lightline.
-let g:airline_theme='monokai_tasty'                   " airline theme
+" Optional themes for airline/lightline
 " let g:lightline = { 'colorscheme': 'monokai_tasty' }  " lightline theme
-let g:lightline = { 'colorscheme': 'powerline' }  " lightline theme
-
 " If you don't like a particular colour choice from `vim-monokai-tasty`, you can
 " override it here. For example, to change the colour of the search hightlight:
 hi Search guifg=#bada55 guibg=#000000 gui=bold ctermfg=green ctermbg=black cterm=bold
+" If you want to know what the name of a particular hightlight is, you can use
+" `:What`. It prints out the syntax group that the cursor is currently above.
+" https://www.reddit.com/r/vim/comments/6z4aau/how_to_stop_vim_from_autohighlighting_italics_in/
+command! What echomsg synIDattr(synID(line('.'), col('.'), 1), 'name')
 
-" If you don't know what the name of a particular hightlight is, you can use
-" `What`. It will print out the syntax group that the cursor is currently above.
-" from https://www.reddit.com/r/vim/comments/6z4aau/how_to_stop_vim_from_autohighlighting_italics_in/
-command! What echo synIDattr(synID(line('.'), col('.'), 1), 'name')
+" nerdtree settings.
+" nnoremap <leader>n :NERDTreeFocus<CR>
+" nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+" nnoremap <C-f> :NERDTreeFind<CR>
+let g:NERDTreeShowHidden=1
 
-" Syntastic setting.
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" nerdcommenter settings.
+" Create default mappings
+let g:NERDCreateDefaultMappings = 1
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+" Enable NERDCommenterToggle to check all selected lines is commented or not 
+let g:NERDToggleCheckAllLines = 1
 
