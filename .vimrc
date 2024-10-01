@@ -90,7 +90,20 @@ nnoremap <Down>  :echoe "Use j"<CR>
 " inoremap <Down>  <ESC>:echoe "Use j"<CR>
 
 " Load the man filetype plugin.
-runtime! ftplugin/man.vim
+runtime! ftplugin/man.vim    
+" Use a vertical split instead of horizontal.
+let g:ft_man_open_mode = 'vert'
+" Use a new tab.
+" let g:ft_man_open_mode = 'tab'
+" Enable folding.
+let g:ft_man_folding_enable = 1
+" Add your desired folding style.
+" autocmd FileType man setlocal foldmethod=indent foldenable
+" Make :Man {number} {name} behave like man {number} {name} by
+" not running man {name} if no page is found.
+let g:ft_man_no_sect_fallback = 1
+" Use K command to open a manual page in a Vim window.
+" set keywordprg=:Man
 
 " vim-plug: vim plugin manager
 " https://github.com/junegunn/vim-plug
