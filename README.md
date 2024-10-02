@@ -103,6 +103,40 @@ sudo apt install tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
+## Install vim from source
+```bash
+# Ref: https://www.vim.org/git.php
+# Ref: https://github.com/vim/vim/blob/master/src/INSTALL
+sudo apt install git make clang libtool-bin
+git clone git@github.com:vim/vim.git
+
+# Update vim.
+cd vim
+git pull
+
+# Update vim with Makefile locally changed.
+cd vim
+git stash
+git pull
+git stash pop
+
+# Build vim.
+cd src
+make distclean  # If you build vim before.
+make
+make test       # Optional, may take a long time.
+sudo make install
+
+# Add Python 3 support.
+# Uncomment `CONF_OPT_PYTHON3 = --enable-python3interp` in Makefile.
+make reconfig
+# Build again.
+
+# Uninstall vim.
+# Ref: https://github.com/vim/vim/blob/master/src/Makefile
+make uninstall_runtime
+```
+
 ## Install vim plugins
 ```bash
 # Change the default editor to vim.
@@ -129,6 +163,12 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 sudo apt install build-essential cmake python3-dev
 cd ~/.vim/plugged/YouCompleteMe
 ./install.py --clangd-completer --java-completer --go-completer --rust-completer
+
+# If YouCompleteMe unavailable: requires Vim 9.1.0016+.
+# See Install vim from source. 
+
+# If YouCompleteMe unavailable: requires Vim compiled with Python (3.8.0+) support. 
+# See Install vim from source.
 ```
 
 ## Install bat
