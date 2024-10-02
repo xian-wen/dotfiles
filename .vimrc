@@ -119,6 +119,8 @@ call plug#begin()
 
 " https://github.com/dense-analysis/ale
 Plug 'dense-analysis/ale'
+" https://github.com/jiangmiao/auto-pairs
+Plug 'jiangmiao/auto-pairs'
 " https://github.com/universal-ctags/ctags
 Plug 'universal-ctags/ctags'
 " Post-update hook can be a lambda expression
@@ -138,6 +140,8 @@ Plug 'craigemery/vim-autotag'
 Plug 'tpope/vim-fugitive'
 " https://github.com/patstockwell/vim-monokai-tasty
 Plug 'patstockwell/vim-monokai-tasty'
+" https://github.com/tpope/vim-surround
+Plug 'tpope/vim-surround'
 " https://github.com/ycm-core/YouCompleteMe
 Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --clangd-completer' }
 
@@ -189,4 +193,9 @@ let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 " Enable NERDCommenterToggle to check all selected lines is commented or not 
 let g:NERDToggleCheckAllLines = 1
+
+" auto-pairs settings.
+" Enable fly mode.
+let g:AutoPairsFlyMode = 1
+let g:AutoPairsShortcutBackInsert = '<M-b>'
 
