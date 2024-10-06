@@ -98,7 +98,7 @@ let g:ft_man_open_mode = 'vert'
 " Enable folding.
 let g:ft_man_folding_enable = 1
 " Add your desired folding style.
-" autocmd FileType man setlocal foldmethod=indent foldenable
+autocmd FileType man setlocal foldmethod=indent foldenable
 " Make :Man {number} {name} behave like man {number} {name} by
 " not running man {name} if no page is found.
 let g:ft_man_no_sect_fallback = 1
@@ -123,6 +123,8 @@ Plug 'dense-analysis/ale'
 Plug 'jiangmiao/auto-pairs'
 " https://github.com/universal-ctags/ctags
 Plug 'universal-ctags/ctags'
+" https://github.com/konfekt/fastfold
+Plug 'konfekt/fastfold'
 " Post-update hook can be a lambda expression
 " https://github.com/junegunn/fzf
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -134,6 +136,8 @@ Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdcommenter'
 " https://github.com/preservim/nerdtree
 Plug 'preservim/nerdtree'
+" https://github.com/tmhedberg/simpylfold
+Plug 'tmhedberg/simpylfold'
 " https://github.com/craigemery/vim-autotag
 Plug 'craigemery/vim-autotag'
 " https://github.com/tpope/vim-fugitive
@@ -198,4 +202,36 @@ let g:NERDToggleCheckAllLines = 1
 " Enable fly mode.
 let g:AutoPairsFlyMode = 1
 let g:AutoPairsShortcutBackInsert = '<M-b>'
+
+" fastfold settings.
+" Triggers for updating folds in the currently edited buffer.
+nmap zuz <Plug>(FastFoldUpdate)
+let g:fastfold_savehook = 1
+let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
+let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
+" Files in which folds to be updated.
+let g:markdown_folding = 1
+let g:rst_fold_enabled = 1
+let g:tex_fold_enabled = 1
+let g:vimsyn_folding = 'af'
+let g:xml_syntax_folding = 1
+let g:javaScript_fold = 1
+let g:sh_fold_enabled= 7
+let g:zsh_fold_enable = 1
+let g:ruby_fold = 1
+let g:perl_fold = 1
+let g:perl_fold_blocks = 1
+let g:r_syntax_folding = 1
+let g:rust_fold = 1
+let g:php_folding = 1
+let g:fortran_fold=1
+let g:clojure_fold = 1
+let g:baan_fold=1
+" Syntax folding for C/C++.
+autocmd FileType c,cpp setlocal foldmethod=syntax
+" Indent folding for python (use simpylfold instead).
+" autocmd FileType python setlocal foldmethod=indent
+" Create a fold text object, mapped to iz and az.
+xnoremap <silent> iz :<C-U>FastFoldUpdate<CR>]z<Up>$v[z<Down>^
+xnoremap <silent> az :<C-U>FastFoldUpdate<CR>]zV[z
 
