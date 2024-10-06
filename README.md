@@ -156,7 +156,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 # If YouCompleteMe error: ycmd server SHUT DOWN.
 # Ref: https://stackoverflow.com/questions/47667119/ycm-error-the-ycmd-server-shut-down-restart-wit-the-instructions-in-the-docu
 # Ref: https://github.com/ycm-core/YouCompleteMe/wiki/Troubleshooting-steps-for-ycmd-server-SHUT-DOWN
-sudo apt install build-essential cmake python3-dev
+sudo apt install build-essential cmake vim-nox python3-dev 
 cd ~/.vim/plugged/YouCompleteMe
 ./install.py --clangd-completer --java-completer --go-completer --rust-completer
 
