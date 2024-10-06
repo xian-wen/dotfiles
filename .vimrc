@@ -204,6 +204,8 @@ let g:AutoPairsFlyMode = 1
 let g:AutoPairsShortcutBackInsert = '<M-b>'
 
 " fastfold settings.
+" Open all folds by default.
+set foldlevelstart=99
 " Triggers for updating folds in the currently edited buffer.
 nmap zuz <Plug>(FastFoldUpdate)
 let g:fastfold_savehook = 1
