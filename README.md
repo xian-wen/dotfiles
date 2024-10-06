@@ -186,6 +186,10 @@ sudo dpkg -i bat_0.22.1_amd64.deb
 ```bash
 # Ref: https://github.com/junegunn/fzf
 sudo apt install fzf
+
+# Install fzf-vim dependencies.
+# Ref: https://github.com/junegunn/fzf.vim
+sudo apt install fzf bat ripgrep silversearcher-ag perl universal-ctags
 ```
 
 ## Install ctags
