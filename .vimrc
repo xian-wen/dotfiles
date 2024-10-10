@@ -90,7 +90,7 @@ nnoremap <Down>  :echoe "Use j"<CR>
 " inoremap <Down>  <ESC>:echoe "Use j"<CR>
 
 " Load the man filetype plugin.
-runtime! ftplugin/man.vim    
+runtime! ftplugin/man.vim
 " Use a vertical split instead of horizontal.
 let g:ft_man_open_mode = 'vert'
 " Use a new tab.
@@ -130,7 +130,7 @@ Plug 'konfekt/fastfold'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " https://github.com/junegunn/fzf.vim
 Plug 'junegunn/fzf.vim'
-" https://github.com/itchyny/lightline.vim 
+" https://github.com/itchyny/lightline.vim
 Plug 'itchyny/lightline.vim'
 " https://github.com/preservim/nerdcommenter
 Plug 'preservim/nerdcommenter'
@@ -138,6 +138,8 @@ Plug 'preservim/nerdcommenter'
 Plug 'preservim/nerdtree'
 " https://github.com/tmhedberg/simpylfold
 Plug 'tmhedberg/simpylfold'
+" https://github.com/tpope/vim-abolish
+Plug 'tpope/vim-abolish'
 " https://github.com/craigemery/vim-autotag
 Plug 'craigemery/vim-autotag'
 " https://github.com/tpope/vim-fugitive
@@ -146,6 +148,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'patstockwell/vim-monokai-tasty'
 " https://github.com/tpope/vim-surround
 Plug 'tpope/vim-surround'
+" https://github.com/mg979/vim-visual-multi
+Plug 'mg979/vim-visual-multi', { 'branch': 'master' }
 " https://github.com/ycm-core/YouCompleteMe
 Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --clangd-completer' }
 
@@ -195,7 +199,7 @@ let g:NERDAltDelims_java = 1
 let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
-" Enable NERDCommenterToggle to check all selected lines is commented or not 
+" Enable NERDCommenterToggle to check all selected lines is commented or not
 let g:NERDToggleCheckAllLines = 1
 
 " auto-pairs settings.
@@ -282,4 +286,13 @@ let g:fzf_colors = {
 " - When set, CTRL-N and CTRL-P will be bound to 'next-history' and
 "   'previous-history' instead of 'down' and 'up'.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
+
+" vim-abolish settings.
+" Load a theme by default.
+let g:VM_theme = 'iceblue'
+" Do not display a message when exiting VM.
+let g:VM_silent_exit = 1
+" Do not display a warning when entering VM and there are mapping conflicts.
+" You can still run :VMDebug to see if there are conflicts.
+let g:VM_show_warnings = 0
 
