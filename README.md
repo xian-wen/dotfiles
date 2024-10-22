@@ -156,15 +156,36 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 # If YouCompleteMe error: ycmd server SHUT DOWN.
 # Ref: https://stackoverflow.com/questions/47667119/ycm-error-the-ycmd-server-shut-down-restart-wit-the-instructions-in-the-docu
 # Ref: https://github.com/ycm-core/YouCompleteMe/wiki/Troubleshooting-steps-for-ycmd-server-SHUT-DOWN
-sudo apt install build-essential cmake vim-nox python3-dev 
+sudo apt install build-essential cmake vim-nox python3-dev
 cd ~/.vim/plugged/YouCompleteMe
 ./install.py --clangd-completer --java-completer --go-completer --rust-completer
 
 # If YouCompleteMe unavailable: requires Vim 9.1.0016+.
-# See Install vim from source. 
-
-# If YouCompleteMe unavailable: requires Vim compiled with Python (3.8.0+) support. 
 # See Install vim from source.
+
+# If YouCompleteMe unavailable: requires Vim compiled with Python (3.8.0+) support.
+# See Install vim from source.
+
+# If gutentags: gtags-cscope job failed, returned: 127.
+sudo apt install global
+```
+
+## Install neovim from source
+```bash
+# Ref: https://github.com/neovim/neovim/blob/master/BUILD.md
+# Ref: https://github.com/neovim/neovim/blob/master/INSTALL.md#install-from-source
+sudo apt install ninja-build gettext cmake unzip curl build-essential
+git clone git@github.com:neovim/neovim.git
+git checkout stable
+cd neovim
+make CMAKE_BUILD_TYPE=Release
+sudo make install
+
+# Uninstall nvim.
+# Ref: https://github.com/neovim/neovim/blob/master/INSTALL.md#uninstall
+sudo cmake --build build/ --target uninstall
+sudo rm /usr/local/bin/nvim
+sudo rm -r /usr/local/share/nvim/
 ```
 
 ## Install bat
@@ -267,9 +288,9 @@ cp ~/.dotfiles/powershell/Microsoft.PowerShell_profile.ps1 /mnt/c/Users/Xianwen/
 # Ref: https://ohmyposh.dev/docs/themes
 Get-PoshThemes
 
-# Update oh-my-posh
-# Ref: https://ohmyposh.dev/docs/installation/windows#update
-winget upgrade JanDeDobbeleer.OhMyPosh -s winget
+# Upgrade oh-my-posh.
+# Ref: https://ohmyposh.dev/docs/installation/upgrade
+oh-my-posh upgrade
 ```
 
 ## Install Posh-git
