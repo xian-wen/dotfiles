@@ -77,14 +77,18 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-# https://github.com/docker/for-win/issues/8336#issuecomment-719477466
 plugins=(
 # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker
+# https://github.com/docker/for-win/issues/8336#issuecomment-719477466
 docker
-# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/fzf
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/gitignore
 gitignore
-# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/themes
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/vi-mode
 vi-mode
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/fzf
+# https://stackoverflow.com/questions/49207381/how-to-solve-ctrl-t-key-binding-issue-for-fzf
+# Put after vi-mode to make it work.
+fzf
 # https://github.com/zsh-users/zsh-autosuggestions
 zsh-autosuggestions
 # https://github.com/zsh-users/zsh-syntax-highlighting
