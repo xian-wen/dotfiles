@@ -186,6 +186,11 @@ sudo make install
 sudo cmake --build build/ --target uninstall
 sudo rm /usr/local/bin/nvim
 sudo rm -r /usr/local/share/nvim/
+
+# Use vimrc.
+mkdir ~/.config/nvim
+ln -sf /home/xianwen/.vimrc ~/.config/nvim/init.vim
+ln -sf /home/xianwen/.vim/autoload ~/.config/nvim
 ```
 
 ## Install bat

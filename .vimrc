@@ -1,5 +1,7 @@
 " Get the defaults that most users want.
-source $VIMRUNTIME/defaults.vim
+if !has('nvim')
+  source $VIMRUNTIME/defaults.vim
+endif
 
 " Disable the default Vim startup message.
 set shortmess+=I
@@ -65,7 +67,7 @@ let g:polyglot_disabled = ['markdown']
 
 " vim-plug: vim plugin manager
 " https://github.com/junegunn/vim-plug
-call plug#begin()
+call plug#begin('~/.vim/plugged')
 " The default plugin directory will be as follows:
 "   - Vim (Linux/macOS): '~/.vim/plugged'
 "   - Vim (Windows): '~/vimfiles/plugged'
