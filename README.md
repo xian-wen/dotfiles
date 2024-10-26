@@ -288,9 +288,12 @@ cp ~/.dotfiles/powershell/Microsoft.PowerShell_profile.ps1 /mnt/c/Users/Xianwen/
 # Ref: https://ohmyposh.dev/docs/themes
 Get-PoshThemes
 
-# Upgrade oh-my-posh.
+# Manually upgrade.
 # Ref: https://ohmyposh.dev/docs/installation/upgrade
 oh-my-posh upgrade
+
+# Enable autoupgrade.
+oh-my-posh enable autoupgrade
 ```
 
 ## Install Posh-git
