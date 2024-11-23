@@ -285,7 +285,7 @@ let g:airline_left_sep=''
 let g:airline_left_alt_sep='|'
 let g:airline_right_sep=''
 let g:airline_right_alt_sep='|'
-let g:airline_section_z = airline#section#create(['%3p%%', '  %3l/%3L', ':%3v'])
+let g:airline_section_z = airline#section#create(['%3p%%', '  %3l/%3L', ':%-3v'])
 let g:airline_skip_empty_sections = 1
 " Define extensions to be loaded to improve performance.
 " let g:airline_extensions = []
