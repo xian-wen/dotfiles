@@ -174,7 +174,7 @@ sudo apt install global
 ```bash
 # Ref: https://github.com/neovim/neovim/blob/master/BUILD.md
 # Ref: https://github.com/neovim/neovim/blob/master/INSTALL.md#install-from-source
-sudo apt install ninja-build gettext cmake unzip curl build-essential
+sudo apt install ninja-build gettext cmake unzip curl build-essential xclip
 git clone git@github.com:neovim/neovim.git
 git checkout stable
 cd neovim
