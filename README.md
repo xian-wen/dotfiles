@@ -199,13 +199,23 @@ ln -sf /home/xianwen/.vim/autoload ~/.config/nvim
 sudo apt install bat
 
 # Replace batcat with bat.
-# Ref: https://github.com/sharkdp/bat/issues/982
-sudo ln -s /usr/bin/batcat /usr/local/bin/bat
+mkdir -p ~/.local/bin
+ln -s /usr/bin/batcat ~/.local/bin/bat
 
 # Or download the lastest release and no need to create a symbolic link.
 # Ref: https://stackoverflow.com/questions/46060010/download-github-release-with-curl
 curl -OL https://github.com/sharkdp/bat/releases/download/v0.22.1/bat_0.22.1_amd64.deb
 sudo dpkg -i bat_0.22.1_amd64.deb
+```
+
+## Install fd
+```bash
+# Ref: https://github.com/sharkdp/fd
+sudo apt install fd-find
+
+# Replace fdfind with fd.
+mkdir -p ~/.local/bin
+ln -s $(which fdfind) ~/.local/bin/fd
 ```
 
 ## Install fzf
