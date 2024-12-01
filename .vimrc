@@ -3,6 +3,14 @@ if !has('nvim')
   source $VIMRUNTIME/defaults.vim
 endif
 
+" Use 24-bit color.
+if has('termguicolors')
+  set termguicolors
+endif
+
+" Make the background transparent.
+" hi Normal guibg=NONE ctermbg=NONE
+
 " Disable the default Vim startup message.
 set shortmess+=I
 
@@ -57,6 +65,10 @@ inoremap <Down>  <ESC>:echoe "Use j"<CR>
 
 " Load the man filetype plugin.
 runtime! ftplugin/man.vim
+
+" vim-plug settings.
+" Clone with ssh instead of https.
+let g:plug_url_format = 'git@github.com:%s.git'
 
 " vim-polyglot settings.
 " Syntax highlighting for markdown is weird, so disable it,
@@ -116,8 +128,8 @@ Plug 'mg979/vim-visual-multi', { 'branch': 'master' }
 
 " https://github.com/morhetz/gruvbox
 Plug 'morhetz/gruvbox'
-" https://github.com/patstockwell/vim-monokai-tasty
-Plug 'patstockwell/vim-monokai-tasty'
+" https://github.com/sainnhe/sonokai
+Plug 'sainnhe/sonokai'
 " https://github.com/vim-airline/vim-airline
 Plug 'vim-airline/vim-airline'
 " https://github.com/vim-airline/vim-airline-themes
@@ -265,21 +277,19 @@ let g:VM_silent_exit = 1
 let g:VM_show_warnings = 0
 
 " gruvbox settings.
-" set background=dark    " Setting dark mode
+" set background=dark
+" let g:gruvbox_transparent_bg = 1
 " Use autocmd to make sure all plugins are loaded before using gruvbox.
 " autocmd VimEnter * ++nested colorscheme gruvbox
 
-" vim-monokai-tasty settings.
-let g:vim_monokai_tasty_italic = 1                    " allow italics, set this before the colorscheme
-let g:vim_monokai_tasty_machine_tint = 1              " use `machine` colour variant
-let g:vim_monokai_tasty_highlight_active_window = 1   " make the active window stand out
-colorscheme vim-monokai-tasty                         " set the colorscheme
-
-" Make the background transparent.
-" hi Normal guibg=none ctermbg=none
+" sonokai settings.
+let g:sonokai_style = 'maia' " default/atlantis/andromeda/shusia/maia/espresso
+" let g:sonokai_transparent_background = 2
+let g:sonokai_better_performance = 1
+colorscheme sonokai
 
 " vim-airline settings.
-let g:airline_theme='powerlineish'
+let g:airline_theme='sonokai'
 let g:airline_powerline_fonts = 1
 let g:airline_left_sep=''
 let g:airline_left_alt_sep='|'
