@@ -128,6 +128,8 @@ Plug 'mg979/vim-visual-multi', { 'branch': 'master' }
 
 " https://github.com/morhetz/gruvbox
 Plug 'morhetz/gruvbox'
+" https://github.com/joshdick/onedark.vim
+Plug 'joshdick/onedark.vim'
 " https://github.com/sainnhe/sonokai
 Plug 'sainnhe/sonokai'
 " https://github.com/vim-airline/vim-airline
@@ -282,9 +284,12 @@ let g:VM_show_warnings = 0
 " Use autocmd to make sure all plugins are loaded before using gruvbox.
 " autocmd VimEnter * ++nested colorscheme gruvbox
 
+" onedark settings.
+" colorscheme onedark
+
 " sonokai settings.
 let g:sonokai_style = 'maia' " default/atlantis/andromeda/shusia/maia/espresso
-" let g:sonokai_transparent_background = 2
+let g:sonokai_transparent_background = 2
 let g:sonokai_better_performance = 1
 colorscheme sonokai
 
