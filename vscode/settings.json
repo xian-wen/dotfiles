@@ -1,0 +1,26 @@
+{
+    "editor.cursorStyle": "block",
+    "editor.fontFamily": "'JetBrainsMono Nerd Font', 'FiraCode Nerd Font', Consolas, 'Courier New', monospace",
+    "editor.fontSize": 18,
+    "editor.mouseWheelZoom": true,
+    "editor.rulers": [
+        80,
+        120
+    ],
+    "editor.wordWrap": "on",
+    "workbench.colorTheme": "Monokai",
+    "workbench.iconTheme": "material-icon-theme",
+    "terminal.integrated.fontSize": 18,
+    "leetcode.defaultLanguage": "java",
+    "leetcode.editor.shortcuts": [
+        "submit",
+        "test",
+        "star",
+        "solution",
+        "description"
+    ],
+    "leetcode.workspaceFolder": "/mnt/c/Users/xian_wen/Desktop/IdeaProjects/leetcode/java",
+    "remote.SSH.remotePlatform": {
+        "docker162": "linux"
+    },
+}
