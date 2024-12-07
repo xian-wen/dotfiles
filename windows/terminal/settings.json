@@ -42,6 +42,7 @@
     {
         "defaults": 
         {
+            "adjustIndistinguishableColors": "indexed",
             "colorScheme": "Campbell",
             "cursorShape": "filledBox",
             "font": 
