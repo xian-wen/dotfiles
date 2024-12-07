@@ -12,12 +12,12 @@
             "keys": "ctrl+c"
         },
         {
-            "command": "paste",
-            "id": "ctrl+shift+v"
-        },
-        {
             "command": "find",
             "keys": "ctrl+shift+f"
+        },
+        {
+            "command": "paste",
+            "keys": "ctrl+shift+v"
         },
         {
             "command": 
@@ -42,13 +42,14 @@
     {
         "defaults": 
         {
+            "colorScheme": "One Half Dark",
             "cursorShape": "filledBox",
             "font": 
             {
                 "face": "JetBrainsMono Nerd Font",
-                "size": 13,
-                "weight": "medium"
+                "size": 13
             },
+            "intenseTextStyle": "bold",
             "opacity": 85,
             "scrollbarState": "hidden"
         },
