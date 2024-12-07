@@ -42,12 +42,13 @@
     {
         "defaults": 
         {
-            "colorScheme": "One Half Dark",
+            "colorScheme": "Campbell",
             "cursorShape": "filledBox",
             "font": 
             {
                 "face": "JetBrainsMono Nerd Font",
-                "size": 13
+                "size": 13,
+                "weight": "medium"
             },
             "intenseTextStyle": "bold",
             "opacity": 85,
