@@ -73,6 +73,10 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # Ref: https://github.com/ohmyzsh/ohmyzsh?tab=readme-ov-file#manual-updates
 omz update
 
+# Uninstall oh-my-zsh
+# Ref: https://github.com/ohmyzsh/ohmyzsh/discussions/11602
+uninstall_oh_my_zsh
+
 # Install Powerlevel10k.
 # Ref: https://github.com/romkatv/powerlevel10k#oh-my-zsh
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
