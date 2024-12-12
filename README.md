@@ -1,52 +1,75 @@
 # Dotfiles for WSL2
 
+## WSL2 and Ubuntu
+
+### Install
+
+List all the available distributions online.
+Ref: https://docs.microsoft.com/en-us/windows/wsl/install
+```PowerShell
+wsl -l -o
+```
+
+Install WSL2 and Ubuntu.
+```PowerShell
+wsl --install -d Ubuntu
+```
+
+If failed, try run the command below and reinstall.
+Ref: https://github.com/microsoft/WSL/issues/5906#issuecomment-1047496562
+```PowerShell
+wslconfig /u Ubuntu
+```
+
+List the installed distributions.
+```PowerShell
+wsl -l -v
+```
+
+### Update
+
+Update WSL2.
+```PowerShell
+wsl --update
+```
+
+Update Ubuntu.
+```bash
+sudo do-release-upgrade
+```
+
+If Failed to retrieve available kernel versions.
+Ref: https://github.com/microsoft/WSL/issues/7054#issuecomment-1121779380
+```bash
+sudo apt purge needrestart
+sudo apt autoremove (optional)
+```
+
+### Uninstall
+
+Uninstall WSL2.
+```PowerShell
+wsl --uninstall
+```
+
+Uninstall Ubuntu.
+```PowerShell
+wsl --unregister Ubuntu
+```
+Then Remove the `Canonical*` folder in `%LocalAppData%\Packages`
+
+If Docker desktop failed to stop.
+Ref: https://github.com/docker/for-win/issues/7295#issuecomment-650590135
+```PowerShell
+wsl --unregister docker-desktop
+```
+
 ## Restore .dotfiles
 ```bash
 git clone git@github.com:xian-wen/dotfiles.git .dotfiles
 
 # Create a symbolic link, use zsh as an example.
 ln -sf /home/xianwen/.dotfiles/.zshrc ~/.zshrc
-```
-
-## Install WSL2
-```PowerShell
-# List all the available distributions online.
-# Ref: https://docs.microsoft.com/en-us/windows/wsl/install
-wsl -l -o
-
-# Install WSL2 and Ubuntu.
-wsl --install -d Ubuntu
-
-# If failed, try run the command below and reinstall.
-# Ref: https://github.com/microsoft/WSL/issues/5906#issuecomment-1047496562
-wslconfig /u Ubuntu
-
-# List the installed distributions.
-wsl -l -v
-
-# If Docker desktop failed to stop.
-# Ref: https://github.com/docker/for-win/issues/7295#issuecomment-650590135
-wsl --unregister docker-desktop
-
-# Uninstall Ubuntu
-wsl --unregister Ubuntu
-# Remove Canonical* folder in %LocalAppData%\Packages
-
-# Update WSL2
-wsl --update
-
-# Uninstall WSL2
-wsl --uninstall
-```
-
-## Update Ubuntu
-```bash
-sudo do-release-upgrade
-
-# If Failed to retrieve available kernel versions.
-# Ref: https://github.com/microsoft/WSL/issues/7054#issuecomment-1121779380
-sudo apt purge needrestart
-sudo apt autoremove (optional)
 ```
 
 ## Install oh-my-zsh
