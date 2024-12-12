@@ -27,6 +27,16 @@ wsl -l -v
 # If Docker desktop failed to stop.
 # Ref: https://github.com/docker/for-win/issues/7295#issuecomment-650590135
 wsl --unregister docker-desktop
+
+# Uninstall Ubuntu
+wsl --unregister Ubuntu
+# Remove Canonical* folder in %LocalAppData%\Packages
+
+# Update WSL2
+wsl --update
+
+# Uninstall WSL2
+wsl --uninstall
 ```
 
 ## Update Ubuntu
