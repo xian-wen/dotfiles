@@ -67,8 +67,13 @@ inoremap <Down>  <ESC>:echoe "Use j"<CR>
 runtime! ftplugin/man.vim
 
 " vim-plug settings.
-" Clone with ssh instead of https.
-let g:plug_url_format = 'git@github.com:%s.git'
+" Automatic plugin installation with vim-plug.
+" Ref: https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
 " vim-polyglot settings.
 " Syntax highlighting for markdown is weird, so disable it,
