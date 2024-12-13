@@ -8,6 +8,9 @@ end
 
 set -gx EDITOR nvim # use nvim as the default editor
 
+# Homebrew
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 # Starship
 # Ref: https://starship.rs/faq/#why-do-i-see-executing-command-timed-out-warnings
 set -gx STARSHIP_LOG error
