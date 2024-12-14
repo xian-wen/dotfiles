@@ -15,6 +15,9 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 # Must put after Homebrew, otherwise nvim cannot be found.
 set -gx EDITOR $(type -q nvim; and echo nvim; or echo vim)
 
+# Set up fzf key bindings.
+fzf --fish | source
+
 # Starship
 # Ref: https://starship.rs/faq/#why-do-i-see-executing-command-timed-out-warnings
 set -gx STARSHIP_LOG error

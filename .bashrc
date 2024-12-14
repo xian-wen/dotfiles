@@ -127,5 +127,8 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 # Must put after Homebrew, otherwise nvim cannot be found.
 export EDITOR=$(type -p nvim &> /dev/null && echo nvim || echo vim)
 
+# Set up fzf key bindings and fuzzy completion.
+eval "$(fzf --bash)"
+
 # Startship
 eval "$(starship init bash)"
