@@ -2,14 +2,18 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
     # fish_config theme choose Dracula # colorscheme
 
-    set -g fish_greeting # disable greeeting message
-    set -g fish_key_bindings fish_vi_key_bindings # use vi-mode
+    # Disable greeting message.
+    set -g fish_greeting
+    # Use vi-mode.
+    set -g fish_key_bindings fish_vi_key_bindings
 end
-
-set -gx EDITOR nvim # use nvim as the default editor
 
 # Homebrew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# Set EDITOR to nvim if exists otherwise vim.
+# Must put after Homebrew, otherwise nvim cannot be found.
+set -gx EDITOR $(type -q nvim; and echo nvim; or echo vim)
 
 # Starship
 # Ref: https://starship.rs/faq/#why-do-i-see-executing-command-timed-out-warnings

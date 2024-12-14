@@ -128,6 +128,13 @@ alias nvchad='NVIM_APPNAME="nvchad" nvim'
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# Homebrew
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# Set EDITOR to nvim if exists otherwise vim.
+# Must put after Homebrew, otherwise nvim cannot be found.
+export EDITOR=$(type -p nvim &> /dev/null && echo nvim || echo vim)
+
 # Golang
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/go/bin
@@ -143,9 +150,6 @@ export PATH="$MY_INSTALL_DIR/bin:$PATH"
 
 # CS61B
 export REPO_DIR=/mnt/c/Users/xian_wen/Desktop/IdeaProjects/cs61b/sp21/cs61b-test-sp21
-
-# Homebrew
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Starship
 eval "$(starship init zsh)"

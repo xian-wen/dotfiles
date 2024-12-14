@@ -123,5 +123,9 @@ alias nvchad='NVIM_APPNAME="nvchad" nvim'
 # Homebrew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
+# Set EDITOR to nvim if exists otherwise vim.
+# Must put after Homebrew, otherwise nvim cannot be found.
+export EDITOR=$(type -p nvim &> /dev/null && echo nvim || echo vim)
+
 # Startship
 eval "$(starship init bash)"
