@@ -13,7 +13,7 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Set EDITOR to nvim if exists otherwise vim.
 # Must put after Homebrew, otherwise nvim cannot be found.
-set -gx EDITOR $(type -q nvim; and echo nvim; or echo vim)
+set -gx EDITOR $(command -q nvim; and echo nvim; or echo vim)
 
 # Set up fzf key bindings.
 fzf --fish | source
