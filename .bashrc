@@ -116,6 +116,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Alias
+alias lazyvim='NVIM_APPNAME="lazyvim" nvim'
+alias nvchad='NVIM_APPNAME="nvchad" nvim'
+
 # Homebrew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
