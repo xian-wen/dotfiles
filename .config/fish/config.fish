@@ -15,6 +15,9 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 # Must put after Homebrew, otherwise nvim cannot be found.
 set -gx EDITOR $(command -q nvim; and echo nvim; or echo vim)
 
+# Replace man with batman.
+batman --export-env | source
+
 # Set up fzf key bindings.
 fzf --fish | source
 

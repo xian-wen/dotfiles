@@ -127,6 +127,9 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 # Must put after Homebrew, otherwise nvim cannot be found.
 export EDITOR=$(command -v nvim &> /dev/null && echo nvim || echo vim)
 
+# Replace man with batman.
+eval "$(batman --export-env)"
+
 # Set up fzf key bindings and fuzzy completion.
 eval "$(fzf --bash)"
 

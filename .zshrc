@@ -151,6 +151,9 @@ export PATH="$MY_INSTALL_DIR/bin:$PATH"
 # CS61B
 export REPO_DIR=/mnt/c/Users/xian_wen/Desktop/IdeaProjects/cs61b/sp21/cs61b-test-sp21
 
+# Replace man with batman.
+eval "$(batman --export-env)"
+
 # Set up fzf key bindings and fuzzy completion.
 source <(fzf --zsh)
 
