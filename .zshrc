@@ -129,10 +129,10 @@ alias nvchad='NVIM_APPNAME="nvchad" nvim'
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Homebrew
+# Put this at top so that app installed by Homebrew can be found.
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Set EDITOR to nvim if exists otherwise vim.
-# Must put after Homebrew, otherwise nvim cannot be found.
 export EDITOR=$(command -v nvim &> /dev/null && echo nvim || echo vim)
 
 # Golang
@@ -156,4 +156,5 @@ source <(fzf --zsh)
 eval "$(fnm env --use-on-cd --shell zsh)"
 
 # Starship
+# Put this at bottom.
 eval "$(starship init zsh)"

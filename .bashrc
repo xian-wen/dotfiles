@@ -121,10 +121,10 @@ alias lazyvim='NVIM_APPNAME="lazyvim" nvim'
 alias nvchad='NVIM_APPNAME="nvchad" nvim'
 
 # Homebrew
+# Put this at top so that app installed by Homebrew can be found.
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Set EDITOR to nvim if exists otherwise vim.
-# Must put after Homebrew, otherwise nvim cannot be found.
 export EDITOR=$(command -v nvim &> /dev/null && echo nvim || echo vim)
 
 # Replace man with batman.
@@ -137,4 +137,5 @@ eval "$(fzf --bash)"
 eval "$(fnm env --use-on-cd --shell bash)"
 
 # Startship
+# Put this at bottom.
 eval "$(starship init bash)"

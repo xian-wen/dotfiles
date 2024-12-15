@@ -13,7 +13,6 @@ end
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Set EDITOR to nvim if exists otherwise vim.
-# Must put after Homebrew, otherwise nvim cannot be found.
 set -gx EDITOR $(command -q nvim; and echo nvim; or echo vim)
 
 # Avoid Executing command "/usr/bin/git" timed out.
