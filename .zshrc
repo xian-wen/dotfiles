@@ -155,7 +155,7 @@ source <(fzf --zsh)
 # Fast Node Manager
 eval "$(fnm env --use-on-cd --shell zsh)"
 fnm_completion="$FNM_DIR/completions/zsh_completion"
-[ -f $fnm_completion ] && source $fnm_completion
+[ -s $fnm_completion ] && source $fnm_completion
 
 # Starship
 # Put this at bottom.
