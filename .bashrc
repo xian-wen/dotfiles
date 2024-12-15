@@ -116,7 +116,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Alias
+# Aliases
 alias lazyvim='NVIM_APPNAME="lazyvim" nvim'
 alias nvchad='NVIM_APPNAME="nvchad" nvim'
 
