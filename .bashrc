@@ -133,5 +133,8 @@ eval "$(batman --export-env)"
 # Set up fzf key bindings and fuzzy completion.
 eval "$(fzf --bash)"
 
+# Fast Node Manager
+eval "$(fnm env --use-on-cd --shell bash)"
+
 # Startship
 eval "$(starship init bash)"
