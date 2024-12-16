@@ -584,9 +584,9 @@ rm -rf ~/.cache/nvchad/
 
 #### Prerequisites
 
-Install below, [bat](#bat), [fzf](#fzf), and [ctags](#ctags). (Ref: [heading ids and links in markdown](https://docs.gitlab.com/ee/user/markdown.html#heading-ids-and-links))  
+Install below, [bat](#bat), and [fzf](#fzf). (Ref: [heading ids and links in markdown](https://docs.gitlab.com/ee/user/markdown.html#heading-ids-and-links))  
 ```bash
-brew install ripgrep xclip global
+brew install ripgrep xclip universal-ctags global
 ```
 
 #### Install from package
