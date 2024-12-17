@@ -508,7 +508,7 @@ Create an empty `~/.Xauthority` file in the local machine, and add the magic coo
 touch ~/.Xauthority
 xauth add :0 . `mcookie`
 ```
-Check the magic cookie has asscoiated with the correct hostname of the new PC.
+Check the magic cookie has been associated with the correct hostname of the new PC.
 ```bash
 xauth list
 ```
@@ -796,7 +796,7 @@ sudo apt install bat
 sudo ln -s $(which batcat) ~/usr/local/bin/bat
 ```
 
-Or [download the lastest .deb package](https://github.com/sharkdp/bat?tab=readme-ov-file#on-ubuntu-using-most-recent-deb-packages). (Ref: [download github release](https://stackoverflow.com/questions/46060010/download-github-release-with-curl))
+Or [download the latest .deb package](https://github.com/sharkdp/bat?tab=readme-ov-file#on-ubuntu-using-most-recent-deb-packages). (Ref: [download github release](https://stackoverflow.com/questions/46060010/download-github-release-with-curl))
 ```bash
 curl -OL https://github.com/sharkdp/bat/releases/download/v0.24.0/bat_0.24.0_amd64.deb
 sudo dpkg -i bat_0.24.0_amd64.deb
