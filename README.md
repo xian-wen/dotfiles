@@ -435,6 +435,13 @@ Open Neovim and plugins will be automatically installed by [lazy.nvim](https://l
 nvim
 ```
 
+#### Clipboard in SSH
+
+Create a symbolic link to [enable X11 forwarding over SSH](https://vi.stackexchange.com/questions/84/how-can-i-copy-text-to-the-system-clipboard-from-vim), so that clipboard can be used on remote machines.  
+```bash
+ln -sf /home/xianwen/.dotfiles/.ssh/config ~/.ssh/
+```
+
 ### Upgrade
 
 #### Upgrade from package
@@ -485,6 +492,19 @@ rm -rf ~/.config/nvim/
 rm -rf ~/.local/share/nvim/
 rm -rf ~/.local/state/nvim/
 rm -rf ~/.cache/nvim/
+```
+
+### Warnings
+
+*No xauth data; using fake authentication data for X11 forwarding*  
+Create an empty `~/.Xauthority` file in the local machine, and add the magic cookie.  
+```bash
+touch ~/.Xauthority
+xauth add :0 . `mcookie`
+```
+Check the magic cookie has asscoiated with the correct hostname of the new PC.  
+```bash
+xauth list
 ```
 
 ## LazyVim
