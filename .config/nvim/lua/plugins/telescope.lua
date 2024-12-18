@@ -278,7 +278,7 @@ return {
               name_width = 40,
             }),
             ["<C-d>"] = false,
-            -- Mapping <C-u> to clear the prompt.
+            -- Map <C-u> to clear the prompt.
             ["<C-u>"] = false,
             ["<C-Down>"] = actions.preview_scrolling_down,
             ["<C-Up>"] = actions.preview_scrolling_up,
