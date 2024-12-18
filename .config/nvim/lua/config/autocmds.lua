@@ -30,6 +30,7 @@ autocmd("FileType", {
     "lspinfo",
     "man",
     "qf",
+    "query",
     "startuptime",
   },
   callback = function(event)
