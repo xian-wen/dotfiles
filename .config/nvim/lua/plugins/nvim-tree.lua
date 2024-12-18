@@ -23,8 +23,12 @@ return {
     { "<Leader>E", "<Leader>fE", desc = "Explorer NvimTree (cwd)", remap = true },
   },
   opts = {
-    -- Avoid the size of the non nvim-tree windows be equalized.
-    view = { preserve_window_proportions = true },
+    view = {
+      -- Avoid the size of the non nvim-tree windows be equalized.
+      preserve_window_proportions = true,
+      -- Dynamic width based on the longest line.
+      width = { min = 30, max = -1 },
+    },
     renderer = {
       indent_markers = { enable = true },
       icons = {
