@@ -83,8 +83,8 @@ map("n", "<Leader>ui", vim.show_pos, { desc = "Inspect Pos" })
 map("n", "<Leader>uI", "<cmd>InspectTree<cr>", { desc = "Inspect Tree" })
 
 -- Toggle options
-map("n", "<Leader>ub",function()
-  vim.o.background = vim.o.background == "back" and "light" or "dark"
+map("n", "<Leader>ub", function()
+  vim.o.background = vim.o.background == "dark" and "light" or "dark"
 end, { desc = "Toggle Background" })
 map("n", "<Leader>ul", "<Cmd>set number!<CR>", { desc = "Toggle Line Number" })
 map("n", "<Leader>uL", "<Cmd>set relativenumber!<CR>", { desc = "Toggle Relative Number" })
