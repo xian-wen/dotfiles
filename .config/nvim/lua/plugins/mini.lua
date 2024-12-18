@@ -9,4 +9,26 @@ return {
       end
     end,
   },
+
+  {
+    "echasnovski/mini.pairs",
+    event = "VeryLazy",
+    opts = {
+      modes = { insert = true, command = true, terminal = false },
+      mappings = {
+        ["<"] = {
+          action = "open",
+          pair = "<>",
+          neigh_pattern = "[^\\].",
+          register = { cr = false },
+        },
+        [">"] = {
+          action = "close",
+          pair = "<>",
+          neigh_pattern = "[^\\].",
+          register = { cr = false },
+        },
+      },
+    },
+  },
 }
