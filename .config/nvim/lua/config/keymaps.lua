@@ -8,18 +8,18 @@ map("n", "<Leader>bn", "<Cmd>enew<CR>", { desc = "New Buffer" })
 map("n", "<Leader>bc", "<Cmd>bd<CR>", { desc = "Close Buffer" })
 
 -- Windows
-map("n", "<C-h>", "<C-w>h", { desc = "Go to Left Window" })
-map("n", "<C-j>", "<C-w>j", { desc = "Go to Lower Window" })
-map("n", "<C-k>", "<C-w>k", { desc = "Go to Upper Window" })
-map("n", "<C-l>", "<C-w>l", { desc = "Go to Right Window" })
+map({ "n", "t" }, "<C-h>", "<Cmd>wincmd h<CR>", { desc = "Go to Left Window" })
+map({ "n", "t" }, "<C-j>", "<Cmd>wincmd j<CR>", { desc = "Go to Lower Window" })
+map({ "n", "t" }, "<C-k>", "<Cmd>wincmd k<CR>", { desc = "Go to Upper Window" })
+map({ "n", "t" }, "<C-l>", "<Cmd>wincmd l<CR>", { desc = "Go to Right Window" })
 -- <C-w>n: New Window
 -- <C-w>c: Close Window
 -- <C-w>o: Close Other Windows
 
-map("n", "<C-Up>", "2<C-w>+", { desc = "Increase Window Height" })
-map("n", "<C-Down>", "2<C-w>-", { desc = "Decrease Window Height" })
-map("n", "<C-Left>", "2<C-w><lt>", { desc = "Decrease Window Width" })
-map("n", "<C-Right>", "2<C-w>>", { desc = "Increase Window Width" })
+map({ "n", "t" }, "<C-Up>", "<Cmd>resize +2<CR>", { desc = "Increase Window Height" })
+map({ "n", "t" }, "<C-Down>", "<Cmd>resize -2<CR>", { desc = "Decrease Window Height" })
+map({ "n", "t" }, "<C-Left>", "<Cmd>vertical resize -2<CR>", { desc = "Decrease Window Width" })
+map({ "n", "t" }, "<C-Right>", "<Cmd>vertical resize +2<CR>", { desc = "Increase Window Width" })
 
 -- Tabs
 -- gt: Next Tab
@@ -41,7 +41,9 @@ map(
 )
 
 -- Terminal
-map("t", "<Esc>", [[<C-\><C-N>]], { desc = "Escape Terminal Mode" })
+map("t", "<Esc>", [[<C-\><C-n>]])
+-- Map <C-w> to clear a word.
+-- map("t", "<C-w>", [[<C-\><C-n><C-w>]])
 
 -- Add undo break-points
 map("i", ",", ",<C-g>u")
