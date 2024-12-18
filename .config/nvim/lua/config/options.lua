@@ -62,9 +62,9 @@ o.smartindent = true -- smart autoindenting for C programs
 o.smoothscroll = true -- scroll by screen lines when 'wrap' is set
 o.splitbelow = true -- new window from split is below the current one
 o.splitright = true -- new window is put right of the current one
-o.timeoutlen = 400 -- time out time in milliseconds
+o.timeoutlen = 300 -- time out time in milliseconds
 o.undofile = true -- save undo information in a file
-o.updatetime = 250 -- after this many milliseconds flush swap file
+o.updatetime = 200 -- after this many milliseconds flush swap file
 o.virtualedit = "block" -- when to use virtual editing
 o.wrap = false -- long lines wrap and continue on the next line
 
