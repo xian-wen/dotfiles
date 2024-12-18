@@ -27,6 +27,20 @@ return {
     view = { preserve_window_proportions = true },
     renderer = {
       indent_markers = { enable = true },
+      icons = {
+        glyphs = {
+          default = "󰈔",
+          symlink = "",
+          folder = {
+            default = "",
+            open = "",
+            empty = "",
+            empty_open = "",
+            symlink = "",
+            symlink_open = "",
+          },
+        },
+      },
     },
   },
 }
