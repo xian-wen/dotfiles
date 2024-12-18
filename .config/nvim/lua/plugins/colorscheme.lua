@@ -18,6 +18,9 @@ return {
     opts = {
       style = "deep", -- dark/darker/cool/deep/warm/warmer/light
       -- transparent = true,
+      -- lualine = {
+      --   transparent = true,
+      -- },
     },
   },
 
