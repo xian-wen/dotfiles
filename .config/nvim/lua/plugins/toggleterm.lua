@@ -8,7 +8,7 @@ return {
         vim.cmd(vim.v.count1 .. "ToggleTerm direction=horizontal")
       end,
       mode = { "n", "t" },
-      desc = "Open Horizontal Terminal",
+      desc = "Toggle Horizontal Terminal",
     },
     {
       "<A-v>",
@@ -16,7 +16,7 @@ return {
         vim.cmd(vim.v.count1 .. "ToggleTerm direction=vertical")
       end,
       mode = { "n", "t" },
-      desc = "Open Vertical Terminal",
+      desc = "Toggle Vertical Terminal",
     },
     {
       "<A-t>",
@@ -24,7 +24,7 @@ return {
         vim.cmd("ToggleTerm direction=tab")
       end,
       mode = { "n", "t" },
-      desc = "Open Terminal in Tab",
+      desc = "Toggle Terminal in Tab",
     },
     {
       "<A-f>",
@@ -32,7 +32,7 @@ return {
         vim.cmd("ToggleTerm direction=float")
       end,
       mode = { "n", "t" },
-      desc = "Open Floating Terminal",
+      desc = "Toggle Floating Terminal",
     },
   },
   opts = {
