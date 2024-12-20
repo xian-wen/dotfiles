@@ -307,7 +307,7 @@ return {
     "nvim-telescope/telescope.nvim",
     optional = true,
     opts = function(_, opts)
-      if not package.loaded["flash"] then
+      if not package.loaded.flash then
         return
       end
       local function flash(prompt_bufnr)
