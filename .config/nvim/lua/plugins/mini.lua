@@ -46,6 +46,10 @@ return {
         suffix_next = 'n',
         suffix_last = 'p',
       },
+      -- Whether to respect selection type:
+      -- - Place surroundings on separate lines in linewise mode.
+      -- - Place surroundings on each line in blockwise mode.
+      respect_selection_type = true,
     },
   },
 }
