@@ -36,6 +36,7 @@ return {
         { "]", group = "next" },
         { "[", group = "prev" },
         { "g", group = "goto" },
+        { "gs", group = "surround" },
         { "z", group = "fold" },
         {
           "<Leader>b",
