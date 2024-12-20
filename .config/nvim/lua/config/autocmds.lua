@@ -26,6 +26,7 @@ autocmd("FileType", {
   group = augroup("close_with_q"),
   pattern = {
     "checkhealth",
+    "gitsigns-blame",
     "help",
     "lspinfo",
     "man",
