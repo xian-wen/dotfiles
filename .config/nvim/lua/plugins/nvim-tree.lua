@@ -2,6 +2,8 @@ return {
   "nvim-tree/nvim-tree.lua",
   cmd = "NvimTreeToggle",
   keys = {
+    { "<Leader>e", "<Leader>fe", desc = "Explorer NvimTree (Root Dir)", remap = true },
+    { "<Leader>E", "<Leader>fE", desc = "Explorer NvimTree (cwd)", remap = true },
     {
       "<Leader>fe",
       function()
@@ -19,8 +21,6 @@ return {
       end,
       desc = "Explorer NeoTree (cwd)",
     },
-    { "<Leader>e", "<Leader>fe", desc = "Explorer NvimTree (Root Dir)", remap = true },
-    { "<Leader>E", "<Leader>fE", desc = "Explorer NvimTree (cwd)", remap = true },
   },
   opts = {
     view = {
