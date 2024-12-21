@@ -7,6 +7,33 @@ return {
     { "<Leader>G", "<Leader>gg", desc = "Lazygit (Root Dir)", remap = true },
     { "<C-_>", "<Leader>ft", mode = { "n", "t" }, desc = "which_key_ignore", remap = true },
     { "<C-/>", "<C-_>", mode = { "n", "t" }, desc = "Terminal (Root Dir)", remap = true },
+    -- Gitbrowse
+    {
+      "<Leader>gb",
+      function()
+        Snacks.git.blame_line()
+      end,
+      desc = "Git Blame Line",
+    },
+    {
+      "<Leader>gB",
+      function()
+        Snacks.gitbrowse()
+      end,
+      mode = { "n", "x" },
+      desc = "Git Browse (open)",
+    },
+    {
+      "<Leader>gY",
+      function()
+        Snacks.gitbrowse({
+          open = function(url) vim.fn.setreg("+", url) end,
+          notify = false,
+        })
+      end,
+      mode = { "n", "x" },
+      desc = "Git Browse (copy)",
+    },
     -- Lazygit
     {
       "<Leader>gg",
@@ -42,33 +69,6 @@ return {
         Snacks.lazygit.log()
       end,
       desc = "Lazygit Log (cwd)",
-    },
-    -- Git
-    {
-      "<Leader>gb",
-      function()
-        Snacks.git.blame_line()
-      end,
-      desc = "Git Blame Line",
-    },
-    {
-      "<Leader>gB",
-      function()
-        Snacks.gitbrowse()
-      end,
-      mode = { "n", "x" },
-      desc = "Git Browse (open)",
-    },
-    {
-      "<Leader>gY",
-      function()
-        Snacks.gitbrowse({
-          open = function(url) vim.fn.setreg("+", url) end,
-          notify = false,
-        })
-      end,
-      mode = { "n", "x" },
-      desc = "Git Browse (copy)",
     },
     -- Terminal
     {
