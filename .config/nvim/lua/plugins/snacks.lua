@@ -43,6 +43,33 @@ return {
       end,
       desc = "Lazygit Log (cwd)",
     },
+    -- Git
+    {
+      "<Leader>gb",
+      function()
+        Snacks.git.blame_line()
+      end,
+      desc = "Git Blame Line",
+    },
+    {
+      "<Leader>gB",
+      function()
+        Snacks.gitbrowse()
+      end,
+      mode = { "n", "x" },
+      desc = "Git Browse (open)",
+    },
+    {
+      "<Leader>gY",
+      function()
+        Snacks.gitbrowse({
+          open = function(url) vim.fn.setreg("+", url) end,
+          notify = false,
+        })
+      end,
+      mode = { "n", "x" },
+      desc = "Git Browse (copy)",
+    },
     -- Terminal
     {
       "<Leader>ft",
@@ -76,6 +103,20 @@ return {
         ]],
       },
     },
+    gitbrowse = {
+      remote_patterns = {
+        { "^(https?://.*)%.git$"              , "%1" },
+        { "^git@(.+):(.+)%.git$"              , "https://%1/%2" },
+        { "^git@(.+):(.+)$"                   , "https://%1/%2" },
+        { "^git@(.+)/(.+)$"                   , "https://%1/%2" },
+        { "^ssh://git@ssh%.(.*)$"             , "https://%1" },
+        { "^ssh://([^:/]+)(:%d+)/(.*)$"       , "https://%1/%3" },
+        { "^ssh://([^/]+)/(.*)$"              , "https://%1/%2" },
+        { "ssh%.dev%.azure%.com/v3/(.*)/(.*)$", "dev.azure.com/%1/_git/%2" },
+        { "^https://%w*@(.*)"                 , "https://%1" },
+        { "^git@(.*)"                         , "https://%1" },
+        { ":%d+"                              , "" },
+        { "%.git$"                            , "" },
       },
     },
     lazygit = {},
