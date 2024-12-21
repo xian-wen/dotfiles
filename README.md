@@ -940,6 +940,29 @@ sudo apt remove --purge fzf
 sudo apt autoremove
 ```
 
+## Lazygit
+
+### Install
+
+[Install Lazygit](https://github.com/jesseduffield/lazygit?tab=readme-ov-file#homebrew).
+```bash
+brew install lazygit
+```
+
+### Upgrade
+
+Upgrade Lazygit.
+```bash
+brew upgrade lazygit
+```
+
+### Uninstall
+
+Uninstall Lazygit.
+```bash
+brew uninstall lazygit
+```
+
 ## pwndbg
 
 ### Install
@@ -1352,3 +1375,25 @@ Uninstall fzf.
 winget uninstall fzf
 ```
 
+## Lazygit
+
+### Install
+
+[Install Lazygit](https://github.com/jesseduffield/lazygit?tab=readme-ov-file#winget-windows-10-1709-or-later).
+```bash
+winget install lazygit
+```
+
+### Upgrade
+
+Upgrade Lazygit.
+```bash
+winget upgrade lazygit
+```
+
+### Uninstall
+
+Uninstall Lazygit.
+```bash
+winget uninstall lazygit
+```
