@@ -33,7 +33,6 @@ autocmd("FileType", {
     "qf",
     "query",
     "startuptime",
-    "toggleterm",
   },
   callback = function(event)
     vim.bo[event.buf].buflisted = false
