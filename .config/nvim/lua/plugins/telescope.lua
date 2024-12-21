@@ -12,7 +12,7 @@ return {
     },
     cmd = "Telescope",
     keys = {
-      -- Alias
+      -- Aliases
       { "<Leader>,", "<Leader>fb", desc = "Buffers", remap = true },
       { "<Leader>/", "<Leader>sg", desc = "Live Grep (Root Dir)", remap = true },
       { "<Leader>:", "<Leader>sc", desc = "Command History", remap = true },
