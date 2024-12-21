@@ -38,13 +38,9 @@ return {
         ]],
       },
     },
-    statuscolumn = {},
-    terminal = {
-      win = {
-        keys = {
-          { "<Esc>", [[<C-\><C-n>]], mode = "t" },
-        },
       },
     },
+    statuscolumn = {},
+    terminal = {},
   },
 }
