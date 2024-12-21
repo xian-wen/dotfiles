@@ -14,9 +14,9 @@ return {
     keys = {
       -- Alias
       { "<Leader>,", "<Leader>fb", desc = "Buffers", remap = true },
-      { "<Leader>/", "<Leader>sg", desc = "Live Grep", remap = true },
+      { "<Leader>/", "<Leader>sg", desc = "Live Grep (Root Dir)", remap = true },
       { "<Leader>:", "<Leader>sc", desc = "Command History", remap = true },
-      { "<Leader><Space>", "<Leader>ff", desc = "Find Files", remap = true },
+      { "<Leader><Space>", "<Leader>ff", desc = "Find Files (Root Dir)", remap = true },
       -- Find
       {
         "<Leader>fb",
@@ -31,27 +31,37 @@ return {
       {
         "<Leader>fc",
         function()
-          require("telescope.builtin").find_files({ cwd = vim.fn.stdpath("config") })
+          require("telescope.builtin").find_files({
+            cwd = vim.fn.stdpath("config"),
+            follow = true,
+            hidden = true,
+            no_ignore = true,
+          })
         end,
         desc = "Find Config Files",
       },
       {
         "<Leader>ff",
         function()
-          require("telescope.builtin").find_files()
+          require("telescope.builtin").find_files({
+            cwd = Snacks.git.get_root(),
+            follow = true,
+            hidden = true,
+            no_ignore = true,
+          })
         end,
-        desc = "Find Files",
+        desc = "Find Files (Root Dir)",
       },
       {
         "<Leader>fF",
         function()
           require("telescope.builtin").find_files({
-            hidden = true,
             follow = true,
+            hidden = true,
             no_ignore = true,
           })
         end,
-        desc = "Find All Files",
+        desc = "Find Files (cwd)",
       },
       {
         "<Leader>fg",
@@ -142,9 +152,16 @@ return {
       {
         "<Leader>sg",
         function()
+          require("telescope.builtin").live_grep({ cwd = Snacks.git.get_root() })
+        end,
+        desc = "Live Grep (Root Dir)",
+      },
+      {
+        "<Leader>sG",
+        function()
           require("telescope.builtin").live_grep()
         end,
-        desc = "Live Grep",
+        desc = "Live Grep (cwd)",
       },
       {
         "<Leader>sh",
@@ -219,17 +236,35 @@ return {
       {
         "<Leader>sw",
         function()
+          require("telescope.builtin").grep_string({
+            cwd = Snacks.git.get_root(),
+            word_match = "-w",
+          })
+        end,
+        desc = "Word (Root Dir)",
+      },
+      {
+        "<Leader>sW",
+        function()
           require("telescope.builtin").grep_string({ word_match = "-w" })
         end,
-        desc = "Word",
+        desc = "Word (cwd)",
       },
       {
         "<Leader>sw",
         function()
+          require("telescope.builtin").grep_string({ cwd = Snacks.git.get_root() })
+        end,
+        mode = "v",
+        desc = "Selection (Root Dir)",
+      },
+      {
+        "<Leader>sW",
+        function()
           require("telescope.builtin").grep_string()
         end,
         mode = "v",
-        desc = "Word",
+        desc = "Selection (cwd)",
       },
       {
         "<Leader>ss",
