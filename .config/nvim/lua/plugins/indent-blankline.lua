@@ -11,7 +11,8 @@ return {
         "lazy",
         "mason",
         "snacks_dashboard",
-        "toggleterm",
+        "snacks_terminal",
+        "snacks_win",
       },
     },
   }
