@@ -29,7 +29,6 @@ return {
         { "<Leader>f", group = "file/find" },
         { "<Leader>g", group = "git" },
         { "<Leader>gh", group = "hunks" },
-        { "<Leader>gt", group = "toggle" },
         { "<Leader>q", group = "quit/session" },
         { "<Leader>s", group = "search" },
         { "<Leader>u", group = "ui", icon = { icon = "󰙵 ", color = "cyan" } },
