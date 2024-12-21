@@ -6,11 +6,11 @@ return {
       "<Leader>fe",
       function()
         require("nvim-tree.api").tree.toggle({
+          path = Snacks.git.get_root(),
           find_file = true,
-          update_root = true,
         })
       end,
-      desc = "Explorer NvimTree (Dir of Current File)",
+      desc = "Explorer NvimTree (Root Dir)",
     },
     {
       "<Leader>fE",
@@ -19,7 +19,7 @@ return {
       end,
       desc = "Explorer NeoTree (cwd)",
     },
-    { "<Leader>e", "<Leader>fe", desc = "Explorer NvimTree (Dir of Current File)", remap = true },
+    { "<Leader>e", "<Leader>fe", desc = "Explorer NvimTree (Root Dir)", remap = true },
     { "<Leader>E", "<Leader>fE", desc = "Explorer NvimTree (cwd)", remap = true },
   },
   opts = {
