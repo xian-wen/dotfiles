@@ -3,6 +3,9 @@ return {
   lazy = false,
   priority = 1000,
   keys = {
+    -- Aliases
+    { "<C-_>", "<Leader>ft", mode = { "n", "t" }, desc = "which_key_ignore", remap = true },
+    { "<C-/>", "<C-_>", mode = { "n", "t" }, desc = "Terminal (Root Dir)", remap = true },
     -- Terminal
     {
       "<Leader>ft",
@@ -20,8 +23,6 @@ return {
       mode = { "n", "t" },
       desc = "Terminal (cwd)",
     },
-    { "<C-_>", "<Leader>ft", mode = { "n", "t" }, desc = "which_key_ignore", remap = true },
-    { "<C-/>", "<C-_>", mode = { "n", "t" }, desc = "Terminal (Root Dir)", remap = true },
   },
   opts = {
     dashboard = {
