@@ -5,7 +5,7 @@ require("config.options")
 require("config.lazy")
 
 -- Set colorscheme.
-vim.cmd.colorscheme("onedark")
+vim.cmd.colorscheme("tokyonight")
 
 -- Lazily load autocmds and keymaps.
 vim.schedule(function()

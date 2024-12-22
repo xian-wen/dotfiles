@@ -19,7 +19,7 @@ require("lazy").setup({
     { import = "plugins" },
   },
   defaults = { lazy = true },
-  install = { colorscheme = { "onedark" } },
+  install = { colorscheme = { "tokyonight" } },
   -- Check for plugin updates periodically.
   checker = { enabled = true },
   performance = {
