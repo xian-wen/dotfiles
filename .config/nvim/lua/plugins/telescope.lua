@@ -31,35 +31,21 @@ return {
       {
         "<Leader>fc",
         function()
-          require("telescope.builtin").find_files({
-            cwd = vim.fn.stdpath("config"),
-            follow = true,
-            hidden = true,
-            no_ignore = true,
-          })
+          require("telescope.builtin").find_files({ cwd = vim.fn.stdpath("config") })
         end,
         desc = "Find Config Files",
       },
       {
         "<Leader>ff",
         function()
-          require("telescope.builtin").find_files({
-            cwd = Snacks.git.get_root(),
-            follow = true,
-            hidden = true,
-            no_ignore = true,
-          })
+          require("telescope.builtin").find_files({ cwd = Snacks.git.get_root() })
         end,
         desc = "Find Files (Root Dir)",
       },
       {
         "<Leader>fF",
         function()
-          require("telescope.builtin").find_files({
-            follow = true,
-            hidden = true,
-            no_ignore = true,
-          })
+          require("telescope.builtin").find_files()
         end,
         desc = "Find Files (cwd)",
       },
@@ -293,6 +279,13 @@ return {
       local actions = require("telescope.actions")
       local action_layout = require("telescope.actions.layout")
       local action_generate = require("telescope.actions.generate")
+      local find_command = function()
+        if vim.fn.executable("fd") then
+          return { "fd", "--type", "f", "--color", "never", "-E", ".git" }
+        elseif vim.fn.executable("rg") then
+          return { "rg", "--files", "--color", "never", "-g", "!.git" }
+        end
+      end
       return {
         defaults = {
           prompt_prefix = " ",
@@ -331,6 +324,14 @@ return {
               }),
               ["q"] = actions.close,
             },
+          },
+        },
+        pickers = {
+          find_files = {
+            find_command = find_command,
+            follow = true,
+            hidden = true,
+            no_ignore = true,
           },
         },
       }
