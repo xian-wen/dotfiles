@@ -1,3 +1,12 @@
+-- Terminal Mappings
+local function term_nav(dir)
+  return function(self)
+    return self:is_floating() and "<C-" .. dir .. ">" or vim.schedule(function()
+      vim.cmd.wincmd(dir)
+    end)
+  end
+end
+
 return {
   "folke/snacks.nvim",
   lazy = false,
@@ -121,6 +130,15 @@ return {
     },
     lazygit = {},
     statuscolumn = {},
-    terminal = {},
+    terminal = {
+      win = {
+        keys = {
+          nav_h = { "<C-h>", term_nav("h"), mode = "t", expr = true, desc = "Go to Left Window" },
+          nav_j = { "<C-j>", term_nav("j"), mode = "t", expr = true, desc = "Go to Lower Window" },
+          nav_k = { "<C-k>", term_nav("k"), mode = "t", expr = true, desc = "Go to Upper Window" },
+          nav_l = { "<C-l>", term_nav("l"), mode = "t", expr = true, desc = "Go to Right Window" },
+        },
+      },
+    },
   },
 }
