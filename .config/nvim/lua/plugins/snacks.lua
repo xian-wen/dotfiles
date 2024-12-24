@@ -117,6 +117,9 @@ return {
         table.insert(opts.remote_patterns, 1, { "^ssh://git@ssh%.(.*)$", "https://%1" })
       end,
     },
+    indent = {
+      animate = { enabled = false },
+    },
     lazygit = {},
     statuscolumn = {},
     terminal = {
