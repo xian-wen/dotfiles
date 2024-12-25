@@ -14,8 +14,10 @@ return {
   keys = {
     -- Aliases
     { "<Leader>G", "<Leader>gg", desc = "Lazygit (Root Dir)", remap = true },
-    { "<C-_>", "<Leader>ft", mode = { "n", "t" }, desc = "which_key_ignore", remap = true },
-    { "<C-/>", "<C-_>", mode = { "n", "t" }, desc = "Terminal (Root Dir)", remap = true },
+    { "<C-_>", "<Leader>ft", desc = "which_key_ignore", remap = true },
+    { "<C-/>", "<C-_>", desc = "Terminal (Root Dir)", remap = true },
+    { "<C-_>", "<Cmd>close<CR>", mode = "t", desc = "which_key_ignore" },
+    { "<C-/>", "<C-_>", mode = "t", desc = "Hide Terminal", remap = true },
     -- Gitbrowse
     {
       "<Leader>gb",
@@ -85,7 +87,6 @@ return {
       function()
         Snacks.terminal(nil, { cwd = Snacks.git.get_root() })
       end,
-      mode = { "n", "t" },
       desc = "Terminal (Root Dir)",
     },
     {
@@ -93,7 +94,6 @@ return {
       function()
         Snacks.terminal()
       end,
-      mode = { "n", "t" },
       desc = "Terminal (cwd)",
     },
   },
