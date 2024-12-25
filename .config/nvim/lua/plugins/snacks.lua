@@ -125,10 +125,16 @@ return {
     terminal = {
       win = {
         keys = {
+          -- nav_<dir> cannot be avoided, otherwise <Esc><Esc> cannot be back to normal mode.
           nav_h = { "<C-h>", term_nav("h"), mode = "t", expr = true, desc = "Go to Left Window" },
           nav_j = { "<C-j>", term_nav("j"), mode = "t", expr = true, desc = "Go to Lower Window" },
           nav_k = { "<C-k>", term_nav("k"), mode = "t", expr = true, desc = "Go to Upper Window" },
           nav_l = { "<C-l>", term_nav("l"), mode = "t", expr = true, desc = "Go to Right Window" },
+
+          inc_height = { "<C-Up>", "<Cmd>resize +2<CR>", mode = "t", desc = "Increase Window Height" },
+          dec_height = { "<C-Down>", "<Cmd>resize -2<CR>", mode = "t", desc = "Decrease Window Height" },
+          inc_width = { "<C-Right>", "<Cmd>vertical resize +2<CR>", mode = "t", desc = "Increase Window Width" },
+          dec_width = { "<C-Left>", "<Cmd>vertical resize -2<CR>", mode = "t", desc = "Decrease Window Width" },
         },
       },
     },
