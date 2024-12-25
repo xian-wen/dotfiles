@@ -18,8 +18,8 @@ map("n", "<C-l>", "<C-w>l", { desc = "Go to Right Window" })
 
 map("n", "<C-Up>", "2<C-w>+", { desc = "Increase Window Height" })
 map("n", "<C-Down>", "2<C-w>-", { desc = "Decrease Window Height" })
-map("n", "<C-Left>", "2<C-w><lt>", { desc = "Decrease Window Width" })
 map("n", "<C-Right>", "2<C-w>>", { desc = "Increase Window Width" })
+map("n", "<C-Left>", "2<C-w><lt>", { desc = "Decrease Window Width" })
 
 -- Tabs
 -- gt: Next Tab
