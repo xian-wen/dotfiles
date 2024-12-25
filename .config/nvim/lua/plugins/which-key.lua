@@ -17,6 +17,8 @@ return {
       desc = "Window Hydra Mode (which-key)",
     },
   },
+  -- Automatically merge specs defined in other files.
+  opts_extend = { "spec" },
   opts = {
     preset = "helix", -- false/classic/modern/helix
     spec = {
