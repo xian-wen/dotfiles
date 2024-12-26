@@ -252,19 +252,48 @@ return {
         mode = "v",
         desc = "Selection (cwd)",
       },
+      -- LSP
       {
-        "<Leader>ss",
+        "gd",
+        function()
+          require("telescope.builtin").lsp_definitions({ reuse_win = true })
+        end,
+        desc = "Go to Definition",
+      },
+      {
+        "gI",
+        function()
+          require("telescope.builtin").lsp_implementations({ reuse_win = true })
+        end,
+        desc = "Go to Implementation",
+      },
+      {
+        "gr",
+        function()
+          require("telescope.builtin").lsp_references()
+        end,
+        desc = "References",
+      },
+      {
+        "gy",
+        function()
+          require("telescope.builtin").lsp_type_definitions({ reuse_win = true })
+        end,
+        desc = "Go to T[y]pe Definition"
+      },
+      {
+        "ss",
         function()
           require("telescope.builtin").lsp_document_symbols()
         end,
-        desc = "LSP Document Symbols",
+        desc = "Go to Symbol",
       },
       {
-        "<Leader>sS",
+        "sS",
         function()
           require("telescope.builtin").lsp_dynamic_workspace_symbols()
         end,
-        desc = "LSP Dynamic Workspace Symbols",
+        desc = "Go to Symbol (Workspace)",
       },
       -- Colorscheme
       {
