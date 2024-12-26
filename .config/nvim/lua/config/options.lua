@@ -67,6 +67,3 @@ o.undofile = true -- save undo information in a file
 o.updatetime = 200 -- after this many milliseconds flush swap file
 o.virtualedit = "block" -- when to use virtual editing
 o.wrap = false -- long lines wrap and continue on the next line
-
--- Add binaries installed by mason.nvim to path.
-vim.env.PATH = table.concat({ vim.fn.stdpath("data"), "mason", "bin" }, "/") .. ":" .. vim.env.PATH
