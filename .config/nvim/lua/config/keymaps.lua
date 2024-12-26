@@ -91,5 +91,8 @@ map("n", "<Leader>uL", "<Cmd>set relativenumber!<CR>", { desc = "Toggle Relative
 map("n", "<Leader>us", "<Cmd>set spell!<CR>", { desc = "Toggle Spell" })
 map("n", "<Leader>uw", "<Cmd>set wrap!<CR>", { desc = "Toggle Wrap" })
 
+-- Keywordprg
+map("n", "<Leader>K", "<Cmd>normal! K<CR>", { desc = "Keywordprg" })
+
 -- Lazy
 map("n", "<Leader>L", "<Cmd>Lazy<CR>", { desc = "Lazy" })
