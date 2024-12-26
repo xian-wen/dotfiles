@@ -22,9 +22,9 @@ return {
     options = {
       diagnostics = "nvim_lsp",
       diagnostics_indicator = function(_, _, diag)
-        local icons = { error = " ", warning = " " }
-        local ret = (diag.error and icons.error .. diag.error .. " " or "")
-          .. (diag.warning and icons.warning .. diag.warning or "")
+        local icons = require("config").icons.diagnostics
+        local ret = (diag.error and icons.ERROR .. diag.error .. " " or "")
+          .. (diag.warning and icons.WARN .. diag.warning or "")
         return vim.trim(ret)
       end,
       always_show_bufferline = false,
