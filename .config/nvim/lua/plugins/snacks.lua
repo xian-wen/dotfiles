@@ -131,6 +131,7 @@ return {
       animate = { enabled = false },
     },
     lazygit = {},
+    notifier = {},
     statuscolumn = {},
     terminal = {
       win = {
