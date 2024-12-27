@@ -25,8 +25,8 @@ return {
             end,
           },
         },
-        lualine_b = {
-          "branch",
+        lualine_b = { "branch" },
+        lualine_c = {
           {
             "diff",
             symbols = {
@@ -54,6 +54,7 @@ return {
               hint = icons.diagnostics.HINT,
             },
           },
+          "filename",
         },
       },
     }
