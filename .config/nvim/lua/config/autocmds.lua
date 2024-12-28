@@ -58,25 +58,3 @@ autocmd("FileType", {
     vim.opt_local.spell = true
   end,
 })
-
--- LSP progress
--- Ref: https://github.com/folke/snacks.nvim/blob/main/docs/notifier.md#-examples
-autocmd("LspProgress", {
-  group = augroup("lsp_progress"),
-  callback = function(ev)
-    local client = vim.lsp.get_client_by_id(ev.data.client_id)
-    local value = ev.data.params.value
-    if not client or type(value) ~= "table" then
-      return
-    end
-    local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
-    vim.notify(vim.lsp.status(), vim.log.levels.INFO, {
-      id = "lsp_progress",
-      title = client.name,
-      opts = function(notif)
-        notif.icon = value.kind == "end" and " "
-        or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
-      end,
-    })
-  end,
-})
