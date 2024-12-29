@@ -323,6 +323,29 @@ Add below to the `/etc/hosts` file.
 185.199.108.133 raw.githubusercontent.com
 ```
 
+## Nushell
+
+### Install
+
+[Install Nushell](https://www.nushell.sh/#homebrew)
+```bash
+brew install nushell
+```
+
+### Upgrade
+
+Upgrade Nushell.
+```bash
+brew upgrade nushell
+```
+
+### Uninstall
+
+Uninstall Nushell.
+```bash
+brew uninstall nushell
+```
+
 ## Starship
 
 ### Install
@@ -1350,6 +1373,29 @@ Update-Module PSReadLine
 Uninstall PSReadLine.
 ```powershell
 Uninstall-Module PSReadLine
+```
+
+## Nushell
+
+### Install
+
+[Install Nushell](https://www.nushell.sh/#windows)
+```bash
+winget install nushell
+```
+
+### Upgrade
+
+Upgrade Nushell.
+```bash
+winget upgrade nushell
+```
+
+### Uninstall
+
+Uninstall Nushell.
+```bash
+winget uninstall nushell
 ```
 
 ## fzf
