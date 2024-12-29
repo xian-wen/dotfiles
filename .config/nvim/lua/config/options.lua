@@ -11,7 +11,6 @@ g.loaded_ruby_provider = 0 -- disable ruby provider
 
 o.autowrite = true -- automatically write file if changed
 o.clipboard = "unnamedplus" -- use the clipboard as the unnamed register
-o.conceallevel = 2 -- whether concealable text is shown or hidden
 o.confirm = true -- ask what to do about unsaved/read-only files
 o.cursorline = true -- highlight the screen line of the cursor
 o.expandtab = true -- use spaces when <Tab> is inserted
