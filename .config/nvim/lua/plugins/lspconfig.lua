@@ -24,8 +24,8 @@ return {
           text = {
             [vim.diagnostic.severity.ERROR] = icons.ERROR,
             [vim.diagnostic.severity.WARN] = icons.WARN,
-            [vim.diagnostic.severity.HINT] = icons.HINT,
             [vim.diagnostic.severity.INFO] = icons.INFO,
+            [vim.diagnostic.severity.HINT] = icons.HINT,
           },
         },
       },

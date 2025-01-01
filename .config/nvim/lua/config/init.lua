@@ -4,8 +4,8 @@ M.icons = {
   diagnostics = {
     ERROR = " ",
     WARN  = " ",
-    HINT  = " ",
     INFO  = " ",
+    HINT  = " ",
   },
   git = {
     added    = " ",
