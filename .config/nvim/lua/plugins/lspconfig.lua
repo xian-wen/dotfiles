@@ -10,16 +10,14 @@ return {
     local icons = require("config").icons.diagnostics
     return {
       diagnostics = {
-        underline = true,
-        update_in_insert = false,
         virtual_text = {
-          spacing = 4,
+          -- Only show sources if there is more than one source of diagnostics in the buffer.
           source = "if_many",
+          spacing = 4,
           prefix = function(diagnostic)
             return icons[vim.diagnostic.severity[diagnostic.severity]]
           end
         },
-        severity_sort = true,
         signs = {
           text = {
             [vim.diagnostic.severity.ERROR] = icons.ERROR,
@@ -28,6 +26,8 @@ return {
             [vim.diagnostic.severity.HINT] = icons.HINT,
           },
         },
+        -- Order: ERROR, WARN, INFO, HINT.
+        severity_sort = true,
       },
       inlay_hints = {
         enabled = true,
@@ -215,12 +215,7 @@ return {
       })
     end)
 
-    -- Diagnostics signs
-    for severity, icon in pairs(opts.diagnostics.signs.text) do
-      local name = vim.diagnostic.severity[severity]:lower():gsub("^%l", string.upper)
-      name = "DiagnosticSign" .. name
-      vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
-    end
+    -- Diagnostics
     vim.diagnostic.config(vim.deepcopy(opts.diagnostics))
 
     -- Inlay hints
