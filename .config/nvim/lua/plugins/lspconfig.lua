@@ -75,7 +75,7 @@ return {
     }
   end,
   config = function(_, opts)
-    local lsp_on_attach = function(fn, name)
+    local on_attach = function(fn, name)
       return vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)
           local buffer = args.buf
@@ -87,7 +87,7 @@ return {
       })
     end
 
-    local lsp_on_progress = function(fn)
+    local on_progress = function(fn)
       return vim.api.nvim_create_autocmd("LspProgress", {
         callback = function(ev)
           local client = vim.lsp.get_client_by_id(ev.data.client_id)
@@ -99,7 +99,7 @@ return {
       })
     end
 
-    local lsp_on_dynamic_capability = function(fn, options)
+    local on_dynamic_capability = function(fn, options)
       return vim.api.nvim_create_autocmd("User", {
         pattern = "LspDynamicCapability",
         group = options and options.group or nil,
@@ -113,10 +113,10 @@ return {
       })
     end
 
-    local _lsp_supports_method = {}
-    local lsp_on_supports_method = function(method, fn)
+    local _supports_method = {}
+    local on_supports_method = function(method, fn)
       -- __mode = "k" means weak key in table, see :h __mode
-      _lsp_supports_method[method] = _lsp_supports_method[method] or setmetatable({}, { __mode = "k" })
+      _supports_method[method] = _supports_method[method] or setmetatable({}, { __mode = "k" })
       return vim.api.nvim_create_autocmd("User", {
         pattern = "LspSupportsMethod",
         callback = function(args)
@@ -129,7 +129,7 @@ return {
       })
     end
 
-    local _lsp_check_methods = function(client, buffer)
+    local _check_methods = function(client, buffer)
       if not vim.api.nvim_buf_is_valid(buffer) then
         return
       end
@@ -139,7 +139,7 @@ return {
       if vim.bo[buffer].buftype == "nofile" then
         return
       end
-      for method, clients in pairs(_lsp_supports_method) do
+      for method, clients in pairs(_supports_method) do
         clients[client] = clients[client] or {}
         if not clients[client][buffer] then
           if client.supports_method and client.supports_method(method, { bufnr = buffer }) then
@@ -153,24 +153,23 @@ return {
       end
     end
 
-    local lsp_setup = function()
-      local register_capability = vim.lsp.handlers["client/registerCapability"]
-      vim.lsp.handlers["client/registerCapability"] = function(err, res, ctx)
-        local ret = register_capability(err, res, ctx)
-        local client = vim.lsp.get_client_by_id(ctx.client_id)
-        if client then
-          for buffer in pairs(client.attached_buffers) do
-            vim.api.nvim_exec_autocmds("User", {
-              pattern = "LspDynamicCapability",
-              data = { client_id = client.id, buffer = buffer },
-            })
-          end
+    -- LSP setup
+    local register_capability = vim.lsp.handlers["client/registerCapability"]
+    vim.lsp.handlers["client/registerCapability"] = function(err, res, ctx)
+      local ret = register_capability(err, res, ctx)
+      local client = vim.lsp.get_client_by_id(ctx.client_id)
+      if client then
+        for buffer in pairs(client.attached_buffers) do
+          vim.api.nvim_exec_autocmds("User", {
+            pattern = "LspDynamicCapability",
+            data = { client_id = client.id, buffer = buffer },
+          })
         end
-        return ret
       end
-      lsp_on_attach(_lsp_check_methods)
-      lsp_on_dynamic_capability(_lsp_check_methods)
+      return ret
     end
+    on_attach(_check_methods)
+    on_dynamic_capability(_check_methods)
 
     -- Keymaps
     local keymaps_on_attach = function(_, buffer)
@@ -197,13 +196,12 @@ return {
       map("n", "<A-n>", function() Snacks.words.jump(vim.v.count1, true) end, "Next Reference")
       map("n", "<A-p>", function() Snacks.words.jump(-vim.v.count1, true) end, "Prev Reference")
     end
-    lsp_on_attach(keymaps_on_attach)
-    lsp_setup()
-    lsp_on_dynamic_capability(keymaps_on_attach)
+    on_attach(keymaps_on_attach)
+    on_dynamic_capability(keymaps_on_attach)
 
     -- LSP progress
     -- Ref: https://github.com/folke/snacks.nvim/blob/main/docs/notifier.md#-examples
-    lsp_on_progress(function(client, value)
+    on_progress(function(client, value)
       local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
       vim.notify(vim.lsp.status(), vim.log.levels.INFO, {
         id = "lsp_progress",
@@ -220,7 +218,7 @@ return {
 
     -- Inlay hints
     if opts.inlay_hints.enabled then
-      lsp_on_supports_method("textDocument/inlayHint", function(_, buffer)
+      on_supports_method("textDocument/inlayHint", function(_, buffer)
         if
           vim.api.nvim_buf_is_valid(buffer)
           and vim.bo[buffer].buftype == ""
@@ -233,7 +231,7 @@ return {
 
     -- Code lens
     if opts.codelens.enabled and vim.lsp.codelens then
-      lsp_on_supports_method("textDocument/codeLens", function(_, buffer)
+      on_supports_method("textDocument/codeLens", function(_, buffer)
         vim.lsp.codelens.refresh()
         vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
           buffer = buffer,
