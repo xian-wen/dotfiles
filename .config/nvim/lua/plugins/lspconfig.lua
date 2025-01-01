@@ -78,10 +78,10 @@ return {
     local on_attach = function(fn, name)
       return vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)
-          local buffer = args.buf
+          local bufnr = args.buf
           local client = vim.lsp.get_client_by_id(args.data.client_id)
           if client and (not name or client.name == name) then
-            return fn(client, buffer)
+            return fn(client, bufnr)
           end
         end,
       })
@@ -104,10 +104,10 @@ return {
         pattern = "LspDynamicCapability",
         group = options and options.group or nil,
         callback = function(args)
-          local buffer = args.data.buffer
+          local bufnr = args.data.bufnr
           local client = vim.lsp.get_client_by_id(args.data.client_id)
           if client then
-            return fn(client, buffer)
+            return fn(client, bufnr)
           end
         end,
       })
@@ -120,33 +120,33 @@ return {
       return vim.api.nvim_create_autocmd("User", {
         pattern = "LspSupportsMethod",
         callback = function(args)
-          local buffer = args.data.buffer
+          local bufnr = args.data.bufnr
           local client = vim.lsp.get_client_by_id(args.data.client_id)
           if client and method == args.data.method then
-            return fn(client, buffer)
+            return fn(client, bufnr)
           end
         end,
       })
     end
 
-    local _check_methods = function(client, buffer)
-      if not vim.api.nvim_buf_is_valid(buffer) then
+    local _check_methods = function(client, bufnr)
+      if not vim.api.nvim_buf_is_valid(bufnr) then
         return
       end
-      if not vim.bo[buffer].buflisted then
+      if not vim.bo[bufnr].buflisted then
         return
       end
-      if vim.bo[buffer].buftype == "nofile" then
+      if vim.bo[bufnr].buftype == "nofile" then
         return
       end
       for method, clients in pairs(_supports_method) do
         clients[client] = clients[client] or {}
-        if not clients[client][buffer] then
-          if client.supports_method and client.supports_method(method, { bufnr = buffer }) then
-            clients[client][buffer] = true
+        if not clients[client][bufnr] then
+          if client.supports_method and client.supports_method(method, { bufnr = bufnr }) then
+            clients[client][bufnr] = true
             vim.api.nvim_exec_autocmds("User", {
               pattern = "LspSupportsMethod",
-              data = { client_id = client.id, buffer = buffer, method = method },
+              data = { client_id = client.id, bufnr = bufnr, method = method },
             })
           end
         end
@@ -159,10 +159,10 @@ return {
       local ret = register_capability(err, res, ctx)
       local client = vim.lsp.get_client_by_id(ctx.client_id)
       if client then
-        for buffer in pairs(client.attached_buffers) do
+        for bufnr in pairs(client.attached_buffers) do
           vim.api.nvim_exec_autocmds("User", {
             pattern = "LspDynamicCapability",
-            data = { client_id = client.id, buffer = buffer },
+            data = { client_id = client.id, bufnr = bufnr },
           })
         end
       end
@@ -172,9 +172,9 @@ return {
     on_dynamic_capability(_check_methods)
 
     -- Keymaps
-    local keymaps_on_attach = function(_, buffer)
+    local keymaps_on_attach = function(_, bufnr)
       local map = function(mode, lhs, rhs, desc)
-        vim.keymap.set(mode, lhs, rhs, { buffer = buffer, desc = desc })
+        vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
       end
       -- The following keymaps are replaced with telescope.
       -- map("n", "gd", vim.lsp.buf.definition, "Go to Definition")
@@ -218,23 +218,23 @@ return {
 
     -- Inlay hints
     if opts.inlay_hints.enabled then
-      on_supports_method("textDocument/inlayHint", function(_, buffer)
+      on_supports_method("textDocument/inlayHint", function(_, bufnr)
         if
-          vim.api.nvim_buf_is_valid(buffer)
-          and vim.bo[buffer].buftype == ""
-          and not vim.tbl_contains(opts.inlay_hints.exclude, vim.bo[buffer].filetype)
+          vim.api.nvim_buf_is_valid(bufnr)
+          and vim.bo[bufnr].buftype == ""
+          and not vim.tbl_contains(opts.inlay_hints.exclude, vim.bo[bufnr].filetype)
         then
-          vim.lsp.inlay_hint.enable(true, { bufnr = buffer })
+          vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
         end
       end)
     end
 
     -- Code lens
     if opts.codelens.enabled and vim.lsp.codelens then
-      on_supports_method("textDocument/codeLens", function(_, buffer)
+      on_supports_method("textDocument/codeLens", function(_, bufnr)
         vim.lsp.codelens.refresh()
         vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
-          buffer = buffer,
+          buffer = bufnr,
           callback = vim.lsp.codelens.refresh,
         })
       end)
