@@ -16,10 +16,10 @@ map("n", "<C-l>", "<C-w>l", { desc = "Go to Right Window" })
 -- <C-w>c: Close Window
 -- <C-w>o: Close Other Windows
 
-map("n", "<C-Up>", "2<C-w>+", { desc = "Increase Window Height" })
-map("n", "<C-Down>", "2<C-w>-", { desc = "Decrease Window Height" })
-map("n", "<C-Right>", "2<C-w>>", { desc = "Increase Window Width" })
-map("n", "<C-Left>", "2<C-w><lt>", { desc = "Decrease Window Width" })
+map({ "n", "t" }, "<C-Up>", "<Cmd>resize +2<CR>", { desc = "Increase Window Height" })
+map({ "n", "t" }, "<C-Down>", "<Cmd>resize -2<CR>", { desc = "Decrease Window Height" })
+map({ "n", "t" }, "<C-Right>", "<Cmd>vertical resize +2<CR>", { desc = "Increase Window Width" })
+map({ "n", "t" }, "<C-Left>", "<Cmd>vertical resize -2<CR>", { desc = "Decrease Window Width" })
 
 -- Tabs
 -- gt: Next Tab
