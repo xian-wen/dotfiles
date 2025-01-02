@@ -44,12 +44,6 @@ return {
           u = gen_spec.function_call(), -- u for "Usage"
           U = gen_spec.function_call({ name_pattern = "[%w_]" }), -- without dot in function name
         },
-        mappings = {
-          around_next = "an",
-          inside_next = "in",
-          around_last = "ap",
-          inside_last = "ip",
-        },
         -- Number of lines within which textobject is searched.
         n_lines = 500,
       }
@@ -91,8 +85,8 @@ return {
         inside = "i",
         around_next = "an",
         inside_next = "in",
-        around_last = "ap",
-        inside_last = "ip",
+        around_last = "al",
+        inside_last = "il",
       }, opts.mappings or {})
       mappings.goto_left = nil
       mappings.goto_right = nil
@@ -142,9 +136,6 @@ return {
         highlight = "gsh",
         replace = "gsr",
         update_n_lines = "gsn",
-
-        suffix_next = 'n',
-        suffix_last = 'p',
       },
       -- Whether to respect selection type:
       -- - Place surroundings on separate lines in linewise mode.
