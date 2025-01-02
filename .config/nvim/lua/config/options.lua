@@ -59,6 +59,7 @@ o.signcolumn = "yes" -- when and how to display the sign column
 o.smartcase = true -- no ignore case when pattern has uppercase
 o.smartindent = true -- smart autoindenting for C programs
 o.smoothscroll = true -- scroll by screen lines when 'wrap' is set
+o.softtabstop = -1 -- number of spaces that <Tab> uses while editing
 o.splitbelow = true -- new window from split is below the current one
 o.splitright = true -- new window is put right of the current one
 o.timeoutlen = 300 -- time out time in milliseconds
