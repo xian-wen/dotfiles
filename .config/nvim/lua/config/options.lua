@@ -25,6 +25,7 @@ o.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- expression used when 'foldmeth
 o.foldlevel = 99 -- close folds with a level higher than this
 o.foldmethod = "expr" -- folding type
 o.foldtext = "" -- expression used to display for a closed fold
+o.formatexpr = "v:lua.vim.lsp.formatexpr()" -- expression used with "gq" command
 o.formatoptions = "tcroqnlj" -- how automatic formatting is to be done
 o.grepformat = "%f:%l:%c:%m" -- format of 'grepprg' output
 o.grepprg = "rg --vimgrep" -- program to use for :grep
@@ -48,7 +49,7 @@ o.sessionoptions = { -- options for :mksession
   "help",
   "skiprtp",
   "tabpages",
-  "winsize"
+  "winsize",
 }
 o.shiftround = true -- round indent to multiple of shiftwidth
 o.shiftwidth = 2 -- number of spaces to use for (auto)indent step
