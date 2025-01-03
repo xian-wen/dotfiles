@@ -4,7 +4,7 @@ return {
     build = ":MasonUpdate",
     cmd = "Mason",
     keys = {
-      { "<Leader>M", "<Cmd>Mason<CR>", desc = "Mason" }
+      { "<Leader>M", "<Cmd>Mason<CR>", desc = "Mason" },
     },
     opts = {
       ensure_installed = {

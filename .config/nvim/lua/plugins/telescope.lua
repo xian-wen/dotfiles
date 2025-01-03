@@ -279,7 +279,7 @@ return {
         function()
           require("telescope.builtin").lsp_type_definitions({ reuse_win = true })
         end,
-        desc = "Go to T[y]pe Definition"
+        desc = "Go to T[y]pe Definition",
       },
       {
         "ss",

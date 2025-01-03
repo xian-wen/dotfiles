@@ -1,6 +1,6 @@
 return {
   "lewis6991/gitsigns.nvim",
-  -- Alias for LazyFile.
+  -- Same as LazyFile.
   event = { "BufReadPost", "BufNewFile", "BufWritePre" },
   opts = {
     signs = {
@@ -39,8 +39,12 @@ return {
           gs.nav_hunk("prev")
         end
       end, "Prev Hunk")
-      map("n", "]H", function() gs.nav_hunk("last") end, "Last Hunk")
-      map("n", "[H", function() gs.nav_hunk("first") end, "First Hunk")
+      map("n", "]H", function()
+        gs.nav_hunk("last")
+      end, "Last Hunk")
+      map("n", "[H", function()
+        gs.nav_hunk("first")
+      end, "First Hunk")
       -- Actions
       map({ "n", "v" }, "<Leader>ghs", "<Cmd>Gitsigns stage_hunk<CR>", "Stage Hunk")
       map({ "n", "v" }, "<Leader>ghr", "<Cmd>Gitsigns reset_hunk<CR>", "Reset Hunk")
@@ -48,10 +52,14 @@ return {
       map("n", "<Leader>ghR", gs.reset_buffer, "Reset Buffer")
       map("n", "<Leader>ghu", gs.undo_stage_hunk, "Undo Stage Hunk")
       map("n", "<Leader>ghp", gs.preview_hunk_inline, "Preview Hunk Inline")
-      map("n", "<Leader>ghb", function() gs.blame_line({ full = true }) end, "Blame Line")
+      map("n", "<Leader>ghb", function()
+        gs.blame_line({ full = true })
+      end, "Blame Line")
       map("n", "<Leader>ghB", gs.blame, "Blame Buffer")
       map("n", "<Leader>ghd", gs.diffthis, "Diff This")
-      map("n", "<Leader>ghD", function() gs.diffthis("~") end, "Diff This ~")
+      map("n", "<Leader>ghD", function()
+        gs.diffthis("~")
+      end, "Diff This ~")
       -- Text object
       map({ "o", "x" }, "ih", "<Cmd><C-u>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
     end,

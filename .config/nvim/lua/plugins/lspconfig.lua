@@ -16,7 +16,7 @@ return {
           spacing = 4,
           prefix = function(diagnostic)
             return icons[vim.diagnostic.severity[diagnostic.severity]]
-          end
+          end,
         },
         signs = {
           text = {
@@ -191,10 +191,18 @@ return {
       map("n", "<Leader>cl", "<Cmd>LspInfo<CR>", "Lsp Info")
       map("n", "<Leader>cr", vim.lsp.buf.rename, "Rename")
       map("n", "<Leader>cR", Snacks.rename.rename_file, "Rename File")
-      map("n", "]]", function() Snacks.words.jump(vim.v.count1) end, "Next Reference")
-      map("n", "[[", function() Snacks.words.jump(-vim.v.count1) end, "Prev Reference")
-      map("n", "<A-n>", function() Snacks.words.jump(vim.v.count1, true) end, "Next Reference")
-      map("n", "<A-p>", function() Snacks.words.jump(-vim.v.count1, true) end, "Prev Reference")
+      map("n", "]]", function()
+        Snacks.words.jump(vim.v.count1)
+      end, "Next Reference")
+      map("n", "[[", function()
+        Snacks.words.jump(-vim.v.count1)
+      end, "Prev Reference")
+      map("n", "<A-n>", function()
+        Snacks.words.jump(vim.v.count1, true)
+      end, "Next Reference")
+      map("n", "<A-p>", function()
+        Snacks.words.jump(-vim.v.count1, true)
+      end, "Prev Reference")
     end
     on_attach(keymaps_on_attach)
     on_dynamic_capability(keymaps_on_attach)
@@ -208,7 +216,7 @@ return {
         title = client.name,
         opts = function(notif)
           notif.icon = value.kind == "end" and " "
-          or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
+            or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
         end,
       })
     end)
@@ -294,11 +302,7 @@ return {
 
     if has_mason then
       mlsp.setup({
-        ensure_installed = vim.tbl_deep_extend(
-          "force",
-          ensure_installed,
-          mlsp.ensure_installed or {}
-        ),
+        ensure_installed = vim.tbl_deep_extend("force", ensure_installed, mlsp.ensure_installed or {}),
         handlers = { setup },
       })
     end

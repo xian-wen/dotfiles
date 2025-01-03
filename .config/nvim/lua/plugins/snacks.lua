@@ -38,7 +38,9 @@ return {
       "<Leader>gY",
       function()
         Snacks.gitbrowse({
-          open = function(url) vim.fn.setreg("+", url) end,
+          open = function(url)
+            vim.fn.setreg("+", url)
+          end,
           notify = false,
         })
       end,
