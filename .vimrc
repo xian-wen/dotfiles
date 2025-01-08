@@ -87,79 +87,38 @@ let g:polyglot_disabled = ['markdown']
 " let g:polyglot_disabled = ['sensible']
 
 " vim-plug: vim plugin manager
-" https://github.com/junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
-" The default plugin directory will be as follows:
-"   - Vim (Linux/macOS): '~/.vim/plugged'
-"   - Vim (Windows): '~/vimfiles/plugged'
-"   - Neovim (Linux/macOS/Windows): stdpath('data') . '/plugged'
-" You can specify a custom plugin directory by passing it as the argument
-"   - e.g. `call plug#begin('~/.vim/plugged')`
-"   - Avoid using standard Vim directory names like 'plugin'
-" Make sure you use single quotes
 
-" https://github.com/tpope/vim-repeat
 Plug 'tpope/vim-repeat'
-" https://github.com/tpope/vim-fugitive
 Plug 'tpope/vim-fugitive'
-" https://github.com/tpope/vim-unimpaired
 Plug 'tpope/vim-unimpaired'
-" https://github.com/ludovicchabant/vim-gutentags
 Plug 'ludovicchabant/vim-gutentags'
-" https://github.com/skywind3000/gutentags_plus
 Plug 'skywind3000/gutentags_plus'
-" Post-update hook can be a lambda expression
-" https://github.com/junegunn/fzf
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" https://github.com/junegunn/fzf.vim
 Plug 'junegunn/fzf.vim'
-" https://github.com/preservim/nerdtree
 Plug 'preservim/nerdtree'
-" https://github.com/preservim/tagbar
 Plug 'preservim/tagbar'
-" https://github.com/easymotion/vim-easymotion
 Plug 'easymotion/vim-easymotion'
 
-" https://github.com/ycm-core/YouCompleteMe
 Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --clangd-completer' }
-" https://github.com/dense-analysis/ale
 Plug 'dense-analysis/ale'
-" https://github.com/jiangmiao/auto-pairs
 Plug 'jiangmiao/auto-pairs'
-" https://github.com/preservim/nerdcommenter
 Plug 'preservim/nerdcommenter'
-" https://github.com/tpope/vim-abolish
 Plug 'tpope/vim-abolish'
-" https://github.com/tpope/vim-surround
 Plug 'tpope/vim-surround'
-" https://github.com/mg979/vim-visual-multi
 Plug 'mg979/vim-visual-multi', { 'branch': 'master' }
 
-" https://github.com/morhetz/gruvbox
 Plug 'morhetz/gruvbox'
-" https://github.com/joshdick/onedark.vim
 Plug 'joshdick/onedark.vim'
-" https://github.com/sainnhe/sonokai
 Plug 'sainnhe/sonokai'
-" https://github.com/vim-airline/vim-airline
 Plug 'vim-airline/vim-airline'
-" https://github.com/vim-airline/vim-airline-themes
 Plug 'vim-airline/vim-airline-themes'
-" https://github.com/ryanoasis/vim-devicons
 Plug 'ryanoasis/vim-devicons'
-" https://github.com/tiagofumo/vim-nerdtree-syntax-highlight
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-" https://github.com/sheerun/vim-polyglot
 Plug 'sheerun/vim-polyglot'
-" https://github.com/yggdroot/indentline
 Plug 'yggdroot/indentline'
 
-" Call plug#end to update &runtimepath and initialize the plugin system.
-" - It automatically executes `filetype plugin indent on` and `syntax enable`
 call plug#end()
-" You can revert the settings after the call like so:
-"   filetype indent off   " Disable file-type-specific indentation
-"   syntax off            " Disable syntax highlighting
 
 " gutentags_plus settings.
 " Enable gtags module.
@@ -349,4 +308,3 @@ let g:indentLine_fileTypeExclude = ['text']
 let g:indentLine_bufTypeExclude = ['help', 'terminal']
 " Do not conceal quotation marks for json files.
 let g:vim_json_syntax_conceal = 0
-
