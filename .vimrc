@@ -89,6 +89,13 @@ let g:polyglot_disabled = ['markdown']
 " vim-plug: vim plugin manager
 call plug#begin('~/.vim/plugged')
 
+Plug 'morhetz/gruvbox'
+Plug 'joshdick/onedark.vim'
+Plug 'sainnhe/sonokai'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'ryanoasis/vim-devicons'
+
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
@@ -97,28 +104,71 @@ Plug 'skywind3000/gutentags_plus'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdtree'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'preservim/tagbar'
 Plug 'easymotion/vim-easymotion'
 
 Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --clangd-completer' }
 Plug 'dense-analysis/ale'
+Plug 'sheerun/vim-polyglot'
 Plug 'jiangmiao/auto-pairs'
+Plug 'yggdroot/indentline'
 Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-surround'
 Plug 'mg979/vim-visual-multi', { 'branch': 'master' }
 
-Plug 'morhetz/gruvbox'
-Plug 'joshdick/onedark.vim'
-Plug 'sainnhe/sonokai'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'ryanoasis/vim-devicons'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'sheerun/vim-polyglot'
-Plug 'yggdroot/indentline'
-
 call plug#end()
+
+" gruvbox settings.
+" set background=dark
+" let g:gruvbox_transparent_bg = 1
+" Use autocmd to make sure all plugins are loaded before using gruvbox.
+" autocmd VimEnter * ++nested colorscheme gruvbox
+
+" onedark settings.
+" colorscheme onedark
+
+" sonokai settings.
+let g:sonokai_style = 'maia' " default/atlantis/andromeda/shusia/maia/espresso
+let g:sonokai_transparent_background = 2
+let g:sonokai_better_performance = 1
+colorscheme sonokai
+
+" vim-airline settings.
+let g:airline_theme='sonokai'
+let g:airline_powerline_fonts = 1
+let g:airline_left_sep=''
+let g:airline_left_alt_sep='|'
+let g:airline_right_sep=''
+let g:airline_right_alt_sep='|'
+let g:airline_section_z = airline#section#create(['%3p%%', '  %3l/%3L', ':%-3v'])
+let g:airline_skip_empty_sections = 1
+" Define extensions to be loaded to improve performance.
+" let g:airline_extensions = []
+let g:airline#extensions#tabline#enabled = 1
+" Display the tail of the filename, for file of the same name,
+" display it along with the containing parent directory.
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+" Tab n can be switched to by mouse, `<n>gt`, or `:tabn<n>`.
+" let g:airline#extensions#tabline#tab_nr_type = 0 " # of splits (default)
+let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
+" let g:airline#extensions#tabline#tab_nr_type = 2 " splits and tab number
+" Buffer n cannot be switched to by mouse, use `:b<n>`.
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline_highlighting_cache = 1
+
+" vim-devicons settings.
+" Turn on/off file node glyph decorations (not particularly useful)
+let g:WebDevIconsUnicodeDecorateFileNodes = 1
+" Enable folder/directory glyph flag (disabled by default with 0)
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+" Enable open and close folder/directory glyph flags (disabled by default with 0)
+let g:DevIconsEnableFoldersOpenClose = 1
+" Solve issues after resourcing.
+if exists("g:loaded_webdevicons")
+  call webdevicons#refresh()
+endif
 
 " gutentags_plus settings.
 " Enable gtags module.
@@ -192,6 +242,11 @@ let g:NERDTreeNaturalSort = 1
 " Display a one-line menu.
 let g:NERDTreeMinimalMenu = 1
 
+" vim-nerdtree-syntax-highlight settings.
+" Mitigating lag issues for nerdtree.
+" let g:NERDTreeLimitedSyntax = 1
+" let g:NERDTreeHighlightCursorline = 0
+
 " tagbar settings.
 nnoremap <silent> <F8> :TagbarToggle<CR>
 let g:tagbar_width = max([30, winwidth(0) / 5])
@@ -215,6 +270,14 @@ let g:EasyMotion_prompt = '{n}>>> '
 let g:EasyMotion_smartcase = 1
 " Do not display "EasyMotion: Cancelled", etc.
 let g:EasyMotion_verbose = 0
+
+" indentline settings.
+" Change indent character to '|', '¦', '┆', or '┊'.
+" let g:indentLine_char = '┊'
+let g:indentLine_fileTypeExclude = ['text']
+let g:indentLine_bufTypeExclude = ['help', 'terminal']
+" Do not conceal quotation marks for json files.
+let g:vim_json_syntax_conceal = 0
 
 " nerdcommenter settings.
 " Create default mappings
@@ -245,66 +308,3 @@ let g:VM_silent_exit = 1
 " Do not display a warning when entering VM and there are mapping conflicts.
 " You can still run :VMDebug to see if there are conflicts.
 let g:VM_show_warnings = 0
-
-" gruvbox settings.
-" set background=dark
-" let g:gruvbox_transparent_bg = 1
-" Use autocmd to make sure all plugins are loaded before using gruvbox.
-" autocmd VimEnter * ++nested colorscheme gruvbox
-
-" onedark settings.
-" colorscheme onedark
-
-" sonokai settings.
-let g:sonokai_style = 'maia' " default/atlantis/andromeda/shusia/maia/espresso
-let g:sonokai_transparent_background = 2
-let g:sonokai_better_performance = 1
-colorscheme sonokai
-
-" vim-airline settings.
-let g:airline_theme='sonokai'
-let g:airline_powerline_fonts = 1
-let g:airline_left_sep=''
-let g:airline_left_alt_sep='|'
-let g:airline_right_sep=''
-let g:airline_right_alt_sep='|'
-let g:airline_section_z = airline#section#create(['%3p%%', '  %3l/%3L', ':%-3v'])
-let g:airline_skip_empty_sections = 1
-" Define extensions to be loaded to improve performance.
-" let g:airline_extensions = []
-let g:airline#extensions#tabline#enabled = 1
-" Display the tail of the filename, for file of the same name,
-" display it along with the containing parent directory.
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-" Tab n can be switched to by mouse, `<n>gt`, or `:tabn<n>`.
-" let g:airline#extensions#tabline#tab_nr_type = 0 " # of splits (default)
-let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
-" let g:airline#extensions#tabline#tab_nr_type = 2 " splits and tab number
-" Buffer n cannot be switched to by mouse, use `:b<n>`.
-let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline_highlighting_cache = 1
-
-" vim-devicons settings.
-" Turn on/off file node glyph decorations (not particularly useful)
-let g:WebDevIconsUnicodeDecorateFileNodes = 1
-" Enable folder/directory glyph flag (disabled by default with 0)
-let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-" Enable open and close folder/directory glyph flags (disabled by default with 0)
-let g:DevIconsEnableFoldersOpenClose = 1
-" Solve issues after resourcing.
-if exists("g:loaded_webdevicons")
-  call webdevicons#refresh()
-endif
-
-" vim-nerdtree-syntax-highlight settings.
-" Mitigating lag issues for nerdtree.
-" let g:NERDTreeLimitedSyntax = 1
-" let g:NERDTreeHighlightCursorline = 0
-
-" indentline settings.
-" Change indent character to '|', '¦', '┆', or '┊'.
-" let g:indentLine_char = '┊'
-let g:indentLine_fileTypeExclude = ['text']
-let g:indentLine_bufTypeExclude = ['help', 'terminal']
-" Do not conceal quotation marks for json files.
-let g:vim_json_syntax_conceal = 0
