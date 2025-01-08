@@ -1,3 +1,7 @@
+" Change value of <Leader> and <LocalLeader>.
+let g:mapleader = ' '
+let g:maplocalleader = ' '
+
 " Get the defaults that most users want.
 if !has('nvim')
   source $VIMRUNTIME/defaults.vim
@@ -235,7 +239,7 @@ let g:tagbar_width = max([30, winwidth(0) / 5])
 let g:tagbar_autofocus = 1
 
 " vim-easymotion settings.
-" Change the default <Leader><Leader> prefix to <Leader>, '\' by default.
+" Change the default <Leader><Leader> prefix to <Leader>.
 map <Leader> <Plug>(easymotion-prefix)
 " Search by one, or two, or multiple chars, can be out of screen but in current window.
 map / <Plug>(easymotion-sn)
@@ -275,7 +279,7 @@ let g:NERDToggleCheckAllLines = 1
 
 " vim-visual-multi settings.
 let g:VM_theme = 'iceblue'
-" Change the default '\\' leader to vim <Leader>, '\' by default.
+" Change the default '\\' leader to vim <Leader>.
 " let g:VM_leader = "\<Leader>"
 " Do not display a message when exiting VM.
 let g:VM_silent_exit = 1
