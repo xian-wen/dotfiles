@@ -250,8 +250,8 @@ let g:NERDTreeMinimalMenu = 1
 " let g:NERDTreeLimitedSyntax = 1
 " let g:NERDTreeHighlightCursorline = 0
 
-" tagbar settings.
-nnoremap <silent> <F8> :TagbarToggle<CR>
+" tagbar settings
+nnoremap <silent> <Leader>t :TagbarToggle<CR>
 let g:tagbar_width = max([30, winwidth(0) / 5])
 let g:tagbar_autofocus = 1
 
