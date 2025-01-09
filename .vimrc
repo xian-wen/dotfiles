@@ -429,7 +429,13 @@ xmap gcb <Plug>NERDCommenterAlignBoth
 " vim-visual-multi settings
 let g:VM_theme = 'iceblue'
 " " Change the default '\\' leader to vim <Leader>.
-" let g:VM_leader = "\<Leader>"
+" let g:VM_leader = '<Leader>'
 let g:VM_silent_exit = 1
 " Hide warnings, run :VMDebug to see if there are conflicts.
 let g:VM_show_warnings = 0
+" Initialize the variable to change mappings.
+let g:VM_maps = {}
+let g:VM_maps['Find Under'] = '<Leader>m'
+let g:VM_maps['Find Subword Under'] = '<Leader>m'
+let g:VM_maps["Add Cursor Down"] = '<C-j>'
+let g:VM_maps["Add Cursor Up"] = '<C-k>'
