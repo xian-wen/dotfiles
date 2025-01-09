@@ -1,61 +1,69 @@
-" Change value of <Leader> and <LocalLeader>.
-let g:mapleader = ' '
-let g:maplocalleader = ' '
+" Options
+let g:mapleader = ' ' " value of <Leader>
+let g:maplocalleader = ' ' " value of <LocalLeader>
 
-" Get the defaults that most users want.
-if !has('nvim')
-  source $VIMRUNTIME/defaults.vim
-endif
+source $VIMRUNTIME/defaults.vim " default options
 
-" Use 24-bit color.
-if has('termguicolors')
-  set termguicolors
-endif
+set autoindent " take indent for new line from previous line
+set autoread " autom. read file when changed outside of Vim
+set autowrite " automatically write file if changed
+set background=dark " "dark" or "light", used for highlight colors
+set belloff=all " do not ring the bell for these reasons
+set confirm " ask what to do about unsaved/read-only files
+set cursorline " highlight the screen line of the cursor
+set display=lastline " list of flags for how to display text
+set encoding=utf-8 " encoding used internally
+set expandtab " use spaces when <Tab> is inserted
+set fillchars="vert:│,fold: ,foldopen:,foldclose:, foldsep: ,eob: " " characters to use for displaying special items
+set foldlevel=99 " close folds with a level higher than this
+set foldtext= " expression used to display for a closed fold
+set formatoptions=tcroqnlj " how automatic formatting is to be done
+set grepformat="%f:%l:%c:%m" " format of 'grepprg' output
+set grepprg="rg --vimgrep" " program to use for :grep
+set hidden " don't unload buffer when it is abandoned
+set history=10000 " number of command-lines that are remembered
+set ignorecase " ignore case in search patterns
+set laststatus=2 " tells when last window has status lines
+set linebreak " wrap long lines at a blank
+set list " show <Tab> and <EOL>
+set listchars="tab:> ,trail:-,nbsp:+"
+set mouse=a " enable the use of mouse clicks
+set mousemodel=popup_setpos " changes meaning of mouse buttons
+set nojoinspaces " two spaces after a period with a join command
+set noruler " show cursor line and column in the status line
+set noshowmode " message on status line to show current mode
+set nostartofline " commands move cursor to first non-blank in line
+set nowrap " long lines wrap and continue on the next line
+set number " print the line number in front of each line
+set pumheight=10 " maximum number of items to show in the popup menu
+set relativenumber " show relative line number in front of each line
+set scrolloff=4 " minimum nr. of lines above and below cursor
+set sessionoptions="buffers,curdir,folds,globals,help,skiprtp,tagpages,winsize" " options for :mksession
+set shiftround " round indent to multiple of shiftwidth
+set shiftwidth=2 " number of spaces to use for (auto)indent step
+set shortmess+=ICF " list of flags, reduce length of messages
+set shortmess-=S " list of flags, reduce length of messages
+set sidescroll=1 " minimum number of columns to scroll horizontal
+set sidescrolloff=8 " min. nr. of columns to left and right of cursor
+set signcolumn=yes " when and how to display the sign column
+set smartcase " no ignore case when pattern has uppercase
+set smartindent " smart autoindenting for C programs
+set smarttab " use 'shiftwidth' when inserting <Tab>
+set smoothscroll " scroll by screen lines when 'wrap' is set
+set softtabstop=-1 " number of spaces that <Tab> uses while editing
+set splitbelow " new window from split is below the current one
+set splitright " new window is put right of the current one
+set switchbuf=uselast " sets behavior when switching to another buffer
+set tabpagemax=50 " maximum number of tab pages for -p and "tab all"
+set termguicolors " use GUI colors for the terminal
+set timeoutlen=400 " time out time in milliseconds
+set ttimeoutlen=50 " time out time for key codes in milliseconds
+set undofile " save undo information in a file
+set updatetime=200 " after this many milliseconds flush swap file
+set viminfo+=! " use .viminfo file upon startup and exiting
+set virtualedit=block " when to use virtual editing
+set wildoptions="pum,tagfiles" " specifies how command line completion is done
 
-" Make the background transparent.
-" hi Normal guibg=NONE ctermbg=NONE
-
-" Disable the default Vim startup message.
-set shortmess+=I
-
-" Always show the status line at the bottom, even if you only have one window open.
-set laststatus=2
-
-" Get rid of the -- INSERT --.
-set noshowmode showcmd
-
-" This enables relative line numbering mode. With both number and
-" relativenumber enabled, the current line shows the true line number, while
-" all other lines (above and below) are numbered relative to the current line.
-" This is useful because you can tell, at a glance, what count is needed to
-" jump up or down to a particular line, by {count}k to go up or {count}j to go
-" down.
-set number relativenumber
-
-" By default, Vim doesn't let you hide a buffer (i.e. have a buffer that isn't
-" shown in any window) that has unsaved changes. This is to prevent you from "
-" forgetting about unsaved changes and then quitting e.g. via `:qa!`. We find
-" hidden buffers helpful enough to disable this protection. See `:help hidden`
-" for more information on this.
-set hidden
-
-" This setting makes search case-insensitive when all characters in the string
-" being searched are lowercase. However, the search becomes case-sensitive if
-" it contains any capital letters. This makes searching more convenient.
-set ignorecase smartcase
-
-" Disable audible bell because it's annoying.
-set noerrorbells visualbell t_vb=
-
-" Set indent.
-" https://stackoverflow.com/questions/1878974/redefine-tab-as-4-spaces
-set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
-
-" Try to prevent bad habits like using the arrow keys for movement. This is
-" not the only possible bad habit. For example, holding down the h/j/k/l keys
-" for movement, rather than using more efficient movement commands, is also a
-" bad habit. The former is enforceable through a .vimrc, while we don't know
-" how to prevent the latter.
 " Do this in normal mode...
 nnoremap <Left>  :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
