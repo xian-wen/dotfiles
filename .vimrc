@@ -64,6 +64,7 @@ set viminfo+=! " use .viminfo file upon startup and exiting
 set virtualedit=block " when to use virtual editing
 set wildoptions="pum,tagfiles" " specifies how command line completion is done
 
+" Try to prevent bad habits like using the arrow keys for movement.
 " Do this in normal mode...
 nnoremap <Left>  :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
@@ -78,11 +79,11 @@ inoremap <Down>  <ESC>:echoe "Use j"<CR>
 " Load the man filetype plugin.
 runtime! ftplugin/man.vim
 
-" vim-plug settings.
 " Add packages.
 packadd! editorconfig
 packadd! matchit
 
+" vim-plug settings
 " Automatic plugin installation with vim-plug.
 " Ref: https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
@@ -129,22 +130,24 @@ Plug 'mg979/vim-visual-multi', { 'branch': 'master' }
 
 call plug#end()
 
-" gruvbox settings.
-" set background=dark
+" " gruvbox settings
 " let g:gruvbox_transparent_bg = 1
-" Use autocmd to make sure all plugins are loaded before using gruvbox.
+" " Use autocmd to make sure all plugins are loaded before using gruvbox.
 " autocmd VimEnter * ++nested colorscheme gruvbox
 
-" onedark settings.
+" " onedark settings
 " colorscheme onedark
 
-" sonokai settings.
+" sonokai settings
 let g:sonokai_style = 'maia' " default/atlantis/andromeda/shusia/maia/espresso
 let g:sonokai_transparent_background = 2
 let g:sonokai_better_performance = 1
 colorscheme sonokai
 
-" vim-airline settings.
+" " Make the background transparent.
+" hi Normal guibg=NONE ctermbg=NONE
+
+" vim-airline settings
 let g:airline_theme='sonokai'
 let g:airline_powerline_fonts = 1
 let g:airline_left_sep=''
@@ -153,26 +156,21 @@ let g:airline_right_sep=''
 let g:airline_right_alt_sep='|'
 let g:airline_section_z = airline#section#create(['%2p%%', '  %3l/%3L', ':%-2v'])
 let g:airline_skip_empty_sections = 1
-" Define extensions to be loaded to improve performance.
+" " Define only the specified extensions to be loaded to improve performance.
 " let g:airline_extensions = []
 let g:airline#extensions#tabline#enabled = 1
 " Display the tail of the filename, for file of the same name,
 " display it along with the containing parent directory.
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 " Tab n can be switched to by mouse, `<n>gt`, or `:tabn<n>`.
-" let g:airline#extensions#tabline#tab_nr_type = 0 " # of splits (default)
 let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
-" let g:airline#extensions#tabline#tab_nr_type = 2 " splits and tab number
 " Buffer n cannot be switched to by mouse, use `:b<n>`.
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_highlighting_cache = 1
 
-" vim-devicons settings.
-" Turn on/off file node glyph decorations (not particularly useful)
+" vim-devicons settings
 let g:WebDevIconsUnicodeDecorateFileNodes = 1
-" Enable folder/directory glyph flag (disabled by default with 0)
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-" Enable open and close folder/directory glyph flags (disabled by default with 0)
 let g:DevIconsEnableFoldersOpenClose = 1
 " Solve issues after resourcing.
 if exists("g:loaded_webdevicons")
@@ -210,14 +208,8 @@ noremap <silent> <Leader>ga :GscopeFind a <C-r><C-w><CR>
 " Find current word in ctags database.
 noremap <silent> <Leader>gw :GscopeFind z <C-r><C-w><CR>
 
-" fzf settings.
-" Default fzf layout
-" - Popup window (center of the current window)
-" let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'relative': v:true } }
-" - down / up / left / right
-let g:fzf_layout = { 'down': '40%' }
-" Customize fzf colors to match your color scheme
-" - fzf#wrap translates this to a set of `--color` options
+" fzf settings
+" Customize fzf colors to match color scheme.
 let g:fzf_colors = {
   \ 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
@@ -233,10 +225,9 @@ let g:fzf_colors = {
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment']
   \ }
-" Enable per-command history
-" - History files will be stored in the specified directory
-" - When set, CTRL-N and CTRL-P will be bound to 'next-history' and
-"   'previous-history' instead of 'down' and 'up'.
+" Enable per-command history.
+" - CTRL-n and CTRL-p will be bound to 'next-history' and 'previous-history'
+"   instead of 'down' and 'up'.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " nerdtree settings
@@ -246,8 +237,8 @@ let g:NERDTreeShowHidden = 1
 let g:NERDTreeNaturalSort = 1
 let g:NERDTreeMinimalMenu = 1
 
-" vim-nerdtree-syntax-highlight settings.
-" Mitigating lag issues for nerdtree.
+" " vim-nerdtree-syntax-highlight settings
+" " Mitigating lag issues for nerdtree.
 " let g:NERDTreeLimitedSyntax = 1
 " let g:NERDTreeHighlightCursorline = 0
 
@@ -256,26 +247,22 @@ nnoremap <silent> <Leader>t :TagbarToggle<CR>
 let g:tagbar_width = max([30, winwidth(0) / 5])
 let g:tagbar_autofocus = 1
 
-" vim-easymotion settings.
-" Change the default <Leader><Leader> prefix to <Leader>.
-map <Leader> <Plug>(easymotion-prefix)
-" Search by one, or two, or multiple chars, can be out of screen but in current window.
+" vim-easymotion settings
+" " Change the default <Leader><Leader> prefix to <Leader>.
+" map <Leader> <Plug>(easymotion-prefix)
+" Search by multiple chars, can be out of screen but in current window.
 map / <Plug>(easymotion-sn)
 map n <Plug>(easymotion-next)
 map N <Plug>(easymotion-prev)
 " Search by one or two chars, can be out of window but in current screen.
 " `s{char}{label}` or `s{char}{char}{label}`
 nmap s <Plug>(easymotion-overwin-f2)
-" Buffer Completion with Ctrl-D.
+" Buffer Completion with Ctrl-d.
 autocmd VimEnter * EMCommandLineNoreMap <C-d> <Over>(buffer-complete)
-" Simple command line prompt.
 let g:EasyMotion_prompt = '{n}>>> '
-" Turn on case-insensitive feature.
 let g:EasyMotion_smartcase = 1
-" Do not display "EasyMotion: Cancelled", etc.
 let g:EasyMotion_verbose = 0
 
-" indentline settings.
 " coc settings
 " Ref: https://raw.githubusercontent.com/neoclide/coc.nvim/master/doc/coc-example-config.vim
 " Automatically install extensions.
@@ -385,6 +372,7 @@ nnoremap <silent><nowait> <Leader>cp :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <Leader>cR :<C-u>CocListResume<CR>
 
+" indentline settings
 " Change indent character to '|', '¦', '┆', or '┊'.
 let g:indentLine_char = '│'
 let g:indentLine_fileTypeExclude = ['man', 'text']
@@ -438,12 +426,10 @@ xmap gcl <Plug>NERDCommenterAlignLeft
 nmap gcb <Plug>NERDCommenterAlignBoth
 xmap gcb <Plug>NERDCommenterAlignBoth
 
-" vim-visual-multi settings.
+" vim-visual-multi settings
 let g:VM_theme = 'iceblue'
-" Change the default '\\' leader to vim <Leader>.
+" " Change the default '\\' leader to vim <Leader>.
 " let g:VM_leader = "\<Leader>"
-" Do not display a message when exiting VM.
 let g:VM_silent_exit = 1
-" Do not display a warning when entering VM and there are mapping conflicts.
-" You can still run :VMDebug to see if there are conflicts.
+" Hide warnings, run :VMDebug to see if there are conflicts.
 let g:VM_show_warnings = 0
