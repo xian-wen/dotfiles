@@ -79,6 +79,10 @@ inoremap <Down>  <ESC>:echoe "Use j"<CR>
 runtime! ftplugin/man.vim
 
 " vim-plug settings.
+" Add packages.
+packadd! editorconfig
+packadd! matchit
+
 " Automatic plugin installation with vim-plug.
 " Ref: https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
