@@ -299,8 +299,6 @@ inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 " <C-g>u breaks current undo.
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
   \: "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
-" Use <C-space> to trigger completion.
-inoremap <silent><expr> <C-Space> coc#refresh()
 " Use `[d` and `]d` to navigate diagnostics.
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap <silent> [d <Plug>(coc-diagnostic-prev)
@@ -315,30 +313,30 @@ nnoremap <silent> K :call ShowDocumentation()<CR>
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 " Symbol renaming.
-nmap <Leader>r <Plug>(coc-rename)
+nmap <Leader>cr <Plug>(coc-rename)
 " Formatting selected code.
-nmap <Leader>f  <Plug>(coc-format-selected)
-xmap <Leader>f  <Plug>(coc-format-selected)
+nmap <Leader>cf  <Plug>(coc-format-selected)
+xmap <Leader>cf  <Plug>(coc-format-selected)
 " Update signature help on jump placeholder.
 augroup coc_signature
   autocmd!
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 " Applying code actions to the selected code block.
-" Example: `<Leader>aap` for current paragraph.
-nmap <Leader>a  <Plug>(coc-codeaction-selected)
-xmap <Leader>a  <Plug>(coc-codeaction-selected)
+" Example: `<Leader>caap` for current paragraph.
+nmap <Leader>ca  <Plug>(coc-codeaction-selected)
+xmap <Leader>ca  <Plug>(coc-codeaction-selected)
 " Remap keys for applying code actions at the cursor position.
-nmap <Leader>ac  <Plug>(coc-codeaction-cursor)
+nmap <Leader>cac  <Plug>(coc-codeaction-cursor)
 " Remap keys for apply code actions affect whole buffer.
-nmap <Leader>as  <Plug>(coc-codeaction-source)
+nmap <Leader>cas  <Plug>(coc-codeaction-source)
 " Apply the most preferred quickfix action to fix diagnostic on the current line.
-nmap <Leader>af  <Plug>(coc-fix-current)
+nmap <Leader>caf  <Plug>(coc-fix-current)
 " Remap keys for applying refactor code actions.
-nmap <silent> <Leader>rf <Plug>(coc-codeaction-refactor)
-xmap <silent> <Leader>rf  <Plug>(coc-codeaction-refactor-selected)
+nmap <silent> <Leader>car <Plug>(coc-codeaction-refactor)
+xmap <silent> <Leader>car <Plug>(coc-codeaction-refactor-selected)
 " Run the Code Lens action on the current line.
-nmap <Leader>l <Plug>(coc-codelens-action)
+nmap <Leader>cl <Plug>(coc-codelens-action)
 " Map function and class text objects.
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
 xmap af <Plug>(coc-funcobj-a)
@@ -367,17 +365,24 @@ let g:airline#extensions#coc#enabled = 1
 let g:airline#extensions#coc#error_symbol = ' '
 let g:airline#extensions#coc#warning_symbol = ' '
 let g:airline#extensions#coc#show_coc_status = 1
+" Change the error format (%C - error count, %L - line number).
 let g:airline#extensions#coc#stl_format_err = '%C(L%L)'
+" Change the warning format (%C - error count, %L - line number).
 let g:airline#extensions#coc#stl_format_warn = '%C(L%L)'
 " Mappings for CoCList.
-nnoremap <silent><nowait> <Leader>d :<C-u>CocList diagnostics<CR>
-nnoremap <silent><nowait> <Leader>e :<C-u>CocList extensions<CR>
-nnoremap <silent><nowait> <Leader>C :<C-u>CocList commands<CR>
-nnoremap <silent><nowait> <Leader>s :<C-u>CocList outline<CR>
-nnoremap <silent><nowait> <Leader>S :<C-u>CocList -I symbols<CR>
-nnoremap <silent><nowait> <Leader>n :<C-u>CocNext<CR>
-nnoremap <silent><nowait> <Leader>p :<C-u>CocPrev<CR>
-nnoremap <silent><nowait> <Leader>R :<C-u>CocListResume<CR>
+nnoremap <silent><nowait> <Leader>cd :<C-u>CocList diagnostics<CR>
+nnoremap <silent><nowait> <Leader>ce :<C-u>CocList extensions<CR>
+nnoremap <silent><nowait> <Leader>cc :<C-u>CocList commands<CR>
+" Find symbol of current document.
+nnoremap <silent><nowait> <Leader>cs :<C-u>CocList outline<CR>
+" Search workspace symbols.
+nnoremap <silent><nowait> <Leader>cS :<C-u>CocList -I symbols<CR>
+" Do default action for next item.
+nnoremap <silent><nowait> <Leader>cn :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent><nowait> <Leader>cp :<C-u>CocPrev<CR>
+" Resume latest coc list.
+nnoremap <silent><nowait> <Leader>cR :<C-u>CocListResume<CR>
 
 " Change indent character to '|', '¦', '┆', or '┊'.
 let g:indentLine_char = '│'
