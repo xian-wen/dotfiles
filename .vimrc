@@ -377,8 +377,8 @@ nnoremap <silent><nowait> <Leader>p :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <Leader>R :<C-u>CocListResume<CR>
 
 " Change indent character to '|', '¦', '┆', or '┊'.
-" let g:indentLine_char = '┊'
-let g:indentLine_fileTypeExclude = ['text']
+let g:indentLine_char = '│'
+let g:indentLine_fileTypeExclude = ['man', 'text']
 let g:indentLine_bufTypeExclude = ['help', 'terminal']
 " Do not conceal quotation marks for json files.
 let g:vim_json_syntax_conceal = 0
