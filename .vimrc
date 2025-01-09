@@ -64,17 +64,24 @@ set viminfo+=! " use .viminfo file upon startup and exiting
 set virtualedit=block " when to use virtual editing
 set wildoptions="pum,tagfiles" " specifies how command line completion is done
 
+" Mappings
 " Try to prevent bad habits like using the arrow keys for movement.
-" Do this in normal mode...
 nnoremap <Left>  :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up>    :echoe "Use k"<CR>
 nnoremap <Down>  :echoe "Use j"<CR>
-" ...and in insert mode
 inoremap <Left>  <ESC>:echoe "Use h"<CR>
 inoremap <Right> <ESC>:echoe "Use l"<CR>
 inoremap <Up>    <ESC>:echoe "Use k"<CR>
 inoremap <Down>  <ESC>:echoe "Use j"<CR>
+" Buffers
+nnoremap <C-n> :bnext<CR>
+nnoremap <C-p> :bprevious<CR>
+" Windows
+nnoremap <C-Down> 2<C-w>-
+nnoremap <C-Up> 2<C-w>+
+nnoremap <C-Left> 2<C-w><lt>
+nnoremap <C-Right> 2<C-w>>
 
 " Load the man filetype plugin.
 runtime! ftplugin/man.vim
