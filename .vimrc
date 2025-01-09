@@ -238,13 +238,11 @@ let g:fzf_colors = {
 "   'previous-history' instead of 'down' and 'up'.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
-" nerdtree settings.
-nnoremap <silent> <F3> :NERDTreeToggle<CR>
+" nerdtree settings
+nnoremap <silent> <Leader>e :NERDTreeToggle<CR>
 let g:NERDTreeWinSize = max([30, winwidth(0) / 5])
 let g:NERDTreeShowHidden = 1
-" Natural sort nodes, i.e., foo1, foo2, foo10 instead of foo1, foo10, foo2.
 let g:NERDTreeNaturalSort = 1
-" Display a one-line menu.
 let g:NERDTreeMinimalMenu = 1
 
 " vim-nerdtree-syntax-highlight settings.
