@@ -178,39 +178,36 @@ if exists("g:loaded_webdevicons")
   call webdevicons#refresh()
 endif
 
-" gutentags_plus settings.
-" Enable gtags module.
+" gutentags_plus settings
 let g:gutentags_modules = ['ctags', 'gtags_cscope']
-" Config project root markers.
 let g:gutentags_project_root = ['.root']
-" Generate datebases in my cache directory, prevent gtags files polluting my project.
 let g:gutentags_cache_dir = expand('~/.cache/tags')
-" Enable advanced commands for debugging.
-let g:gutentags_define_advanced_commands = 1
 " Change focus to quickfix window after search (optional).
 let g:gutentags_plus_switch = 1
-" Define new maps.
+" Enable advanced commands for debugging.
+let g:gutentags_define_advanced_commands = 1
+" Disable default mappings.
 let g:gutentags_plus_nomap = 1
 " Find symbol (reference) under cursor.
-noremap <silent> <leader>gs :GscopeFind s <C-R><C-W><cr>
+noremap <silent> <Leader>gr :GscopeFind s <C-r><C-w><CR>
 " Find symbol definition under cursor.
-noremap <silent> <leader>gg :GscopeFind g <C-R><C-W><cr>
-" Find functions called by this function.
-noremap <silent> <leader>gd :GscopeFind d <C-R><C-W><cr>
+noremap <silent> <Leader>gd :GscopeFind g <C-r><C-w><CR>
 " Find functions calling this function.
-noremap <silent> <leader>gc :GscopeFind c <C-R><C-W><cr>
+noremap <silent> <Leader>gc :GscopeFind c <C-r><C-w><CR>
+" Find functions called by this function.
+noremap <silent> <Leader>gC :GscopeFind d <C-r><C-w><CR>
 " Find text string under cursor.
-noremap <silent> <leader>gt :GscopeFind t <C-R><C-W><cr>
+noremap <silent> <Leader>gt :GscopeFind t <C-r><C-w><CR>
 " Find egrep pattern under cursor.
-noremap <silent> <leader>ge :GscopeFind e <C-R><C-W><cr>
+noremap <silent> <Leader>ge :GscopeFind e <C-r><C-w><CR>
 " Find file name under cursor.
-noremap <silent> <leader>gf :GscopeFind f <C-R>=expand("<cfile>")<cr><cr>
+noremap <silent> <Leader>gf :GscopeFind f <C-r>=expand("<cfile>")<CR><CR>
 " Find files #including the file name under cursor.
-noremap <silent> <leader>gi :GscopeFind i <C-R>=expand("<cfile>")<cr><cr>
+noremap <silent> <Leader>gi :GscopeFind i <C-r>=expand("<cfile>")<CR><CR>
 " Find places where current symbol is assigned.
-noremap <silent> <leader>ga :GscopeFind a <C-R><C-W><cr>
+noremap <silent> <Leader>ga :GscopeFind a <C-r><C-w><CR>
 " Find current word in ctags database.
-noremap <silent> <leader>gz :GscopeFind z <C-R><C-W><cr>
+noremap <silent> <Leader>gw :GscopeFind z <C-r><C-w><CR>
 
 " fzf settings.
 " Default fzf layout
