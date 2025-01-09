@@ -108,7 +108,7 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'preservim/tagbar'
 Plug 'easymotion/vim-easymotion'
 
-Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --clangd-completer' }
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'dense-analysis/ale'
 Plug 'sheerun/vim-polyglot'
 Plug 'jiangmiao/auto-pairs'
@@ -272,6 +272,110 @@ let g:EasyMotion_smartcase = 1
 let g:EasyMotion_verbose = 0
 
 " indentline settings.
+" coc settings
+" Ref: https://raw.githubusercontent.com/neoclide/coc.nvim/master/doc/coc-example-config.vim
+" Automatically install extensions.
+let g:coc_global_extensions = [
+  \ 'coc-clangd',
+  \ 'coc-json',
+  \ 'coc-markdownlint',
+  \ 'coc-sh',
+  \ 'coc-snippets'
+  \ ]
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+" Use tab for trigger completion with characters ahead and navigate.
+inoremap <silent><expr> <Tab>
+  \ coc#pum#visible() ? coc#pum#next(1) :
+  \ CheckBackspace() ? "\<Tab>" :
+  \ coc#refresh()
+inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+" Make <CR> to accept selected completion item or notify coc.nvim to format.
+" <C-g>u breaks current undo.
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+  \: "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
+" Use <C-space> to trigger completion.
+inoremap <silent><expr> <C-Space> coc#refresh()
+" Use `[d` and `]d` to navigate diagnostics.
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [d <Plug>(coc-diagnostic-prev)
+nmap <silent> ]d <Plug>(coc-diagnostic-next)
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call ShowDocumentation()<CR>
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+" Symbol renaming.
+nmap <Leader>r <Plug>(coc-rename)
+" Formatting selected code.
+nmap <Leader>f  <Plug>(coc-format-selected)
+xmap <Leader>f  <Plug>(coc-format-selected)
+" Update signature help on jump placeholder.
+augroup coc_signature
+  autocmd!
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+" Applying code actions to the selected code block.
+" Example: `<Leader>aap` for current paragraph.
+nmap <Leader>a  <Plug>(coc-codeaction-selected)
+xmap <Leader>a  <Plug>(coc-codeaction-selected)
+" Remap keys for applying code actions at the cursor position.
+nmap <Leader>ac  <Plug>(coc-codeaction-cursor)
+" Remap keys for apply code actions affect whole buffer.
+nmap <Leader>as  <Plug>(coc-codeaction-source)
+" Apply the most preferred quickfix action to fix diagnostic on the current line.
+nmap <Leader>af  <Plug>(coc-fix-current)
+" Remap keys for applying refactor code actions.
+nmap <silent> <Leader>rf <Plug>(coc-codeaction-refactor)
+xmap <silent> <Leader>rf  <Plug>(coc-codeaction-refactor-selected)
+" Run the Code Lens action on the current line.
+nmap <Leader>l <Plug>(coc-codelens-action)
+" Map function and class text objects.
+" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+" Remap <C-f> and <C-b> to scroll float windows/popups.
+nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<C-r>=coc#float#scroll(1)\<CR>" : "\<Right>"
+inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<C-r>=coc#float#scroll(0)\<CR>" : "\<Left>"
+vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocActionAsync('format')
+" Add `:Fold` command to fold current buffer.
+command! -nargs=? Fold :call CocAction('fold', <f-args>)
+" Add `:OR` command for organize imports of the current buffer.
+command! -nargs=0 OR :call CocActionAsync('runCommand', 'editor.action.organizeImport')
+" Enable airline support.
+let g:airline#extensions#coc#enabled = 1
+let g:airline#extensions#coc#error_symbol = ' '
+let g:airline#extensions#coc#warning_symbol = ' '
+let g:airline#extensions#coc#show_coc_status = 1
+let g:airline#extensions#coc#stl_format_err = '%C(L%L)'
+let g:airline#extensions#coc#stl_format_warn = '%C(L%L)'
+" Mappings for CoCList.
+nnoremap <silent><nowait> <Leader>d :<C-u>CocList diagnostics<CR>
+nnoremap <silent><nowait> <Leader>e :<C-u>CocList extensions<CR>
+nnoremap <silent><nowait> <Leader>C :<C-u>CocList commands<CR>
+nnoremap <silent><nowait> <Leader>s :<C-u>CocList outline<CR>
+nnoremap <silent><nowait> <Leader>S :<C-u>CocList -I symbols<CR>
+nnoremap <silent><nowait> <Leader>n :<C-u>CocNext<CR>
+nnoremap <silent><nowait> <Leader>p :<C-u>CocPrev<CR>
+nnoremap <silent><nowait> <Leader>R :<C-u>CocListResume<CR>
+
 " Change indent character to '|', '¦', '┆', or '┊'.
 " let g:indentLine_char = '┊'
 let g:indentLine_fileTypeExclude = ['text']
