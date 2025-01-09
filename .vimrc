@@ -91,12 +91,9 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" vim-polyglot settings.
-" Syntax highlighting for markdown is weird, so disable it,
-" which must be defined before polyglot is loaded.
-let g:polyglot_disabled = ['markdown']
-" Disable default settings.
-" let g:polyglot_disabled = ['sensible']
+" vim-polyglot settings
+" Disable syntax highlighting for markdown and default settings.
+let g:polyglot_disabled = ['markdown', 'sensible']
 
 " vim-plug: vim plugin manager
 call plug#begin('~/.vim/plugged')
