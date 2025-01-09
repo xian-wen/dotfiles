@@ -391,25 +391,51 @@ let g:indentLine_bufTypeExclude = ['help', 'terminal']
 " Do not conceal quotation marks for json files.
 let g:vim_json_syntax_conceal = 0
 
-" nerdcommenter settings.
-" Create default mappings
-let g:NERDCreateDefaultMappings = 1
-" Add spaces after comment delimiters by default
+" nerdcommenter settings
+" Add spaces after comment delimiters by default.
 let g:NERDSpaceDelims = 1
-" Use compact syntax for prettified multi-line comments
-" let g:NERDCompactSexyComs = 1
-" Align line-wise comment delimiters flush left instead of following code indentation
+" Align line-wise comment delimiters flush left instead of following code indentation.
 let g:NERDDefaultAlign = 'left'
-" Set a language to use its alternate delimiters by default
-" let g:NERDAltDelims_java = 1
-" Add your own custom formats or override the defaults
-" let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
-" Allow commenting and inverting empty lines (useful when commenting a region)
+" Allow commenting and inverting empty lines (useful when commenting a region).
 let g:NERDCommentEmptyLines = 1
-" Enable trimming of trailing whitespace when uncommenting
+" Enable trimming of trailing whitespace when uncommenting.
 let g:NERDTrimTrailingWhitespace = 1
-" Enable NERDCommenterToggle to check all selected lines is commented or not
+" Enable NERDCommenterToggle to check all selected lines is commented or not.
 let g:NERDToggleCheckAllLines = 1
+" Disable default mappings.
+let g:NERDCreateDefaultMappings = 0
+" Toggle the comment state of the selected line(s).
+nmap gcc <Plug>NERDCommenterToggle
+xmap gcc <Plug>NERDCommenterToggle
+" Comment the current line or text selected in visual mode, force nesting.
+nmap gcn <Plug>NERDCommenterNested
+xmap gcn <Plug>NERDCommenterNested
+" Comment the given lines using only one set of multipart delimiters.
+nmap gcm <Plug>NERDCommenterMinimal
+xmap gcm <Plug>NERDCommenterMinimal
+" Toggle the comment state of the selected line(s) individually.
+nmap gci <Plug>NERDCommenterInvert
+xmap gci <Plug>NERDCommenterInvert
+" Comment out the selected lines ``sexily''.
+nmap gcs <Plug>NERDCommenterSexy
+xmap gcs <Plug>NERDCommenterSexy
+" Yank first before commenting the current line or text selected in visual mode.
+nmap gcy <Plug>NERDCommenterYank
+xmap gcy <Plug>NERDCommenterYank
+" Comment the current line from the cursor to the end of line.
+nmap gc$ <Plug>NERDCommenterToEOL
+" Add comment delimiters to the end of line and go into insert mode between them.
+nmap gcA <Plug>NERDCommenterAppend
+" Add comment delimiters at the current cursor position and insert between.
+imap gcI <Plug>NERDCommenterInsert
+" Switch to the alternative set of delimiters.
+nmap gca <Plug>NERDCommenterAltDelims
+" Comment the current line or text selected in visual mode with delimiters
+" aligned down the left side (gcl) or both sides (gcb).
+nmap gcl <Plug>NERDCommenterAlignLeft
+xmap gcl <Plug>NERDCommenterAlignLeft
+nmap gcb <Plug>NERDCommenterAlignBoth
+xmap gcb <Plug>NERDCommenterAlignBoth
 
 " vim-visual-multi settings.
 let g:VM_theme = 'iceblue'
