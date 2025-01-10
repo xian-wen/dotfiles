@@ -282,7 +282,7 @@ let g:coc_global_extensions = [
   \ ]
 function! CheckBackspace() abort
   let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+  return !col || getline('.')[col - 1] =~# '\s'
 endfunction
 " Use tab for trigger completion with characters ahead and navigate.
 inoremap <silent><expr> <Tab>
@@ -310,8 +310,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " Symbol renaming.
 nmap <Leader>cr <Plug>(coc-rename)
 " Formatting selected code.
-nmap <Leader>cf  <Plug>(coc-format-selected)
-xmap <Leader>cf  <Plug>(coc-format-selected)
+nmap <Leader>cf <Plug>(coc-format-selected)
+xmap <Leader>cf <Plug>(coc-format-selected)
 " Update signature help on jump placeholder.
 augroup coc_signature
   autocmd!
