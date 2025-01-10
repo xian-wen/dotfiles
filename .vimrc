@@ -349,6 +349,10 @@ inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? '<C-r>=coc#float#
 inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? '<C-r>=coc#float#scroll(0)<CR>' : '<Left>'
 vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : '<C-f>'
 vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : '<C-b>'
+" Remap <C-c> to close float windows/popups.
+nnoremap <silent><nowait><expr> <C-c> coc#float#has_float() ? popup_clear() : '<C-c>'
+inoremap <silent><nowait><expr> <C-c> coc#float#has_float() ? '<C-r>=popup_clear()<CR>' : '<C-c>'
+vnoremap <silent><nowait><expr> <C-c> coc#float#has_float() ? popup_clear() : '<C-c>'
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocActionAsync('format')
 " Add `:Fold` command to fold current buffer.
