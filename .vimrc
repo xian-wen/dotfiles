@@ -287,13 +287,13 @@ endfunction
 " Use tab for trigger completion with characters ahead and navigate.
 inoremap <silent><expr> <Tab>
   \ coc#pum#visible() ? coc#pum#next(1) :
-  \ CheckBackspace() ? "\<Tab>" :
+  \ CheckBackspace() ? '<Tab>' :
   \ coc#refresh()
-inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : '<S-Tab>'
 " Make <CR> to accept selected completion item or notify coc.nvim to format.
 " <C-g>u breaks current undo.
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-  \: "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
+  \ : '<C-g>u<CR><C-r>=coc#on_enter()<CR>'
 " Use `[d` and `]d` to navigate diagnostics.
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap <silent> [d <Plug>(coc-diagnostic-prev)
@@ -343,12 +343,12 @@ omap ac <Plug>(coc-classobj-a)
 xmap ic <Plug>(coc-classobj-i)
 omap ic <Plug>(coc-classobj-i)
 " Remap <C-f> and <C-b> to scroll float windows/popups.
-nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<C-r>=coc#float#scroll(1)\<CR>" : "\<Right>"
-inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<C-r>=coc#float#scroll(0)\<CR>" : "\<Left>"
-vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : '<C-f>'
+nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : '<C-b>'
+inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? '<C-r>=coc#float#scroll(1)<CR>' : '<Right>'
+inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? '<C-r>=coc#float#scroll(0)<CR>' : '<Left>'
+vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : '<C-f>'
+vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : '<C-b>'
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocActionAsync('format')
 " Add `:Fold` command to fold current buffer.
