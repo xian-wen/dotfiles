@@ -16,7 +16,6 @@ set encoding=utf-8 " encoding used internally
 set expandtab " use spaces when <Tab> is inserted
 set fillchars=vert:│,fold:\ ,foldopen:,foldclose:,foldsep:\ ,eob:\  " characters to use for displaying special items
 set foldlevel=99 " close folds with a level higher than this
-set foldtext= " expression used to display for a closed fold
 set formatoptions=tcroqnlj " how automatic formatting is to be done
 set grepformat=%f:%l:%c:%m " format of 'grepprg' output
 set grepprg=rg\ --vimgrep " program to use for :grep
