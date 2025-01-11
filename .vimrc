@@ -14,19 +14,19 @@ set cursorline " highlight the screen line of the cursor
 set display=lastline " list of flags for how to display text
 set encoding=utf-8 " encoding used internally
 set expandtab " use spaces when <Tab> is inserted
-set fillchars="vert:│,fold: ,foldopen:,foldclose:, foldsep: ,eob: " " characters to use for displaying special items
+set fillchars=vert:│,fold:\ ,foldopen:,foldclose:,foldsep:\ ,eob:\  " characters to use for displaying special items
 set foldlevel=99 " close folds with a level higher than this
 set foldtext= " expression used to display for a closed fold
 set formatoptions=tcroqnlj " how automatic formatting is to be done
-set grepformat="%f:%l:%c:%m" " format of 'grepprg' output
-set grepprg="rg --vimgrep" " program to use for :grep
+set grepformat=%f:%l:%c:%m " format of 'grepprg' output
+set grepprg=rg\ --vimgrep " program to use for :grep
 set hidden " don't unload buffer when it is abandoned
 set history=10000 " number of command-lines that are remembered
 set ignorecase " ignore case in search patterns
 set laststatus=2 " tells when last window has status lines
 set linebreak " wrap long lines at a blank
 set list " show <Tab> and <EOL>
-set listchars="tab:> ,trail:-,nbsp:+"
+set listchars=tab:>\ ,trail:-,nbsp:+
 set mouse=a " enable the use of mouse clicks
 set mousemodel=popup_setpos " changes meaning of mouse buttons
 set nojoinspaces " two spaces after a period with a join command
@@ -38,7 +38,7 @@ set number " print the line number in front of each line
 set pumheight=10 " maximum number of items to show in the popup menu
 set relativenumber " show relative line number in front of each line
 set scrolloff=4 " minimum nr. of lines above and below cursor
-set sessionoptions="buffers,curdir,folds,globals,help,skiprtp,tagpages,winsize" " options for :mksession
+set sessionoptions=buffers,curdir,folds,globals,help,skiprtp,slash,tabpages,unix,winsize " options for :mksession
 set shiftround " round indent to multiple of shiftwidth
 set shiftwidth=2 " number of spaces to use for (auto)indent step
 set shortmess+=ICF " list of flags, reduce length of messages
@@ -62,7 +62,7 @@ set undofile " save undo information in a file
 set updatetime=200 " after this many milliseconds flush swap file
 set viminfo+=! " use .viminfo file upon startup and exiting
 set virtualedit=block " when to use virtual editing
-set wildoptions="pum,tagfiles" " specifies how command line completion is done
+set wildoptions=pum,tagfile " specifies how command line completion is done
 
 " Mappings
 " Try to prevent bad habits like using the arrow keys for movement.
