@@ -231,7 +231,7 @@ let g:fzf_colors = {
   \ 'header':  ['fg', 'Comment']
   \ }
 " Enable per-command history.
-" - CTRL-n and CTRL-p will be bound to 'next-history' and 'previous-history'
+" - <C-n> and <C-p> will be bound to 'next-history' and 'previous-history'
 "   instead of 'down' and 'up'.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
