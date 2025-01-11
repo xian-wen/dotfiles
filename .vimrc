@@ -263,6 +263,10 @@ map N <Plug>(easymotion-prev)
 " `s{char}{label}` or `s{char}{char}{label}`
 nmap s <Plug>(easymotion-overwin-f2)
 " Buffer Completion with Ctrl-d.
+" JK motions: Line motions.
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+" Buffer Completion with <C-d>.
 autocmd VimEnter * EMCommandLineNoreMap <C-d> <Over>(buffer-complete)
 let g:EasyMotion_prompt = '{n}>>> '
 let g:EasyMotion_smartcase = 1
