@@ -283,20 +283,79 @@ let g:coc_global_extensions = [
   \ 'coc-sh',
   \ 'coc-snippets'
   \ ]
-function! CheckBackspace() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1] =~# '\s'
-endfunction
-" Use tab for trigger completion with characters ahead and navigate.
+" Enable airline support.
+let g:airline#extensions#coc#enabled = 1
+let g:airline#extensions#coc#error_symbol = ' '
+let g:airline#extensions#coc#warning_symbol = ' '
+let g:airline#extensions#coc#show_coc_status = 1
+" Change the error format (%C - error count, %L - line number).
+let g:airline#extensions#coc#stl_format_err = '%C(L%L)'
+" Change the warning format (%C - error count, %L - line number).
+let g:airline#extensions#coc#stl_format_warn = '%C(L%L)'
+" Configuration.
+call coc#config('coc.preferences', {
+  \ 'enableMessageDialog': 'true',
+  \ 'formatOnSave': 'true',
+  \ })
+augroup coc_group
+  autocmd!
+  " Format selected code with `gq`.
+  autocmd FileType * setlocal formatexpr=CocAction('formatSelected')
+  " Highlight the symbol and its references when holding the cursor.
+  autocmd CursorHold * silent call CocActionAsync('highlight')
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocActionAsync('format')
+" Add `:Fold` command to fold current buffer.
+command! -nargs=? Fold :call CocAction('fold', <f-args>)
+" Add `:OR` command to organize imports of the current buffer.
+command! -nargs=0 OR :call CocActionAsync('runCommand', 'editor.action.organizeImport')
+" Use <Tab> for trigger completion with characters ahead and navigate.
 inoremap <silent><expr> <Tab>
   \ coc#pum#visible() ? coc#pum#next(1) :
   \ CheckBackspace() ? '<Tab>' :
   \ coc#refresh()
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1] =~# '\s'
+endfunction
 inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : '<S-Tab>'
 " Make <CR> to accept selected completion item or notify coc.nvim to format.
 " <C-g>u breaks current undo.
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
   \ : '<C-g>u<CR><C-r>=coc#on_enter()<CR>'
+" Remap <C-f> and <C-b> to scroll float windows/popups.
+nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : '<C-f>'
+nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : '<C-b>'
+inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? '<C-r>=coc#float#scroll(1)<CR>' : '<Right>'
+inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? '<C-r>=coc#float#scroll(0)<CR>' : '<Left>'
+vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : '<C-f>'
+vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : '<C-b>'
+" Remap <C-c> to close float windows/popups.
+nnoremap <silent><nowait><expr> <C-c> coc#float#has_float() ? popup_clear() : '<C-c>'
+inoremap <silent><nowait><expr> <C-c> coc#float#has_float() ? '<C-r>=popup_clear()<CR>' : '<C-c>'
+vnoremap <silent><nowait><expr> <C-c> coc#float#has_float() ? popup_clear() : '<C-c>'
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call ShowDocumentation()<CR>
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+" Map function and class text objects.
+" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
 " Use `[d` and `]d` to navigate diagnostics.
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap <silent> [d <Plug>(coc-diagnostic-prev)
@@ -306,20 +365,6 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call ShowDocumentation()<CR>
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
-" Symbol renaming.
-nmap <Leader>cr <Plug>(coc-rename)
-" Formatting selected code.
-nmap <Leader>cf <Plug>(coc-format-selected)
-xmap <Leader>cf <Plug>(coc-format-selected)
-" Update signature help on jump placeholder.
-augroup coc_signature
-  autocmd!
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
 " Applying code actions to the selected code block.
 " Example: `<Leader>caap` for current paragraph.
 nmap <Leader>ca  <Plug>(coc-codeaction-selected)
@@ -333,48 +378,17 @@ nmap <Leader>caf  <Plug>(coc-fix-current)
 " Remap keys for applying refactor code actions.
 nmap <silent> <Leader>car <Plug>(coc-codeaction-refactor)
 xmap <silent> <Leader>car <Plug>(coc-codeaction-refactor-selected)
+" Formatting selected code.
+nmap <Leader>cf <Plug>(coc-format-selected)
+xmap <Leader>cf <Plug>(coc-format-selected)
 " Run the Code Lens action on the current line.
 nmap <Leader>cl <Plug>(coc-codelens-action)
-" Map function and class text objects.
-" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-xmap af <Plug>(coc-funcobj-a)
-omap af <Plug>(coc-funcobj-a)
-xmap if <Plug>(coc-funcobj-i)
-omap if <Plug>(coc-funcobj-i)
-xmap ac <Plug>(coc-classobj-a)
-omap ac <Plug>(coc-classobj-a)
-xmap ic <Plug>(coc-classobj-i)
-omap ic <Plug>(coc-classobj-i)
-" Remap <C-f> and <C-b> to scroll float windows/popups.
-nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : '<C-f>'
-nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : '<C-b>'
-inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? '<C-r>=coc#float#scroll(1)<CR>' : '<Right>'
-inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? '<C-r>=coc#float#scroll(0)<CR>' : '<Left>'
-vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : '<C-f>'
-vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : '<C-b>'
-" Remap <C-c> to close float windows/popups.
-nnoremap <silent><nowait><expr> <C-c> coc#float#has_float() ? popup_clear() : '<C-c>'
-inoremap <silent><nowait><expr> <C-c> coc#float#has_float() ? '<C-r>=popup_clear()<CR>' : '<C-c>'
-vnoremap <silent><nowait><expr> <C-c> coc#float#has_float() ? popup_clear() : '<C-c>'
-" Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocActionAsync('format')
-" Add `:Fold` command to fold current buffer.
-command! -nargs=? Fold :call CocAction('fold', <f-args>)
-" Add `:OR` command for organize imports of the current buffer.
-command! -nargs=0 OR :call CocActionAsync('runCommand', 'editor.action.organizeImport')
-" Enable airline support.
-let g:airline#extensions#coc#enabled = 1
-let g:airline#extensions#coc#error_symbol = ' '
-let g:airline#extensions#coc#warning_symbol = ' '
-let g:airline#extensions#coc#show_coc_status = 1
-" Change the error format (%C - error count, %L - line number).
-let g:airline#extensions#coc#stl_format_err = '%C(L%L)'
-" Change the warning format (%C - error count, %L - line number).
-let g:airline#extensions#coc#stl_format_warn = '%C(L%L)'
+" Symbol renaming.
+nmap <Leader>cr <Plug>(coc-rename)
 " Mappings for CoCList.
+nnoremap <silent><nowait> <Leader>cc :<C-u>CocList commands<CR>
 nnoremap <silent><nowait> <Leader>cd :<C-u>CocList diagnostics<CR>
 nnoremap <silent><nowait> <Leader>ce :<C-u>CocList extensions<CR>
-nnoremap <silent><nowait> <Leader>cc :<C-u>CocList commands<CR>
 " Find symbol of current document.
 nnoremap <silent><nowait> <Leader>cs :<C-u>CocList outline<CR>
 " Search workspace symbols.
