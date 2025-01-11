@@ -236,11 +236,11 @@ let g:fzf_colors = {
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " nerdtree settings
-nnoremap <silent> <Leader>e :NERDTreeToggle<CR>
 let g:NERDTreeWinSize = max([30, winwidth(0) / 5])
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeNaturalSort = 1
 let g:NERDTreeMinimalMenu = 1
+nnoremap <silent> <Leader>e :NERDTreeToggle<CR>
 
 " " vim-nerdtree-syntax-highlight settings
 " " Mitigating lag issues for nerdtree.
@@ -248,29 +248,30 @@ let g:NERDTreeMinimalMenu = 1
 " let g:NERDTreeHighlightCursorline = 0
 
 " tagbar settings
-nnoremap <silent> <Leader>t :TagbarToggle<CR>
 let g:tagbar_width = max([30, winwidth(0) / 5])
 let g:tagbar_autofocus = 1
+nnoremap <silent> <Leader>t :TagbarToggle<CR>
 
 " vim-easymotion settings
+let g:EasyMotion_prompt = '{n}>>> '
+let g:EasyMotion_smartcase = 1
+let g:EasyMotion_verbose = 0
+" Disable default mappings.
+let g:EasyMotion_do_mapping = 0
 " " Change the default <Leader><Leader> prefix to <Leader>.
 " map <Leader> <Plug>(easymotion-prefix)
+" Search by one or two chars, can be out of window but in current screen.
+" `s{char}{label}` or `s{char}{char}{label}`
+nmap s <Plug>(easymotion-overwin-f2)
 " Search by multiple chars, can be out of screen but in current window.
 map / <Plug>(easymotion-sn)
 map n <Plug>(easymotion-next)
 map N <Plug>(easymotion-prev)
-" Search by one or two chars, can be out of window but in current screen.
-" `s{char}{label}` or `s{char}{char}{label}`
-nmap s <Plug>(easymotion-overwin-f2)
-" Buffer Completion with Ctrl-d.
 " JK motions: Line motions.
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 " Buffer Completion with <C-d>.
 autocmd VimEnter * EMCommandLineNoreMap <C-d> <Over>(buffer-complete)
-let g:EasyMotion_prompt = '{n}>>> '
-let g:EasyMotion_smartcase = 1
-let g:EasyMotion_verbose = 0
 
 " coc settings
 " Ref: https://raw.githubusercontent.com/neoclide/coc.nvim/master/doc/coc-example-config.vim
