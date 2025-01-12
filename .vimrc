@@ -298,8 +298,8 @@ let g:airline#extensions#coc#stl_format_err = '%C(L%L)'
 let g:airline#extensions#coc#stl_format_warn = '%C(L%L)'
 " Configuration.
 call coc#config('coc.preferences', {
-  \ 'enableMessageDialog': 'true',
-  \ 'formatOnSave': 'true',
+  \ 'enableMessageDialog': v:true,
+  \ 'formatOnSave': v:true,
   \ })
 augroup coc_group
   autocmd!
