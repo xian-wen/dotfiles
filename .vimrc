@@ -374,10 +374,11 @@ nmap <Leader>cac  <Plug>(coc-codeaction-cursor)
 " Remap keys for apply code actions affect whole buffer.
 nmap <Leader>cas  <Plug>(coc-codeaction-source)
 " Apply the most preferred quickfix action to fix diagnostic on the current line.
-nmap <Leader>caf  <Plug>(coc-fix-current)
+nmap <Leader>caq  <Plug>(coc-fix-current)
 " Remap keys for applying refactor code actions.
-nmap <silent> <Leader>car <Plug>(coc-codeaction-refactor)
+nmap <silent> <Leader>car <Plug>(coc-codeaction-refactor-selected)
 xmap <silent> <Leader>car <Plug>(coc-codeaction-refactor-selected)
+nmap <silent> <Leader>caR <Plug>(coc-codeaction-refactor)
 " Formatting selected code.
 nmap <Leader>cf <Plug>(coc-format-selected)
 xmap <Leader>cf <Plug>(coc-format-selected)
@@ -390,9 +391,9 @@ nnoremap <silent><nowait> <Leader>cc :<C-u>CocList commands<CR>
 nnoremap <silent><nowait> <Leader>cd :<C-u>CocList diagnostics<CR>
 nnoremap <silent><nowait> <Leader>ce :<C-u>CocList extensions<CR>
 " Find symbol of current document.
-nnoremap <silent><nowait> <Leader>cs :<C-u>CocList outline<CR>
+nnoremap <silent><nowait> <Leader>co :<C-u>CocList outline<CR>
 " Search workspace symbols.
-nnoremap <silent><nowait> <Leader>cS :<C-u>CocList -I symbols<CR>
+nnoremap <silent><nowait> <Leader>cs :<C-u>CocList -I symbols<CR>
 " Do default action for next item.
 nnoremap <silent><nowait> <Leader>cn :<C-u>CocNext<CR>
 " Do default action for previous item.
