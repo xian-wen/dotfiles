@@ -279,9 +279,13 @@ autocmd VimEnter * EMCommandLineNoreMap <C-d> <Over>(buffer-complete)
 let g:coc_global_extensions = [
   \ 'coc-clangd',
   \ 'coc-json',
+  \ 'coc-markdown-preview-enhanced',
   \ 'coc-markdownlint',
   \ 'coc-sh',
-  \ 'coc-snippets'
+  \ 'coc-snippets',
+  \ 'coc-vimlsp',
+  \ 'coc-webview',
+  \ 'coc-yank',
   \ ]
 " Enable airline support.
 let g:airline#extensions#coc#enabled = 1
@@ -400,6 +404,9 @@ nnoremap <silent><nowait> <Leader>cn :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <Leader>cp :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <Leader>cR :<C-u>CocListResume<CR>
+" Mappings for extensions.
+" markdown-preview-enhanced
+nnoremap <silent><nowait> <Leader>m :<C-u>CocCommand markdown-preview-enhanced.openPreview<CR>
 
 " indentline settings
 " Change indent character to '|', '¦', '┆', or '┊'.
