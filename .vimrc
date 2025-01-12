@@ -2,6 +2,57 @@
 let g:mapleader = ' ' " value of <Leader>
 let g:maplocalleader = ' ' " value of <LocalLeader>
 
+let g:icons = {
+  \ 'diagnostics': {
+  \ 'error': ' ',
+  \ 'warning': ' ',
+  \ 'info': ' ',
+  \ 'hint': ' ',
+  \ },
+  \ 'kinds': {
+  \ 'array': ' ',
+  \ 'boolean': '󰨙 ',
+  \ 'class': ' ',
+  \ 'codeium': '󰘦 ',
+  \ 'collapsed': ' ',
+  \ 'color': ' ',
+  \ 'constant': '󰏿 ',
+  \ 'constructor': ' ',
+  \ 'control': ' ',
+  \ 'copilot': ' ',
+  \ 'enum': ' ',
+  \ 'enumMember': ' ',
+  \ 'event': ' ',
+  \ 'field': ' ',
+  \ 'file': ' ',
+  \ 'folder': ' ',
+  \ 'function': '󰊕 ',
+  \ 'interface': ' ',
+  \ 'key': ' ',
+  \ 'keyword': ' ',
+  \ 'method': '󰊕 ',
+  \ 'module': ' ',
+  \ 'namespace': '󰦮 ',
+  \ 'null': ' ',
+  \ 'number': '󰎠 ',
+  \ 'object': ' ',
+  \ 'operator': ' ',
+  \ 'package': ' ',
+  \ 'property': ' ',
+  \ 'reference': ' ',
+  \ 'snippet': '󱄽 ',
+  \ 'string': ' ',
+  \ 'struct': '󰆼 ',
+  \ 'supermaven': ' ',
+  \ 'tabNine': '󰏚 ',
+  \ 'text': ' ',
+  \ 'typeParameter': ' ',
+  \ 'unit': ' ',
+  \ 'value': ' ',
+  \ 'variable': '󰀫 ',
+  \ },
+  \ }
+
 source $VIMRUNTIME/defaults.vim " default options
 
 set autoindent " take indent for new line from previous line
@@ -289,14 +340,50 @@ let g:coc_global_extensions = [
   \ ]
 " Enable airline support.
 let g:airline#extensions#coc#enabled = 1
-let g:airline#extensions#coc#error_symbol = ' '
-let g:airline#extensions#coc#warning_symbol = ' '
+let g:airline#extensions#coc#error_symbol = g:icons.diagnostics.error
+let g:airline#extensions#coc#warning_symbol = g:icons.diagnostics.warning
 let g:airline#extensions#coc#show_coc_status = 1
 " Change the error format (%C - error count, %L - line number).
 let g:airline#extensions#coc#stl_format_err = '%C(L%L)'
 " Change the warning format (%C - error count, %L - line number).
 let g:airline#extensions#coc#stl_format_warn = '%C(L%L)'
 " Configuration.
+call coc#config('diagnostic', {
+  \ 'errorSign': g:icons.diagnostics.error,
+  \ 'warningSign': g:icons.diagnostics.warning,
+  \ 'infoSign': g:icons.diagnostics.info,
+  \ 'hintSign': g:icons.diagnostics.hint,
+  \ })
+call coc#config('suggest', {
+  \ 'completionItemKindLabels': {
+  \ 'text': g:icons.kinds.text,
+  \ 'method': g:icons.kinds.method,
+  \ 'function': g:icons.kinds.function,
+  \ 'constructor': g:icons.kinds.constructor,
+  \ 'field': g:icons.kinds.field,
+  \ 'variable': g:icons.kinds.variable,
+  \ 'class': g:icons.kinds.class,
+  \ 'interface': g:icons.kinds.interface,
+  \ 'module': g:icons.kinds.module,
+  \ 'property': g:icons.kinds.property,
+  \ 'unit': g:icons.kinds.unit,
+  \ 'value': g:icons.kinds.value,
+  \ 'enum': g:icons.kinds.enum,
+  \ 'keyword': g:icons.kinds.keyword,
+  \ 'snippet': g:icons.kinds.snippet,
+  \ 'color': g:icons.kinds.color,
+  \ 'file': g:icons.kinds.file,
+  \ 'reference': g:icons.kinds.reference,
+  \ 'folder': g:icons.kinds.folder,
+  \ 'enumMember': g:icons.kinds.enumMember,
+  \ 'constant': g:icons.kinds.constant,
+  \ 'struct': g:icons.kinds.struct,
+  \ 'event': g:icons.kinds.event,
+  \ 'operator': g:icons.kinds.operator,
+  \ 'typeParameter': g:icons.kinds.typeParameter,
+  \ 'default': '',
+  \ },
+  \ })
 call coc#config('coc.preferences', {
   \ 'enableMessageDialog': v:true,
   \ 'formatOnSave': v:true,
