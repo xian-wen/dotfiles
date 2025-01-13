@@ -406,28 +406,28 @@ command! -nargs=0 OR :call CocActionAsync('runCommand', 'editor.action.organizeI
 " Use <Tab> for trigger completion with characters ahead and navigate.
 inoremap <silent><expr> <Tab>
   \ coc#pum#visible() ? coc#pum#next(1) :
-  \ CheckBackspace() ? '<Tab>' :
+  \ CheckBackspace() ? "\<Tab>" :
   \ coc#refresh()
 function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1] =~# '\s'
 endfunction
-inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : '<S-Tab>'
+inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
 " Make <CR> to accept selected completion item or notify coc.nvim to format.
 " <C-g>u breaks current undo.
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-  \ : '<C-g>u<CR><C-r>=coc#on_enter()<CR>'
+  \ : "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
 " Remap <C-f> and <C-b> to scroll float windows/popups.
-nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : '<C-f>'
-nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : '<C-b>'
-inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? '<C-r>=coc#float#scroll(1)<CR>' : '<Right>'
-inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? '<C-r>=coc#float#scroll(0)<CR>' : '<Left>'
-vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : '<C-f>'
-vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : '<C-b>'
+nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<C-r>=coc#float#scroll(1)\<CR>" : "\<Right>"
+inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<C-r>=coc#float#scroll(0)\<CR>" : "\<Left>"
+vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 " Remap <C-c> to close float windows/popups.
-nnoremap <silent><nowait><expr> <C-c> coc#float#has_float() ? popup_clear() : '<C-c>'
-inoremap <silent><nowait><expr> <C-c> coc#float#has_float() ? '<C-r>=popup_clear()<CR>' : '<C-c>'
-vnoremap <silent><nowait><expr> <C-c> coc#float#has_float() ? popup_clear() : '<C-c>'
+nnoremap <silent><nowait><expr> <C-c> coc#float#has_float() ? popup_clear() : "\<C-c>"
+inoremap <silent><nowait><expr> <C-c> coc#float#has_float() ? "\<C-r>=popup_clear()\<CR>" : "\<C-c>"
+vnoremap <silent><nowait><expr> <C-c> coc#float#has_float() ? popup_clear() : "\<C-c>"
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call ShowDocumentation()<CR>
 function! ShowDocumentation()
