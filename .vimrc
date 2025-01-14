@@ -419,8 +419,7 @@ endfunction
 inoremap <silent><expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
 " Make <CR> to accept selected completion item or notify coc.nvim to format.
 " <C-g>u breaks current undo.
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-  \ : "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
 " Remap <C-f> and <C-b> to scroll float windows/popups.
 nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
 nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
