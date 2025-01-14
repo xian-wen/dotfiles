@@ -338,6 +338,9 @@ let g:coc_global_extensions = [
   \ 'coc-webview',
   \ 'coc-yank',
   \ ]
+" Use <Tab> and <S-Tab> for snippet jump.
+let g:coc_snippet_next = '<Tab>'
+let g:coc_snippet_prev = '<S-Tab>'
 " Enable airline support.
 let g:airline#extensions#coc#enabled = 1
 let g:airline#extensions#coc#error_symbol = g:icons.diagnostics.error
@@ -406,6 +409,7 @@ command! -nargs=0 OR :call CocActionAsync('runCommand', 'editor.action.organizeI
 " Use <Tab> for trigger completion with characters ahead and navigate.
 inoremap <silent><expr> <Tab>
   \ coc#pum#visible() ? coc#pum#next(1) :
+  \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump', ''])\<CR>" :
   \ CheckBackspace() ? "\<Tab>" :
   \ coc#refresh()
 function! CheckBackspace() abort
