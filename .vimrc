@@ -330,6 +330,7 @@ autocmd VimEnter * EMCommandLineNoreMap <C-d> <Over>(buffer-complete)
 let g:coc_global_extensions = [
   \ 'coc-clangd',
   \ 'coc-json',
+  \ 'coc-lists',
   \ 'coc-markdown-preview-enhanced',
   \ 'coc-markdownlint',
   \ 'coc-sh',
@@ -495,7 +496,9 @@ nnoremap <silent><nowait> <Leader>cp :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <Leader>cR :<C-u>CocListResume<CR>
 " Mappings for extensions.
-" markdown-preview-enhanced
+" coc-lists
+nnoremap <silent><nowait> <Leader>s :<C-u>CocCommand session.load<CR>
+" coc-markdown-preview-enhanced
 nnoremap <silent><nowait> <Leader>m :<C-u>CocCommand markdown-preview-enhanced.openPreview<CR>
 
 " indentline settings
