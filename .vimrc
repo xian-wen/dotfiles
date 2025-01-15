@@ -176,6 +176,7 @@ Plug 'preservim/tagbar'
 Plug 'easymotion/vim-easymotion'
 
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'github/copilot.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'jiangmiao/auto-pairs'
 Plug 'yggdroot/indentline'
@@ -341,6 +342,8 @@ let g:coc_global_extensions = [
 " Use <Tab> and <S-Tab> for snippet jump.
 let g:coc_snippet_next = '<Tab>'
 let g:coc_snippet_prev = '<S-Tab>'
+" Disable <Tab> for copilot.
+let g:copilot_no_tab_map = v:true
 " Enable airline support.
 let g:airline#extensions#coc#enabled = 1
 let g:airline#extensions#coc#error_symbol = g:icons.diagnostics.error
@@ -410,6 +413,7 @@ command! -nargs=0 OR :call CocActionAsync('runCommand', 'editor.action.organizeI
 inoremap <silent><expr> <Tab>
   \ coc#pum#visible() ? coc#pum#next(1) :
   \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump', ''])\<CR>" :
+  \ exists('b:_copilot.suggestions') ? copilot#Accept("\<CR>") :
   \ CheckBackspace() ? "\<Tab>" :
   \ coc#refresh()
 function! CheckBackspace() abort
