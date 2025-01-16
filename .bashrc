@@ -130,6 +130,10 @@ eval "$(register-python-argcomplete pipx)"
 # Set EDITOR to nvim if exists otherwise vim.
 export EDITOR=$(command -v nvim &>/dev/null && echo nvim || echo vim)
 
+# Avoid Executing command "/usr/bin/git" timed out.
+# Ref: https://starship.rs/faq/#why-do-i-see-executing-command-timed-out-warnings
+export STARSHIP_LOG=error
+
 # Replace man with batman.
 eval "$(batman --export-env)"
 
