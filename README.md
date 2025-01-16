@@ -1200,15 +1200,7 @@ Or [install with curl](https://github.com/Schniz/fnm?tab=readme-ov-file#using-a-
 curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell
 ```
 
-[Install completions](https://github.com/Schniz/fnm?tab=readme-ov-file#completions).
-
-```bash
-fnm completions --shell bash > $FNM_DIR/completions/bash_completion
-fnm completions --shell fish > $FNM_DIR/completions/fish_completion
-fnm completions --shell zsh > $FNM_DIR/completions/zsh_completion
-```
-
-Create a symbolic link to [do shell setup](https://github.com/Schniz/fnm?tab=readme-ov-file#shell-setup).
+Create a symbolic link to [do shell setup](https://github.com/Schniz/fnm?tab=readme-ov-file#shell-setup) and [enable completions](https://github.com/Schniz/fnm?tab=readme-ov-file#completions).
 
 ```bash
 ln -sf /home/xianwen/.dotfiles/.bashrc ~/

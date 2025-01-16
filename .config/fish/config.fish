@@ -27,8 +27,7 @@ fzf --fish | source
 
 # Fast Node Manager
 fnm env --use-on-cd --shell fish | source
-set fnm_completion "$FNM_DIR/completions/fish_completion"
-test -s $fnm_completion; and source $fnm_completion
+fnm completions --shell fish | source
 
 # Starship
 # Put this at bottom.

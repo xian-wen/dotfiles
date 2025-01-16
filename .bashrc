@@ -135,8 +135,7 @@ eval "$(fzf --bash)"
 
 # Fast Node Manager
 eval "$(fnm env --use-on-cd --shell bash)"
-fnm_completion="$FNM_DIR/completions/bash_completion"
-[ -s $fnm_completion ] && source $fnm_completion
+eval "$(fnm completions --shell bash)"
 
 # Startship
 # Put this at bottom.
