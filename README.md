@@ -173,8 +173,9 @@ brew update
 
 ### Uninstall
 
-[Uninstall Homebrew](https://github.com/homebrew/install?tab=readme-ov-file#uninstall-homebrew).
+Remove the setup of Homebrew in shell config (e.g., `~/.bashrc`, `~/.config/fish/config.fish`, `~/.zshrc`, etc.) before [uninstall](https://github.com/homebrew/install?tab=readme-ov-file#uninstall-homebrew).
 
+Uninstall Homebrew.
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
 sudo rm -rf /home/linuxbrew/
@@ -988,6 +989,8 @@ brew upgrade bat-extras
 
 ### Uninstall
 
+Remove the setup of bat-extras in shell config (e.g., `~/.bashrc`, `~/.config/fish/config.fish`, `~/.zshrc`, etc.) before uninstall.
+
 Uninstall bat-extras.
 
 ```bash
@@ -1098,6 +1101,8 @@ sudo apt upgrade fzf
 ```
 
 ### Uninstall
+
+Remove the setup of fzf in shell config (e.g., `~/.bashrc`, `~/.config/fish/config.fish`, `~/.zshrc`, etc.) before uninstall.
 
 Uninstall fzf.
 
@@ -1537,7 +1542,9 @@ Update-Module posh-git
 
 ### Uninstall
 
-[Uninstall posh-git](https://learn.microsoft.com/en-us/powershell/module/powershellget/uninstall-module?view=powershellget-3.x).
+Remove the setup of post-git in `$PROFILE` before [uninstall](https://learn.microsoft.com/en-us/powershell/module/powershellget/uninstall-module?view=powershellget-3.x).
+
+Uninstall posh-git.
 
 ```powershell
 Uninstall-Module post-git
@@ -1568,6 +1575,8 @@ Update-Module PSReadLine
 ```
 
 ### Uninstall
+
+Remove the setup of PSReadLine in `$PROFILE` before uninstall.
 
 Uninstall PSReadLine.
 
