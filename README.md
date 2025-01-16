@@ -1197,10 +1197,10 @@ brew install fnm
 Or [install with curl](https://github.com/Schniz/fnm?tab=readme-ov-file#using-a-script-macoslinux).
 
 ```bash
-curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell
+curl -fsSL https://fnm.vercel.app/install | bash
 ```
 
-Create a symbolic link to [do shell setup](https://github.com/Schniz/fnm?tab=readme-ov-file#shell-setup) and [enable completions](https://github.com/Schniz/fnm?tab=readme-ov-file#completions).
+Create a symbolic link to [do shell setup](https://github.com/Schniz/fnm?tab=readme-ov-file#shell-setup) (if installed with Homebrew), and [enable completions](https://github.com/Schniz/fnm?tab=readme-ov-file#completions).
 
 ```bash
 ln -sf /home/xianwen/.dotfiles/.bashrc ~/
@@ -1222,7 +1222,7 @@ fnm install --lts
 brew upgrade fnm
 ```
 
-If installed with curl, [rerun](https://github.com/Schniz/fnm?tab=readme-ov-file#upgrade)
+If installed with curl, [run](https://github.com/Schniz/fnm?tab=readme-ov-file#upgrade)
 
 ```bash
 curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell
