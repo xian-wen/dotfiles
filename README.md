@@ -1163,6 +1163,71 @@ Remove the source line in the `.gdbinit` file, then remove the `pwndbg` folder t
 rm -rf ~/downloads/pwndbg/
 ```
 
+## pipx
+
+### Install
+
+[Install pipx](https://pipx.pypa.io/stable/installation/#on-macos).
+
+```bash
+brew install pipx
+```
+
+Or [install with apt](https://pipx.pypa.io/stable/installation/#on-linux), but the version is too old.
+
+```bash
+sudo apt install pipx
+```
+
+Create a symbolic link to [do shell setup](https://pipx.pypa.io/stable/installation/#installation-options), and [enable completions](https://pipx.pypa.io/stable/installation/#shell-completion).
+
+```bash
+ln -sf /home/xianwen/.dotfiles/.bashrc ~/
+ln -sf /home/xianwen/.dotfiles/.config/fish/ ~/.config/
+ln -sf /home/xianwen/.dotfiles/.zshrc ~/
+```
+
+### Upgrade
+
+[Upgrade pipx](https://pipx.pypa.io/stable/installation/#upgrade-pipx).
+
+```bash
+brew upgrade pipx
+```
+
+If installed with apt, run
+
+```bash
+sudo apt upgrade pipx
+```
+
+### Uninstall
+
+Remove the setup of pipx in shell config (e.g., `~/.bashrc`, `~/.config/fish/config.fish`, `~/.zshrc`, etc.) before uninstall.
+
+Uninstall pipx.
+
+```bash
+brew uninstall pipx
+```
+
+If installed with apt, run
+
+```bash
+sudo apt remove --purge pipx
+sudo apt autoremove
+```
+
+### Errors
+
+_Command 'register-python-argcomplete' not found_
+
+Install `argcomplete`, run `pipx completions` for more details.
+
+```bash
+pipx install argcomplete
+```
+
 ## pip registry manager
 
 ### Install
