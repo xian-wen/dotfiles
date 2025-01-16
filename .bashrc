@@ -123,6 +123,10 @@ alias nvchad='NVIM_APPNAME="nvchad" nvim'
 # Put this at top so that app installed by Homebrew can be found.
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
+# pipx
+export PATH=$HOME/.local/bin:$PATH
+eval "$(register-python-argcomplete pipx)"
+
 # Set EDITOR to nvim if exists otherwise vim.
 export EDITOR=$(command -v nvim &>/dev/null && echo nvim || echo vim)
 
