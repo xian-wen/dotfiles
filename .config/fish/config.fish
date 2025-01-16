@@ -10,7 +10,7 @@ end
 
 # Homebrew
 # Put this at top so that app installed by Homebrew can be found.
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+/home/linuxbrew/.linuxbrew/bin/brew shellenv | source
 
 # Set EDITOR to nvim if exists otherwise vim.
 set -gx EDITOR $(command -q nvim; and echo nvim; or echo vim)
