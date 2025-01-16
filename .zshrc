@@ -147,13 +147,6 @@ export STARSHIP_LOG=error
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/go/bin
 
-# gRPC and Protocol Buffer
-export MY_INSTALL_DIR=$HOME/.local
-export PATH="$MY_INSTALL_DIR/bin:$PATH"
-
-# CS61B
-export REPO_DIR=/mnt/c/Users/xian_wen/Desktop/IdeaProjects/cs61b/sp21/cs61b-test-sp21
-
 # Replace man with batman.
 eval "$(batman --export-env)"
 
