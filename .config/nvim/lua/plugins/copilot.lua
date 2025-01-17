@@ -7,7 +7,6 @@ return {
     opts = {
       panel = { enabled = false },
       suggestion = { enabled = false },
-      filetypes = { markdown = true },
     },
   },
 
