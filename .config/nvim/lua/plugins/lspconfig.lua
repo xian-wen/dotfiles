@@ -4,7 +4,7 @@ return {
     "mason.nvim",
     "mason-lspconfig.nvim",
   },
-  -- Alias for LazyFile.
+  -- Same as LazyFile.
   event = { "BufReadPost", "BufNewFile", "BufWritePre" },
   opts = function()
     local icons = require("config").icons.diagnostics
@@ -59,7 +59,6 @@ return {
             },
           },
         },
-        clangd = {},
       },
       -- Additional LSP server setup
       -- Return true for server not to be setup with lspconfig.
