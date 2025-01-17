@@ -25,8 +25,11 @@ return {
   opts = {
     -- Change the default values when calling conform.format(),
     -- also affect the default values for format_on_save/format_after_save.
-    default_format_opts = { lsp_format = "fallback" },
-    format_on_save = { timeout_ms = 500 },
+    default_format_opts = {
+      timeout_ms = 3000,
+      lsp_format = "fallback",
+    },
+    format_on_save = { lsp_format = "fallback" },
     formatters_by_ft = {
       lua = { "stylua" },
       sh = { "shfmt" },
