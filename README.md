@@ -176,6 +176,7 @@ brew update
 Remove the setup of Homebrew in shell config (e.g., `~/.bashrc`, `~/.config/fish/config.fish`, `~/.zshrc`, etc.) before [uninstall](https://github.com/homebrew/install?tab=readme-ov-file#uninstall-homebrew).
 
 Uninstall Homebrew.
+
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
 sudo rm -rf /home/linuxbrew/
