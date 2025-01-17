@@ -32,16 +32,11 @@ return {
       -- Ref: https://github.com/nvim-treesitter/nvim-treesitter?tab=readme-ov-file#changing-the-parser-install-directory
       ensure_installed = {
         "bash",
-        "c",
-        "cpp",
         "diff",
         "lua",
         "luadoc",
         "luap",
-        "markdown",
-        "markdown_inline",
         "printf",
-        "python",
         "query",
         "regex",
         "toml",
