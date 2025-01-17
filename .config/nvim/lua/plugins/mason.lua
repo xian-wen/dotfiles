@@ -6,6 +6,7 @@ return {
     keys = {
       { "<Leader>M", "<Cmd>Mason<CR>", desc = "Mason" },
     },
+    opts_extend = { "ensure_installed" },
     opts = {
       ensure_installed = {
         "shfmt",

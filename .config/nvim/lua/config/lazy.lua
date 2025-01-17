@@ -17,6 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   spec = {
     { import = "plugins" },
+    { import = "plugins.lang" },
   },
   defaults = { lazy = true },
   install = { colorscheme = { "tokyonight" } },

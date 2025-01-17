@@ -26,6 +26,7 @@ return {
       require("lazy.core.loader").add_to_rtp(plugin)
       require("nvim-treesitter.query_predicates")
     end,
+    opts_extend = { "ensure_installed" },
     opts = {
       -- Built-in parsers are also installed since they may not be compatible with
       -- the queries from the 'nvim-treesitter' plugin.
