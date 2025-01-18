@@ -26,12 +26,13 @@ return {
 
   {
     "sainnhe/sonokai",
-    config = function()
+    init = function()
       local g = vim.g
       g.sonokai_style = "maia" -- default/atlantis/andromeda/shusia/maia/espresso
       -- g.sonokai_transparent_background = 1
       g.sonokai_better_performance = 1
     end,
+    opts = {},
   },
 
   {
