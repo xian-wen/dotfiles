@@ -5,9 +5,6 @@ return {
       {
         "nvim-telescope/telescope-fzf-native.nvim",
         build = "make",
-        config = function()
-          require("telescope").load_extension("fzf")
-        end,
       },
     },
     cmd = "Telescope",
@@ -365,12 +362,16 @@ return {
         },
       }
     end,
+    config = function(_, opts)
+      local telescope = require("telescope")
+      telescope.setup(opts)
+      telescope.load_extension("fzf")
+    end,
   },
 
   -- Flash telescope config
   {
     "nvim-telescope/telescope.nvim",
-    optional = true,
     opts = function(_, opts)
       if not package.loaded.flash then
         return
