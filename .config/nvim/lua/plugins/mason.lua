@@ -36,8 +36,6 @@ return {
     end,
   },
 
-  {
-    "williamboman/mason-lspconfig.nvim",
-    opts = {},
-  },
+  -- Configured in `nvim-lspconfig`.
+  "williamboman/mason-lspconfig.nvim",
 }
