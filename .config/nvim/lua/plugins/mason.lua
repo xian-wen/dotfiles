@@ -8,10 +8,7 @@ return {
     },
     opts_extend = { "ensure_installed" },
     opts = {
-      ensure_installed = {
-        "shfmt",
-        "stylua",
-      },
+      ensure_installed = { "stylua" },
     },
     config = function(_, opts)
       require("mason").setup(opts)
