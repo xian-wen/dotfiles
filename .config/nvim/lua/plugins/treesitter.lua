@@ -40,7 +40,6 @@ return {
         "printf",
         "query",
         "regex",
-        "toml",
         "vim",
         "vimdoc",
       },
