@@ -25,6 +25,7 @@ autocmd("TextYankPost", {
 autocmd("FileType", {
   group = augroup("close_with_q"),
   pattern = {
+    "ClangdAST",
     "checkhealth",
     "gitsigns-blame",
     "help",
