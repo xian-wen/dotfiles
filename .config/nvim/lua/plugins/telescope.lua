@@ -294,7 +294,7 @@ return {
       },
       -- Colorscheme
       {
-        "<Leader>uC",
+        "<Leader>uc",
         function()
           require("telescope.builtin").colorscheme({ enable_preview = true })
         end,
