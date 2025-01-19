@@ -47,6 +47,18 @@ return {
       mode = { "n", "x" },
       desc = "Git Browse (copy)",
     },
+    -- indent
+    {
+      "<Leader>ug",
+      function()
+        if Snacks.indent.enabled then
+          Snacks.indent.disable()
+        else
+          Snacks.indent.enable()
+        end
+      end,
+      desc = "Toggle Indent Guides",
+    },
     -- Lazygit
     {
       "<Leader>gg",

@@ -119,6 +119,15 @@ return {
   {
     "echasnovski/mini.pairs",
     event = "VeryLazy",
+    keys = {
+      {
+        "<Leader>up",
+        function()
+          vim.g.minipairs_disable = not vim.g.minipairs_disable
+        end,
+        desc = "Toggle Mini Pairs",
+      },
+    },
     opts = {
       modes = { insert = true, command = true, terminal = false },
     },

@@ -86,9 +86,22 @@ map("n", "<Leader>uI", "<cmd>InspectTree<cr>", { desc = "Inspect Tree" })
 map("n", "<Leader>ub", function()
   vim.o.background = vim.o.background == "dark" and "light" or "dark"
 end, { desc = "Toggle Background" })
+map("n", "<Leader>ud", function()
+  vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+end, { desc = "Toggle Diagnostics" })
+map("n", "<Leader>uh", function()
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+end, { desc = "Toggle Inlay Hints" })
 map("n", "<Leader>un", "<Cmd>set number!<CR>", { desc = "Toggle Number" })
 map("n", "<Leader>uN", "<Cmd>set relativenumber!<CR>", { desc = "Toggle Relative Number" })
 map("n", "<Leader>us", "<Cmd>set spell!<CR>", { desc = "Toggle Spell" })
+map("n", "<Leader>ut", function()
+  if vim.b.ts_highlight then
+    vim.treesitter.stop()
+  else
+    vim.treesitter.start()
+  end
+end, { desc = "Toggle Treesitter Highlight" })
 map("n", "<Leader>uw", "<Cmd>set wrap!<CR>", { desc = "Toggle Wrap" })
 
 -- Keywordprg
