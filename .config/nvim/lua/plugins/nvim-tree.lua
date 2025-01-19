@@ -10,6 +10,7 @@ return {
         require("nvim-tree.api").tree.toggle({
           path = Snacks.git.get_root(),
           find_file = true,
+          update_root = true,
         })
       end,
       desc = "Explorer NvimTree (Root Dir)",
