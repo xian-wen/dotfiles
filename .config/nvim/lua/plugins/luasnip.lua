@@ -30,7 +30,7 @@ return {
           luasnip.lsp_expand(args.body)
         end,
       }
-      opts.mapping = cmp.mapping.preset.insert({
+      opts.mapping = vim.tbl_deep_extend("force", opts.mapping, {
         ["<CR>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             if luasnip.expandable() then
