@@ -46,7 +46,7 @@ return {
       -- LSP server settings
       servers = {
         -- Ref: https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#lua_ls
-        -- Ref: https://luals.github.io/wiki/
+        -- Ref: https://luals.github.io/wiki/settings
         lua_ls = {
           -- mason = false,
           -- keys = {},
@@ -55,6 +55,10 @@ return {
               diagnostics = {
                 -- Avoid missing required fields warnnings.
                 disable = { "missing-fields" },
+              },
+              hint = {
+                enable = true,
+                arrayIndex = "Disable",
               },
             },
           },
