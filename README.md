@@ -182,6 +182,34 @@ Uninstall Homebrew.
 sudo rm -rf /home/linuxbrew/
 ```
 
+### Errors
+
+_error: RPC failed; curl 92 HTTP/2 stream 0 was not closed cleanly: CANCEL (err 8)_
+
+[Force git using http version 1.1](https://stackoverflow.com/questions/59282476/error-rpc-failed-curl-92-http-2-stream-0-was-not-closed-cleanly-protocol-erro).
+
+```bash
+git config --global http.version HTTP/1.1
+```
+
+Then install Homebrew as normal. After that, reset the http version.
+
+```bash
+git config --global --unset http.version
+```
+
+Or [increase the http post buffer size](https://github.com/orgs/Homebrew/discussions/4069#discussioncomment-7987024).
+
+```bash
+git config --global http.postBuffer 4096M
+```
+
+Then install Homebrew as normal. After that, reset the buffer to default size.
+
+```bash
+git config --global http.postBuffer 1M
+```
+
 ## fish
 
 ### Install
