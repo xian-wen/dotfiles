@@ -16,16 +16,28 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=50000
+HISTFILESIZE=100000
+
+# Don't record some commands.
+export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear"
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+# Display matches for ambiguous patterns at first tab press.
+bind "set show-all-if-ambiguous on"
+
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
 #shopt -s globstar
+
+# Set `man`'s section search order so that C stdlib functions
+# and syscalls appear as the default result. This is helpful for students,
+# since otherwise they would need to manually specify a section number in
+# some cases (e.g. for `write`, which is both a user program and a syscall).
+export MANSECT='2:3:3posix:1:n:l:8:0:3pm:3perl:3am:5:4:9:6:7'
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -78,9 +90,9 @@ if [ -x /usr/bin/dircolors ]; then
   #alias dir='dir --color=auto'
   #alias vdir='vdir --color=auto'
 
-  alias grep='grep --color=auto'
-  alias fgrep='fgrep --color=auto'
-  alias egrep='egrep --color=auto'
+  alias grep='grep --color=auto --exclude-dir=.git'
+  alias fgrep='fgrep --color=auto --exclude-dir=.git'
+  alias egrep='egrep --color=auto --exclude-dir=.git'
 fi
 
 # colored GCC warnings and errors
@@ -114,6 +126,11 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+. ~/.cs162.bashrc
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+. "$HOME/.cargo/env"
 
 # Aliases
 alias lazyvim='NVIM_APPNAME="lazyvim" nvim'
