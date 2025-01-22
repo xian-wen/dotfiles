@@ -49,11 +49,6 @@ map("i", ";", ";<C-g>u")
 map("v", "<", "<gv")
 map("v", ">", ">gv")
 
--- Commenting
-map("n", "gco", "o<Esc>Vcx<Esc><Cmd>normal gcc<CR>fxa<BS>", { desc = "Add Comment Below" })
-map("n", "gcO", "O<Esc>Vcx<Esc><Cmd>normal gcc<CR>fxa<BS>", { desc = "Add Comment Above" })
-map("n", "gcA", "<Cmd>normal gco<CR><Esc>kJA", { desc = "Add Comment After" })
-
 -- Quickfix/Location List
 map("n", "]q", "<Cmd>cnext<CR>", { desc = "Next Quickfix" })
 map("n", "[q", "<Cmd>cprevious<CR>", { desc = "Prev Quickfix" })
