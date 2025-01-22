@@ -2,6 +2,8 @@
 let g:mapleader = ' ' " value of <Leader>
 let g:maplocalleader = ' ' " value of <LocalLeader>
 
+let g:c_syntax_for_h = 1 " use C syntax for *.h files, see `:h c.vim`
+
 let g:icons = {
   \ 'diagnostics': {
   \ 'error': ' ',

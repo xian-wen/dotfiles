@@ -9,6 +9,8 @@ g.loaded_perl_provider = 0 -- disable perl provider
 g.loaded_python3_provider = 0 -- disable python3 provider
 g.loaded_ruby_provider = 0 -- disable ruby provider
 
+g.c_syntax_for_h = 1 -- use C syntax for *.h files, see `:h c.vim`
+
 o.autowrite = true -- automatically write file if changed
 o.clipboard = "unnamedplus" -- use the clipboard as the unnamed register
 o.confirm = true -- ask what to do about unsaved/read-only files
