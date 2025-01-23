@@ -47,7 +47,7 @@ return {
       mode = { "n", "x" },
       desc = "Git Browse (copy)",
     },
-    -- indent
+    -- Indent
     {
       "<Leader>ug",
       function()
@@ -94,6 +94,14 @@ return {
         Snacks.lazygit.log()
       end,
       desc = "Lazygit Log (cwd)",
+    },
+    -- Notifier
+    {
+      "<Leader>n",
+      function()
+        Snacks.notifier.show_history()
+      end,
+      desc = "Notification History",
     },
     -- Terminal
     {
