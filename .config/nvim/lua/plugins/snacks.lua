@@ -140,6 +140,21 @@ return {
       end,
       desc = "Terminal (cwd)",
     },
+    -- Zen
+    {
+      "<Leader>z",
+      function()
+        Snacks.zen()
+      end,
+      desc = "Toggle Zen Mode",
+    },
+    {
+      "<Leader>Z",
+      function()
+        Snacks.zen.zoom()
+      end,
+      desc = "Toggle Zoom",
+    },
   },
   opts = {
     bigfile = {},
@@ -198,5 +213,12 @@ return {
       },
     },
     words = {},
+    zen = {
+      -- Full screen.
+      win = {
+        width = 0,
+        height = 0,
+      },
+    },
   },
 }
