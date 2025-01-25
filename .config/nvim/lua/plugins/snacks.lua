@@ -168,6 +168,7 @@ return {
     },
     lazygit = {},
     notifier = {},
+    quickfile = {},
     statuscolumn = {},
     terminal = {
       win = {
