@@ -8,7 +8,7 @@ return {
       "<Leader>fe",
       function()
         require("nvim-tree.api").tree.toggle({
-          path = Snacks.git.get_root(),
+          path = vim.fs.root(0, { ".git", "lua" }),
           find_file = true,
           update_root = true,
         })

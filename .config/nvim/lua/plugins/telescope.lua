@@ -35,7 +35,7 @@ return {
       {
         "<Leader>ff",
         function()
-          require("telescope.builtin").find_files({ cwd = Snacks.git.get_root() })
+          require("telescope.builtin").find_files({ cwd = vim.fs.root(0, { ".git", "lua" }) })
         end,
         desc = "Find Files (Root Dir)",
       },
@@ -135,7 +135,7 @@ return {
       {
         "<Leader>sg",
         function()
-          require("telescope.builtin").live_grep({ cwd = Snacks.git.get_root() })
+          require("telescope.builtin").live_grep({ cwd = vim.fs.root(0, { ".git", "lua" }) })
         end,
         desc = "Live Grep (Root Dir)",
       },
@@ -220,7 +220,7 @@ return {
         "<Leader>sw",
         function()
           require("telescope.builtin").grep_string({
-            cwd = Snacks.git.get_root(),
+            cwd = vim.fs.root(0, { ".git", "lua" }),
             word_match = "-w",
           })
         end,
@@ -236,7 +236,7 @@ return {
       {
         "<Leader>sw",
         function()
-          require("telescope.builtin").grep_string({ cwd = Snacks.git.get_root() })
+          require("telescope.builtin").grep_string({ cwd = vim.fs.root(0, { ".git", "lua" }) })
         end,
         mode = "v",
         desc = "Selection (Root Dir)",

@@ -63,7 +63,7 @@ return {
     {
       "<Leader>gg",
       function()
-        Snacks.lazygit({ cwd = Snacks.git.get_root() })
+        Snacks.lazygit({ cwd = vim.fs.root(0, ".git") })
       end,
       desc = "Lazygit (Root Dir)",
     },
@@ -84,7 +84,7 @@ return {
     {
       "<Leader>gl",
       function()
-        Snacks.lazygit.log({ cwd = Snacks.git.get_root() })
+        Snacks.lazygit.log({ cwd = vim.fs.root(0, ".git") })
       end,
       desc = "Lazygit Log (Root Dir)",
     },
@@ -129,7 +129,7 @@ return {
     {
       "<Leader>ft",
       function()
-        Snacks.terminal(nil, { cwd = Snacks.git.get_root() })
+        Snacks.terminal(nil, { cwd = vim.fs.root(0, { ".git", "lua" }) })
       end,
       desc = "Terminal (Root Dir)",
     },
