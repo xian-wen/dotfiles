@@ -47,5 +47,6 @@ return {
         },
       },
     },
+    git = { timeout = 3000 },
   },
 }
