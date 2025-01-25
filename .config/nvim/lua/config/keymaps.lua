@@ -59,10 +59,10 @@ map("n", "<Leader>xl", "<Cmd>lopen<CR>", { desc = "Location List" })
 
 -- Diagnostic
 local diagnostic_goto = function(next, severity)
-  local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
   severity = severity and vim.diagnostic.severity[severity] or nil
+  local opts = { count = next and 1 or -1, severity = severity, float = true }
   return function()
-    go({ severity = severity })
+    vim.diagnostic.jump(opts)
   end
 end
 map("n", "]d", diagnostic_goto(true), { desc = "Next Diagnostic" })
