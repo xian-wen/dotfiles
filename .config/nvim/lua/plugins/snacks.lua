@@ -103,6 +103,13 @@ return {
       end,
       desc = "Notification History",
     },
+    {
+      "<Leader>un",
+      function()
+        Snacks.notifier.hide()
+      end,
+      desc = "Dismiss All Notifications",
+    },
     -- Terminal
     {
       "<Leader>ft",
