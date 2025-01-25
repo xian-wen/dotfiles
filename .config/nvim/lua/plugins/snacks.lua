@@ -110,6 +110,21 @@ return {
       end,
       desc = "Dismiss All Notifications",
     },
+    -- Scratch
+    {
+      "<Leader>.",
+      function()
+        Snacks.scratch()
+      end,
+      desc = "Toggle Scratch Buffer",
+    },
+    {
+      "<Leader>S",
+      function()
+        Snacks.scratch.select()
+      end,
+      desc = "Select Scratch Buffer",
+    },
     -- Terminal
     {
       "<Leader>ft",
@@ -169,6 +184,7 @@ return {
     lazygit = {},
     notifier = {},
     quickfile = {},
+    scratch = {},
     statuscolumn = {},
     terminal = {
       win = {
