@@ -127,6 +127,7 @@ return {
     },
   },
   opts = {
+    bigfile = {},
     dashboard = {
       preset = {
         header = [[
