@@ -355,7 +355,6 @@ return {
         pickers = {
           find_files = {
             find_command = find_command,
-            follow = true,
             hidden = true,
             no_ignore = true,
           },
