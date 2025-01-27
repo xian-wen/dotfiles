@@ -20,7 +20,7 @@ return {
       function()
         require("nvim-tree.api").tree.toggle({ path = vim.uv.cwd() })
       end,
-      desc = "Explorer NeoTree (cwd)",
+      desc = "Explorer NvimTree (cwd)",
     },
   },
   opts = {
