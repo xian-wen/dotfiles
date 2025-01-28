@@ -4,6 +4,7 @@ local map = vim.keymap.set
 map("n", "<C-n>", "<Cmd>bnext<CR>", { desc = "Next Buffer" })
 map("n", "<C-p>", "<Cmd>bprevious<CR>", { desc = "Prev Buffer" })
 map("n", "<Leader>bb", "<Cmd>e #<CR>", { desc = "Switch to Other Buffer" })
+map("n", "<Leader>`", "<Leader>bb", { desc = "Switch to Other Buffer", remap = true })
 map("n", "<Leader>bn", "<Cmd>enew<CR>", { desc = "New Buffer" })
 map("n", "<Leader>bc", "<Cmd>bd<CR>", { desc = "Close Buffer" })
 
