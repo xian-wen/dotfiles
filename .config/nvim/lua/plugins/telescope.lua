@@ -279,14 +279,14 @@ return {
         desc = "Go to T[y]pe Definition",
       },
       {
-        "ss",
+        "<Leader>ss",
         function()
           require("telescope.builtin").lsp_document_symbols()
         end,
         desc = "Go to Symbol",
       },
       {
-        "sS",
+        "<Leader>sS",
         function()
           require("telescope.builtin").lsp_dynamic_workspace_symbols()
         end,
