@@ -212,6 +212,296 @@ return {
     },
   },
 
+  -- Picker
+  {
+    "folke/snacks.nvim",
+    keys = {
+      -- Aliases
+      { "<Leader>,", "<Leader>fb", desc = "Buffers", remap = true },
+      { "<Leader>/", "<Leader>sg", desc = "Grep (Root Dir)", remap = true },
+      { "<Leader>:", "<Leader>sc", desc = "Command History", remap = true },
+      { "<Leader><Space>", "<Leader>ff", desc = "Files (Root Dir)", remap = true },
+      -- Find
+      {
+        "<Leader>fb",
+        function()
+          Snacks.picker.buffers()
+        end,
+        desc = "Buffers",
+      },
+      {
+        "<Leader>fc",
+        function()
+          Snacks.picker.files({ cwd = vim.fn.stdpath("config") })
+        end,
+        desc = "Config Files",
+      },
+      {
+        "<Leader>ff",
+        function()
+          Snacks.picker.files({ cwd = require("util").root() })
+        end,
+        desc = "Files (Root Dir)",
+      },
+      {
+        "<Leader>fF",
+        function()
+          Snacks.picker.files({ filter = { cwd = true } })
+        end,
+        desc = "Files (cwd)",
+      },
+      {
+        "<Leader>fg",
+        function()
+          Snacks.picker.git_files()
+        end,
+        desc = "Git Files",
+      },
+      {
+        "<Leader>fp",
+        function()
+          Snacks.picker.projects()
+        end,
+        desc = "Projects",
+      },
+      {
+        "<Leader>fr",
+        function()
+          Snacks.picker.recent()
+        end,
+        desc = "Recent",
+      },
+      {
+        "<Leader>fR",
+        function()
+          Snacks.picker.recent({ filter = { cwd = true } })
+        end,
+        desc = "Recent (cwd)",
+      },
+      -- Git
+      {
+        "<Leader>gc",
+        function()
+          Snacks.picker.git_log()
+        end,
+        desc = "Git Log",
+      },
+      {
+        "<Leader>gd",
+        function()
+          Snacks.picker.git_diff()
+        end,
+        desc = "Git Diff (hunks)",
+      },
+      {
+        "<Leader>gs",
+        function()
+          Snacks.picker.git_status()
+        end,
+        desc = "Git Status",
+      },
+      -- Grep
+      {
+        "<Leader>sb",
+        function()
+          Snacks.picker.lines()
+        end,
+        desc = "Lines",
+      },
+      {
+        "<Leader>sB",
+        function()
+          Snacks.picker.grep_buffers()
+        end,
+        desc = "Grep Buffers",
+      },
+      {
+        "<Leader>sg",
+        function()
+          Snacks.picker.grep({ cwd = require("util").root() })
+        end,
+        desc = "Grep (Root Dir)",
+      },
+      {
+        "<Leader>sG",
+        function()
+          Snacks.picker.grep({ filter = { cwd = true } })
+        end,
+        desc = "Grep (cwd)",
+      },
+      {
+        "<Leader>sw",
+        function()
+          Snacks.picker.grep_word({ cwd = require("util").root() })
+        end,
+        mode = { "n", "x" },
+        desc = "Grep word (Root Dir)",
+      },
+      {
+        "<Leader>sW",
+        function()
+          Snacks.picker.grep_word({ filter = { cwd = true } })
+        end,
+        mode = { "n", "x" },
+        desc = "Grep word (cwd)",
+      },
+      -- Search
+      {
+        '<Leader>s"',
+        function()
+          Snacks.picker.registers()
+        end,
+        desc = "Registers",
+      },
+      {
+        "<Leader>sa",
+        function()
+          Snacks.picker.autocmds()
+        end,
+        desc = "Autocmds",
+      },
+      {
+        "<Leader>sc",
+        function()
+          Snacks.picker.command_history()
+        end,
+        desc = "Command History",
+      },
+      {
+        "<Leader>sC",
+        function()
+          Snacks.picker.commands()
+        end,
+        desc = "Commands",
+      },
+      {
+        "<Leader>sd",
+        function()
+          Snacks.picker.diagnostics()
+        end,
+        desc = "Diagnostics",
+      },
+      {
+        "<Leader>sh",
+        function()
+          Snacks.picker.help()
+        end,
+        desc = "Help",
+      },
+      {
+        "<Leader>sH",
+        function()
+          Snacks.picker.highlights()
+        end,
+        desc = "Highlights",
+      },
+      {
+        "<Leader>sj",
+        function()
+          Snacks.picker.jumps()
+        end,
+        desc = "Jumps",
+      },
+      {
+        "<Leader>sk",
+        function()
+          Snacks.picker.keymaps()
+        end,
+        desc = "Keymaps",
+      },
+      {
+        "<Leader>sl",
+        function()
+          Snacks.picker.loclist()
+        end,
+        desc = "Loclist",
+      },
+      {
+        "<Leader>sm",
+        function()
+          Snacks.picker.marks()
+        end,
+        desc = "Marks",
+      },
+      {
+        "<Leader>sM",
+        function()
+          Snacks.picker.man()
+        end,
+        desc = "Man",
+      },
+      {
+        "<Leader>sR",
+        function()
+          Snacks.picker.resume()
+        end,
+        desc = "Resume",
+      },
+      {
+        "<Leader>sq",
+        function()
+          Snacks.picker.qflist()
+        end,
+        desc = "Qflist",
+      },
+      -- LSP
+      {
+        "gd",
+        function()
+          Snacks.picker.lsp_definitions()
+        end,
+        desc = "Lsp Definitions",
+      },
+      {
+        "gI",
+        function()
+          Snacks.picker.lsp_implementations()
+        end,
+        desc = "Lsp Implementations",
+      },
+      {
+        "gr",
+        function()
+          Snacks.picker.lsp_references()
+        end,
+        nowait = true,
+        desc = "Lsp References",
+      },
+      {
+        "gy",
+        function()
+          Snacks.picker.lsp_type_definitions()
+        end,
+        desc = "Lsp T[y]pe Definitions",
+      },
+      {
+        "<Leader>ss",
+        function()
+          Snacks.picker.lsp_symbols()
+        end,
+        desc = "Lsp Symbols",
+      },
+      {
+        "<Leader>sS",
+        function()
+          Snacks.picker.lsp_workspace_symbols()
+        end,
+        desc = "Lsp Workspace Symbols",
+      },
+      -- Colorscheme
+      {
+        "<Leader>uc",
+        function()
+          Snacks.picker.colorschemes()
+        end,
+        desc = "Colorschemes",
+      },
+    },
+    opts = {
+      picker = {},
+    },
+  },
+
   -- Scratch
   {
     "folke/snacks.nvim",
