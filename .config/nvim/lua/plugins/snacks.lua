@@ -209,6 +209,16 @@ return {
         desc = "Buffers",
       },
       {
+        "<Leader>fB",
+        function()
+          Snacks.picker.buffers({
+            hidden = true,
+            nofile = true,
+          })
+        end,
+        desc = "Buffers (all)",
+      },
+      {
         "<Leader>fc",
         function()
           Snacks.picker.files({ cwd = vim.fn.stdpath("config") })
@@ -309,6 +319,13 @@ return {
         desc = "Grep (cwd)",
       },
       {
+        "<Leader>sp",
+        function()
+          Snacks.picker.lazy()
+        end,
+        desc = "Lazy Plugin Specs",
+      },
+      {
         "<Leader>sw",
         function()
           Snacks.picker.grep_word({ cwd = require("util").root() })
@@ -375,6 +392,13 @@ return {
         desc = "Highlights",
       },
       {
+        "<Leader>si",
+        function()
+          Snacks.picker.icons()
+        end,
+        desc = "Icons",
+      },
+      {
         "<Leader>sj",
         function()
           Snacks.picker.jumps()
@@ -422,6 +446,12 @@ return {
           Snacks.picker.qflist()
         end,
         desc = "Qflist",
+      {
+        "<Leader>su",
+        function()
+          Snacks.picker.undo()
+        end,
+        desc = "Undo",
       },
       -- LSP
       {
