@@ -417,7 +417,7 @@ return {
         function()
           Snacks.picker.loclist()
         end,
-        desc = "Loclist",
+        desc = "Location List",
       },
       {
         "<Leader>sm",
@@ -445,7 +445,8 @@ return {
         function()
           Snacks.picker.qflist()
         end,
-        desc = "Qflist",
+        desc = "Quickfix List",
+      },
       {
         "<Leader>su",
         function()
