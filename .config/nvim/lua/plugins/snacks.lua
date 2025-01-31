@@ -12,26 +12,6 @@ return {
     "folke/snacks.nvim",
     lazy = false,
     priority = 1000,
-    keys = {
-      {
-        "<Leader>N",
-        function()
-          Snacks.win({
-            file = vim.api.nvim_get_runtime_file("doc/news.txt", false)[1],
-            width = 0.6,
-            height = 0.6,
-            wo = {
-              spell = false,
-              wrap = false,
-              signcolumn = "yes",
-              statuscolumn = " ",
-              conceallevel = 3,
-            },
-          })
-        end,
-        desc = "Neovim News",
-      },
-    },
     opts = {
       bigfile = {},
       quickfile = {},
@@ -561,6 +541,34 @@ return {
           },
         },
       },
+    },
+  },
+
+  -- Win
+  {
+    "folke/snacks.nvim",
+    keys = {
+      {
+        "<Leader>N",
+        function()
+          Snacks.win({
+            file = vim.api.nvim_get_runtime_file("doc/news.txt", false)[1],
+            width = 0.6,
+            height = 0.6,
+            wo = {
+              spell = false,
+              wrap = false,
+              signcolumn = "yes",
+              statuscolumn = " ",
+              conceallevel = 3,
+            },
+          })
+        end,
+        desc = "Neovim News",
+      },
+    },
+    opts = {
+      win = {},
     },
   },
 
