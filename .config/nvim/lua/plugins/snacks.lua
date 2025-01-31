@@ -508,7 +508,24 @@ return {
       },
     },
     opts = {
-      picker = {},
+      picker = {
+        win = {
+          input = {
+            keys = {
+              ["<A-c>"] = { "toggle_cwd", mode = { "n", "i" } },
+            },
+          },
+        },
+        actions = {
+          toggle_cwd = function(picker)
+            local root = require("util").root({ buf = picker.input.filter.current_buf })
+            local cwd = vim.fs.normalize(vim.uv.cwd() or ".")
+            local current = picker:cwd()
+            picker:set_cwd(current == root and cwd or root)
+            picker:find()
+          end,
+        },
+      },
     },
   },
 
