@@ -11,19 +11,21 @@ return {
   },
 
   {
-    "hrsh7th/nvim-cmp",
-    dependencies = {
-      {
-        "zbirenbaum/copilot-cmp",
-        opts = {},
+    "saghen/blink.cmp",
+    dependencies = { "fang2hou/blink-copilot" },
+    opts = {
+      sources = {
+        default = { "copilot" },
+        providers = {
+          copilot = {
+            name = "copilot",
+            module = "blink-copilot",
+            score_offset = 100,
+            async = true,
+          },
+        },
       },
     },
-    opts = function(_, opts)
-      table.insert(opts.sources, 1, {
-        name = "copilot",
-        group_index = 1,
-      })
-    end,
   },
 
   {
