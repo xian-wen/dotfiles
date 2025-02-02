@@ -11,8 +11,8 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
-    dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
     build = ":TSUpdate",
+    dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
     -- Load treesitter early when opening a file from the cmdline.
     lazy = vim.fn.argc(-1) == 0,
     -- Same as { "LazyFile", "VeryLazy" }.
