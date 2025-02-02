@@ -14,6 +14,9 @@ return {
     priority = 1000,
     opts = {
       bigfile = {},
+      input = {
+        win = { relative = "cursor" },
+      },
       quickfile = {},
       statuscolumn = {},
       words = {},
