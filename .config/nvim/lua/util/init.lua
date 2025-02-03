@@ -9,8 +9,7 @@ end
 ---@param opts? {buf?: number}
 M.root = function(opts)
   opts = opts or {}
-  local buf = opts.buf or vim.api.nvim_get_current_buf()
-  local clients = vim.lsp.get_clients({ bufnr = buf })
+  local clients = vim.lsp.get_clients({ bufnr = opts.buf or 0 })
   local lsp_root = clients[1] and clients[1].config.root_dir
   return lsp_root or vim.fs.root(0, { ".git", "lua" }) or vim.uv.cwd()
 end
