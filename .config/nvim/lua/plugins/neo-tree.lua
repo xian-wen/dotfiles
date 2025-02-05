@@ -10,7 +10,6 @@ return {
         require("neo-tree.command").execute({
           toggle = true,
           dir = require("util").root(),
-          reveal_force_cwd = true,
         })
       end,
       desc = "Explorer NeoTree (Root Dir)",
@@ -93,6 +92,7 @@ return {
         hide_gitignored = false,
         hide_hidden = false,
       },
+      follow_current_file = { enabled = true },
       use_libuv_file_watcher = true,
     },
     buffers = { show_unloaded = true },
