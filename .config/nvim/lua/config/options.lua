@@ -23,7 +23,7 @@ o.fillchars = { -- characters to use for displaying special items
   foldsep = " ",
   eob = " ",
 }
-o.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- expression used when 'foldmethod' is "expr"
+o.foldexpr = "v:lua.require('util').foldexpr()" -- expression used when 'foldmethod' is "expr"
 o.foldlevel = 99 -- close folds with a level higher than this
 o.foldmethod = "expr" -- folding type
 o.foldtext = "" -- expression used to display for a closed fold
