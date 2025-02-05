@@ -55,37 +55,6 @@ return {
     },
   },
 
-  -- Explorer
-  {
-    "folke/snacks.nvim",
-    keys = {
-      { "<Leader>e", "<Leader>fe", desc = "Explorer Snacks (root dir)", remap = true },
-      { "<Leader>E", "<Leader>fE", desc = "Explorer Snacks (cwd)", remap = true },
-      {
-        "<Leader>fe",
-        function()
-          Snacks.picker.explorer({ cwd = require("util").root() })
-        end,
-        desc = "Explorer Snacks (root dir)",
-      },
-      {
-        "<Leader>fE",
-        function()
-          Snacks.picker.explorer()
-        end,
-        desc = "Explorer Snacks (cwd)",
-      },
-    },
-    opts = {
-      explorer = {},
-      picker = {
-        sources = {
-          explorer = {},
-        },
-      },
-    },
-  },
-
   -- Gitbrowse
   {
     "folke/snacks.nvim",
