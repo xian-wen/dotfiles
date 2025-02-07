@@ -44,6 +44,9 @@ return {
     },
   },
   opts = {
+    search = {
+      exclude = { "blink-cmp-menu" },
+    },
     label = {
       rainbow = { enabled = true },
     },
