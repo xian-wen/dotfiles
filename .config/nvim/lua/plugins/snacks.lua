@@ -81,7 +81,12 @@ return {
       picker = {
         sources = {
           explorer = {
-            layout = { preview = "main" },
+            layout = {
+              preview = {
+                enabled = false,
+                main = true,
+              },
+            },
           },
         },
       },
