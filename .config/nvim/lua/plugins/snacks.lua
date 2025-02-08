@@ -718,10 +718,7 @@ return {
     opts = {
       zen = {
         -- Full screen.
-        win = {
-          width = 0,
-          height = 0,
-        },
+        win = { width = 0 },
       },
     },
   },
