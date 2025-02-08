@@ -533,6 +533,13 @@ return {
         desc = "Lsp Definitions",
       },
       {
+        "gD",
+        function()
+          Snacks.picker.lsp_declarations()
+        end,
+        desc = "Lsp Declarations",
+      },
+      {
         "gI",
         function()
           Snacks.picker.lsp_implementations()
