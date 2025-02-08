@@ -154,6 +154,13 @@ return {
     opts = {
       indent = {
         animate = { enabled = false },
+        filter = function(buf)
+          local exclude = { "help" }
+          return vim.g.snacks_indent ~= false
+            and vim.b[buf].snacks_indent ~= false
+            and vim.bo[buf].buftype == ""
+            and not vim.tbl_contains(exclude, vim.bo[buf].filetype)
+        end,
       },
     },
   },
