@@ -325,6 +325,13 @@ return {
         end,
         desc = "Git Status",
       },
+      {
+        "<Leader>gS",
+        function()
+          Snacks.picker.git_stash()
+        end,
+        desc = "Git Stash",
+      },
       -- Grep
       {
         "<Leader>sb",
@@ -386,6 +393,13 @@ return {
         desc = "Registers",
       },
       {
+        "<Leader>s/",
+        function()
+          Snacks.picker.search_history()
+        end,
+        desc = "Search History",
+      },
+      {
         "<Leader>sa",
         function()
           Snacks.picker.autocmds()
@@ -412,6 +426,13 @@ return {
           Snacks.picker.diagnostics()
         end,
         desc = "Diagnostics",
+      },
+      {
+        "<Leader>sD",
+        function()
+          Snacks.picker.diagnostics_buffer()
+        end,
+        desc = "Buffer Diagnostics",
       },
       {
         "<Leader>sh",
@@ -534,7 +555,7 @@ return {
         end,
         desc = "Lsp Workspace Symbols",
       },
-      -- Colorscheme
+      -- UI
       {
         "<Leader>uc",
         function()
