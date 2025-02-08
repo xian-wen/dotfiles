@@ -530,21 +530,21 @@ return {
         function()
           Snacks.picker.lsp_definitions()
         end,
-        desc = "Lsp Definitions",
+        desc = "LSP Definitions",
       },
       {
         "gD",
         function()
           Snacks.picker.lsp_declarations()
         end,
-        desc = "Lsp Declarations",
+        desc = "LSP Declarations",
       },
       {
         "gI",
         function()
           Snacks.picker.lsp_implementations()
         end,
-        desc = "Lsp Implementations",
+        desc = "LSP Implementations",
       },
       {
         "gr",
@@ -552,28 +552,28 @@ return {
           Snacks.picker.lsp_references()
         end,
         nowait = true,
-        desc = "Lsp References",
+        desc = "LSP References",
       },
       {
         "gy",
         function()
           Snacks.picker.lsp_type_definitions()
         end,
-        desc = "Lsp T[y]pe Definitions",
+        desc = "LSP T[y]pe Definitions",
       },
       {
         "<Leader>ss",
         function()
           Snacks.picker.lsp_symbols()
         end,
-        desc = "Lsp Symbols",
+        desc = "LSP Symbols",
       },
       {
         "<Leader>sS",
         function()
           Snacks.picker.lsp_workspace_symbols()
         end,
-        desc = "Lsp Workspace Symbols",
+        desc = "LSP Workspace Symbols",
       },
       -- UI
       {
