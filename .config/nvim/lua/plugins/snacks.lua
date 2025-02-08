@@ -235,7 +235,13 @@ return {
       { "<Leader>,", "<Leader>fb", desc = "Buffers", remap = true },
       { "<Leader>/", "<Leader>sg", desc = "Grep (Root Dir)", remap = true },
       { "<Leader>:", "<Leader>sc", desc = "Command History", remap = true },
-      { "<Leader><Space>", "<Leader>ff", desc = "Files (Root Dir)", remap = true },
+      {
+        "<Leader><Space>",
+        function()
+          Snacks.picker.smart()
+        end,
+        desc = "Smart Files",
+      },
       {
         "<Leader>n",
         function()
