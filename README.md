@@ -1250,6 +1250,15 @@ Or [uninstall with rustup itself](https://www.rust-lang.org/tools/install).
 rustup self uninstall
 ```
 
+### Errors
+
+_error: failed to run custom build command for `openssl-sys v0.9.105`_
+
+[Install OpenSLL](https://docs.rs/openssl/latest/openssl/#automatic).
+```bash
+sudo apt install pkg-config libssl-dev
+```
+
 ## pipx
 
 ### Install
