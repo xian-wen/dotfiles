@@ -12,6 +12,9 @@ end
 # Put this at top so that app installed by Homebrew can be found.
 /home/linuxbrew/.linuxbrew/bin/brew shellenv | source
 
+# rustup
+set -gx PATH $HOME/.cargo/bin $PATH
+
 # pipx
 set -gx PATH $HOME/.local/bin $PATH
 register-python-argcomplete --shell fish pipx | source

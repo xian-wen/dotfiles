@@ -132,6 +132,9 @@ alias nvchad='NVIM_APPNAME="nvchad" nvim'
 # Put this at top so that app installed by Homebrew can be found.
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
+# rustup
+export PATH=$HOME/.cargo/bin:$PATH
+
 # pipx
 export PATH=$HOME/.local/bin:$PATH
 eval "$(register-python-argcomplete pipx)"

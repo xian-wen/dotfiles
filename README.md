@@ -1192,6 +1192,64 @@ Remove the source line in the `.gdbinit` file, then remove the `pwndbg` folder t
 rm -rf ~/downloads/pwndbg/
 ```
 
+## rustup
+
+### Install
+
+[Install rustup](https://rust-lang.github.io/rustup/installation/other.html#homebrew).
+
+```bash
+brew instal rustup
+```
+
+Or [install with curl](https://rust-lang.github.io/rustup/installation/other.html#other-installation-methods).
+
+```bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+Install [`cargo`, `rust-std`, and `rustc`](https://rust-lang.github.io/rustup/installation/other.html#general-tips).
+
+```bash
+rustup default stable
+```
+
+Create a symbolic link to [configure the PATH environment variable](https://www.rust-lang.org/tools/install).
+
+```bash
+ln -sf /home/xianwen/.dotfiles/.bashrc ~/
+ln -sf /home/xianwen/.dotfiles/.config/fish/ ~/.config/
+ln -sf /home/xianwen/.dotfiles/.zshrc ~/
+```
+
+### Upgrade
+
+Upgrade rustup.
+
+```bash
+brew upgrade rustup
+```
+
+Or [upgrade with rustup itself](https://www.rust-lang.org/tools/install).
+
+```bash
+rustup update
+```
+
+### Uninstall
+
+Uninstall rustup.
+
+```bash
+brew uninstall rustup
+```
+
+Or [uninstall with rustup itself](https://www.rust-lang.org/tools/install).
+
+```bash
+rustup self uninstall
+```
+
 ## pipx
 
 ### Install
