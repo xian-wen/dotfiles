@@ -42,9 +42,9 @@ return {
           keys = {
             { icon = " ", key = "f", desc = "Find File", action = "<Leader>ff" },
             { icon = " ", key = "n", desc = "New File", action = "<Leader>bn" },
+            { icon = " ", key = "p", desc = "Projects", action = "<Leader>fp" },
             { icon = " ", key = "g", desc = "Find Text", action = "<Leader>sg" },
             { icon = " ", key = "r", desc = "Recent Files", action = "<Leader>fr" },
-            { icon = " ", key = "p", desc = "Projects", action = "<Leader>fp" },
             { icon = " ", key = "c", desc = "Config", action = "<Leader>fc" },
             { icon = " ", key = "s", desc = "Restore Session", action = "<Leader>qs" },
             { icon = "󰒲 ", key = "L", desc = "Lazy", action = "<Leader>L" },
