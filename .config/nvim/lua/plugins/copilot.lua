@@ -47,7 +47,7 @@ return {
         "<Leader>ap",
         function()
           local actions = require("CopilotChat.actions")
-          require("CopilotChat.integrations.telescope").pick(actions.prompt_actions())
+          require("CopilotChat.integrations.snacks").pick(actions.prompt_actions())
         end,
         mode = { "n", "v" },
         desc = "Prompt Actions (CopilotChat)",
