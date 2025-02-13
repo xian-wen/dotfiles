@@ -525,6 +525,13 @@ return {
       },
       -- LSP
       {
+        "<Leader>cc",
+        function()
+          Snacks.picker.lsp_config()
+        end,
+        desc = "LSP Config",
+      },
+      {
         "gd",
         function()
           Snacks.picker.lsp_definitions()
