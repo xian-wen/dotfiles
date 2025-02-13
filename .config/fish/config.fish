@@ -21,12 +21,12 @@ end
 set -gx PATH $HOME/.local/bin $PATH
 register-python-argcomplete --shell fish pipx | source
 
+# Fast Node Manager
+fnm env --use-on-cd --shell fish | source
+fnm completions --shell fish | source
+
 # Set EDITOR to nvim if exists otherwise vim.
 set -gx EDITOR $(command -q nvim; and echo nvim; or echo vim)
-
-# Avoid Executing command "/usr/bin/git" timed out.
-# Ref: https://starship.rs/faq/#why-do-i-see-executing-command-timed-out-warnings
-set -gx STARSHIP_LOG error
 
 # Replace man with batman.
 batman --export-env | source
@@ -34,10 +34,8 @@ batman --export-env | source
 # Set up fzf key bindings.
 fzf --fish | source
 
-# Fast Node Manager
-fnm env --use-on-cd --shell fish | source
-fnm completions --shell fish | source
-
 # Starship
-# Put this at bottom.
+# Avoid Executing command "/usr/bin/git" timed out.
+# Ref: https://starship.rs/faq/#why-do-i-see-executing-command-timed-out-warnings
+set -gx STARSHIP_LOG error
 starship init fish | source

@@ -132,6 +132,10 @@ alias nvchad='NVIM_APPNAME="nvchad" nvim'
 # Put this at top so that app installed by Homebrew can be found.
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
+# Golang
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$HOME/go/bin
+
 # rustup
 [ -f ~/.cargo/env ] && . ~/.cargo/env
 
@@ -139,16 +143,12 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 export PATH=$HOME/.local/bin:$PATH
 eval "$(register-python-argcomplete pipx)"
 
+# Fast Node Manager
+eval "$(fnm env --use-on-cd --shell zsh)"
+eval "$(fnm completions --shell zsh)"
+
 # Set EDITOR to nvim if exists otherwise vim.
 export EDITOR=$(command -v nvim &> /dev/null && echo nvim || echo vim)
-
-# Avoid Executing command "/usr/bin/git" timed out.
-# Ref: https://starship.rs/faq/#why-do-i-see-executing-command-timed-out-warnings
-export STARSHIP_LOG=error
-
-# Golang
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:$HOME/go/bin
 
 # Replace man with batman.
 eval "$(batman --export-env)"
@@ -156,10 +156,8 @@ eval "$(batman --export-env)"
 # Set up fzf key bindings and fuzzy completion.
 source <(fzf --zsh)
 
-# Fast Node Manager
-eval "$(fnm env --use-on-cd --shell zsh)"
-eval "$(fnm completions --shell zsh)"
-
 # Starship
-# Put this at bottom.
+# Avoid Executing command "/usr/bin/git" timed out.
+# Ref: https://starship.rs/faq/#why-do-i-see-executing-command-timed-out-warnings
+export STARSHIP_LOG=error
 eval "$(starship init zsh)"

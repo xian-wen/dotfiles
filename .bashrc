@@ -146,12 +146,12 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 export PATH=$HOME/.local/bin:$PATH
 eval "$(register-python-argcomplete pipx)"
 
+# Fast Node Manager
+eval "$(fnm env --use-on-cd --shell bash)"
+eval "$(fnm completions --shell bash)"
+
 # Set EDITOR to nvim if exists otherwise vim.
 export EDITOR=$(command -v nvim &>/dev/null && echo nvim || echo vim)
-
-# Avoid Executing command "/usr/bin/git" timed out.
-# Ref: https://starship.rs/faq/#why-do-i-see-executing-command-timed-out-warnings
-export STARSHIP_LOG=error
 
 # Replace man with batman.
 eval "$(batman --export-env)"
@@ -159,10 +159,8 @@ eval "$(batman --export-env)"
 # Set up fzf key bindings and fuzzy completion.
 eval "$(fzf --bash)"
 
-# Fast Node Manager
-eval "$(fnm env --use-on-cd --shell bash)"
-eval "$(fnm completions --shell bash)"
-
 # Startship
-# Put this at bottom.
+# Avoid Executing command "/usr/bin/git" timed out.
+# Ref: https://starship.rs/faq/#why-do-i-see-executing-command-timed-out-warnings
+export STARSHIP_LOG=error
 eval "$(starship init bash)"
