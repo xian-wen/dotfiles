@@ -8,6 +8,11 @@ if status is-interactive
     set -g fish_key_bindings fish_vi_key_bindings
 end
 
+# cs162
+if test -d "$HOME/.bin"
+  set -gx PATH $HOME/.bin $PATH
+end
+
 # Homebrew
 # Put this at top so that app installed by Homebrew can be found.
 /home/linuxbrew/.linuxbrew/bin/brew shellenv | source
