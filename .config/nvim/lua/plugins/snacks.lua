@@ -215,7 +215,7 @@ return {
     "folke/snacks.nvim",
     keys = {
       {
-        "<Leader>un",
+        "<Leader>uN",
         function()
           Snacks.notifier.hide()
         end,

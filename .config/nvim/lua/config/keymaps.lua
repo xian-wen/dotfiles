@@ -36,7 +36,7 @@ map("n", "<Esc>", "<Cmd>nohlsearch<CR><Esc>", { desc = "Escape and Clear hlsearc
 -- Taken from runtime/lua/_editor.lua
 map(
   "n",
-  "<Leader>ur",
+  "<Leader>uu",
   "<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
   { desc = "Redraw / Clear hlsearch / Diff Update" }
 )
@@ -88,8 +88,9 @@ end, { desc = "Toggle Diagnostics" })
 map("n", "<Leader>uh", function()
   vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end, { desc = "Toggle Inlay Hints" })
-map("n", "<Leader>ul", "<Cmd>set number!<CR>", { desc = "Toggle Line Number" })
-map("n", "<Leader>uL", "<Cmd>set relativenumber!<CR>", { desc = "Toggle Relative Number" })
+map("n", "<Leader>ul", "<Cmd>set list!<CR>", { desc = "Toggle List" })
+map("n", "<Leader>un", "<Cmd>set number!<CR>", { desc = "Toggle Number" })
+map("n", "<Leader>ur", "<Cmd>set relativenumber!<CR>", { desc = "Toggle Relative Number" })
 map("n", "<Leader>us", "<Cmd>set spell!<CR>", { desc = "Toggle Spell" })
 map("n", "<Leader>ut", function()
   if vim.b.ts_highlight then
