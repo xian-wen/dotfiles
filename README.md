@@ -1196,10 +1196,16 @@ rm -rf ~/downloads/pwndbg/
 
 ### Install
 
-[Install rustup](https://rust-lang.github.io/rustup/installation/other.html#homebrew).
+[Install rustup](https://rust-lang.github.io/rustup/installation/other.html#apt).
 
 ```bash
-brew instal rustup
+sudo apt instal rustup
+```
+
+Then [install `cargo`, and `rustc`](https://rust-lang.github.io/rustup/installation/other.html#general-tips).
+
+```bash
+rustup default stable
 ```
 
 Or [install with curl](https://rust-lang.github.io/rustup/installation/other.html#other-installation-methods).
@@ -1208,13 +1214,7 @@ Or [install with curl](https://rust-lang.github.io/rustup/installation/other.htm
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
-Install [`cargo`, `rust-std`, and `rustc`](https://rust-lang.github.io/rustup/installation/other.html#general-tips).
-
-```bash
-rustup default stable
-```
-
-Create a symbolic link to [configure the PATH environment variable](https://www.rust-lang.org/tools/install).
+Then create a symbolic link to [configure the PATH environment variable](https://www.rust-lang.org/tools/install).
 
 ```bash
 ln -sf /home/xianwen/.dotfiles/.bashrc ~/
@@ -1227,10 +1227,10 @@ ln -sf /home/xianwen/.dotfiles/.zshrc ~/
 Upgrade rustup.
 
 ```bash
-brew upgrade rustup
+sudo apt upgrade rustup
 ```
 
-Or [upgrade with rustup itself](https://www.rust-lang.org/tools/install).
+If installed with curl, [run](https://www.rust-lang.org/tools/install)
 
 ```bash
 rustup update
@@ -1241,10 +1241,11 @@ rustup update
 Uninstall rustup.
 
 ```bash
-brew uninstall rustup
+sudo apt remove --purge rustup
+sudo apt autoremove
 ```
 
-Or [uninstall with rustup itself](https://www.rust-lang.org/tools/install).
+If installed with curl, [run](https://www.rust-lang.org/tools/install)
 
 ```bash
 rustup self uninstall
