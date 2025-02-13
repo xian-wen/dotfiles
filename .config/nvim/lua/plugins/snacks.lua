@@ -19,7 +19,6 @@ return {
       },
       quickfile = {},
       statuscolumn = {},
-      words = {},
     },
   },
 
@@ -626,6 +625,20 @@ return {
     },
   },
 
+  -- Rename
+  {
+    "folke/snacks.nvim",
+    keys = {
+      {
+        "<Leader>cR",
+        function()
+          Snacks.rename.rename_file()
+        end,
+        desc = "Rename File",
+      },
+    },
+  },
+
   -- Scratch
   {
     "folke/snacks.nvim",
@@ -713,6 +726,44 @@ return {
     },
     opts = {
       win = {},
+    },
+  },
+
+  -- Words
+  {
+    "folke/snacks.nvim",
+    keys = {
+      {
+        "]]",
+        function()
+          Snacks.words.jump(vim.v.count1)
+        end,
+        desc = "Next Reference",
+      },
+      {
+        "[[",
+        function()
+          Snacks.words.jump(-vim.v.count1)
+        end,
+        desc = "Prev Reference",
+      },
+      {
+        "<A-n>",
+        function()
+          Snacks.words.jump(vim.v.count1, true)
+        end,
+        desc = "Next Reference",
+      },
+      {
+        "<A-p>",
+        function()
+          Snacks.words.jump(-vim.v.count1, true)
+        end,
+        desc = "Prev Reference",
+      },
+    },
+    opts = {
+      words = {},
     },
   },
 
