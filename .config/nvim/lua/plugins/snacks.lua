@@ -632,6 +632,27 @@ return {
       },
     },
   },
+  {
+    "folke/todo-comments.nvim",
+    keys = {
+      {
+        "<Leader>st",
+        function()
+          Snacks.picker.todo_comments()
+        end,
+        desc = "Todo",
+      },
+      {
+        "<Leader>sT",
+        function()
+          Snacks.picker.todo_comments({
+            keywords = { "TODO", "FIX", "FIXME" },
+          })
+        end,
+        desc = "Todo / Fix / Fixme",
+      },
+    },
+  },
 
   -- Rename
   {
