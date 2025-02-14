@@ -2,6 +2,7 @@ return {
   {
     "zbirenbaum/copilot.lua",
     build = ":Copilot auth",
+    cond = vim.g.ai_cmp == "copilot",
     event = "BufReadPost",
     cmd = "Copilot",
     opts = {
