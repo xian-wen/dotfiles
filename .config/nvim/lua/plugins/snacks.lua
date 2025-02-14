@@ -152,6 +152,7 @@ return {
     },
     opts = {
       indent = {
+        enabled = false,
         animate = { enabled = false },
         filter = function(buf)
           local exclude = { "help" }
