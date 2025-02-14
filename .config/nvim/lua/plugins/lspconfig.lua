@@ -188,7 +188,7 @@ return {
       map("n", "K", vim.lsp.buf.hover, "Hover")
       map("n", "gK", vim.lsp.buf.signature_help, "Signature Help")
       map("i", "<C-k>", vim.lsp.buf.signature_help, "Signature Help")
-      map("n", "<Leader>ci", "<Cmd>LspInfo<CR>", "Lsp Info")
+      map("n", "<Leader>ci", "<Cmd>LspInfo<CR>", "LSP Info")
       map({ "n", "v" }, "<Leader>ca", vim.lsp.buf.code_action, "Code Action")
       map({ "n", "v" }, "<Leader>cl", vim.lsp.codelens.run, "Run Codelens")
       map("n", "<Leader>cL", vim.lsp.codelens.refresh, "Refresh & Display Codelens")
