@@ -35,14 +35,8 @@ return {
         default = { "lsp", "path", "snippets", "buffer" },
         -- Add any nvim-cmp sources here to enable them with blink.compat.
         compat = {},
-        min_keyword_length = function(ctx)
-          -- Disable menu popup when typing abbreviations like `:xa`.
-          return ctx.mode == "cmdline" and string.find(ctx.line, " ") == nil and 3 or 0
-        end,
       },
-      cmdline = {
-        keymap = { preset = "super-tab" },
-      },
+      cmdline = { enabled = false },
     },
     config = function(_, opts)
       -- Setup compat sources.

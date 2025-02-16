@@ -90,18 +90,6 @@ return {
       })
     end
 
-    local on_progress = function(fn)
-      return vim.api.nvim_create_autocmd("LspProgress", {
-        callback = function(ev)
-          local client = vim.lsp.get_client_by_id(ev.data.client_id)
-          local value = ev.data.params.value
-          if client and type(value) == "table" then
-            return fn(client, value)
-          end
-        end,
-      })
-    end
-
     local on_dynamic_capability = function(fn, options)
       return vim.api.nvim_create_autocmd("User", {
         pattern = "LspDynamicCapability",
@@ -196,20 +184,6 @@ return {
     end
     on_attach(keymaps_on_attach)
     on_dynamic_capability(keymaps_on_attach)
-
-    -- LSP progress
-    -- Ref: https://github.com/folke/snacks.nvim/blob/main/docs/notifier.md#-examples
-    on_progress(function(client, value)
-      local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
-      vim.notify(vim.lsp.status(), vim.log.levels.INFO, {
-        id = "lsp_progress",
-        title = client.name,
-        opts = function(notif)
-          notif.icon = value.kind == "end" and " "
-            or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
-        end,
-      })
-    end)
 
     -- Diagnostics
     vim.diagnostic.config(vim.deepcopy(opts.diagnostics))

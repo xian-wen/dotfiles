@@ -50,8 +50,5 @@ return {
     label = {
       rainbow = { enabled = true },
     },
-    modes = {
-      search = { enabled = true },
-    },
   },
 }
