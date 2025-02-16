@@ -12,7 +12,6 @@ return {
       keymap = {
         preset = "enter",
         ["<C-y>"] = { "select_and_accept", "fallback" },
-        cmdline = { preset = "super-tab" },
       },
       completion = {
         menu = {
@@ -40,6 +39,9 @@ return {
           -- Disable menu popup when typing abbreviations like `:xa`.
           return ctx.mode == "cmdline" and string.find(ctx.line, " ") == nil and 3 or 0
         end,
+      },
+      cmdline = {
+        keymap = { preset = "super-tab" },
       },
     },
     config = function(_, opts)
