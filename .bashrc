@@ -153,6 +153,9 @@ eval "$(fnm completions --shell bash)"
 # Set EDITOR to nvim if exists otherwise vim.
 export EDITOR=$(command -v nvim &>/dev/null && echo nvim || echo vim)
 
+# Codeium: No heartbeat executed
+export no_proxy=127.0.0.1
+
 # Replace man with batman.
 eval "$(batman --export-env)"
 

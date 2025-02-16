@@ -654,6 +654,14 @@ Check the magic cookie has been associated with the correct hostname of the new 
 xauth list
 ```
 
+_`checkhealth codeium`: WARNING No heartbeat executed_
+
+[Disable proxy for localhost](https://github.com/Exafunction/codeium.nvim/issues/164?utm_source=chatgpt.com).
+
+```bash
+export no_proxy=127.0.0.1
+```
+
 ## LazyVim
 
 ### Install
@@ -1256,6 +1264,7 @@ rustup self uninstall
 _error: failed to run custom build command for `openssl-sys v0.9.105`_
 
 [Install OpenSLL](https://docs.rs/openssl/latest/openssl/#automatic).
+
 ```bash
 sudo apt install pkg-config libssl-dev
 ```

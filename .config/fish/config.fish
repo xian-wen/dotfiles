@@ -33,6 +33,9 @@ fnm completions --shell fish | source
 # Set EDITOR to nvim if exists otherwise vim.
 set -gx EDITOR $(command -q nvim; and echo nvim; or echo vim)
 
+# Codeium: No heartbeat executed
+set -gx no_proxy 127.0.0.1
+
 # Replace man with batman.
 batman --export-env | source
 
