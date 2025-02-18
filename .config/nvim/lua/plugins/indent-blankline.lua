@@ -8,5 +8,8 @@ return {
   },
   opts = {
     indent = { char = "│" },
+    exclude = {
+      filetypes = { "text" },
+    },
   },
 }
