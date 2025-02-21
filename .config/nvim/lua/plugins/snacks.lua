@@ -80,6 +80,7 @@ return {
       picker = {
         sources = {
           explorer = {
+            hidden = true,
             layout = {
               preview = {
                 enabled = false,
