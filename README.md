@@ -1181,6 +1181,41 @@ Uninstall Lazygit.
 brew uninstall lazygit
 ```
 
+## bear
+
+### Install
+
+[Install bear](https://github.com/rizsotto/Bear?tab=readme-ov-file#how-to-install).
+
+```bash
+sudo apt install bear
+```
+
+### Upgrade
+
+```bash
+sudo apt upgrade bear
+```
+
+### Uninstall
+
+Uninstall bear.
+
+```bash
+sudo apt remove --purge bear
+sudo apt autoremove
+```
+
+### Errors
+
+_In included file: 'bits/libc-header-start.h' file not found_
+
+[Install gcc-multilib](https://stackoverflow.com/questions/54082459/fatal-error-bits-libc-header-start-h-no-such-file-or-directory-while-compili).
+
+```bash
+sudo apt install gcc-multilib
+```
+
 ## pwndbg
 
 ### Install
