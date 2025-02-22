@@ -654,6 +654,7 @@ Check the magic cookie has been associated with the correct hostname of the new 
 xauth list
 ```
 
+_curl: (56) Recv failure: Connection reset by peer_
 _`checkhealth codeium`: WARNING No heartbeat executed_
 
 [Disable proxy for localhost](https://github.com/Exafunction/codeium.nvim/issues/164?utm_source=chatgpt.com).
