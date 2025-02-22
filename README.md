@@ -641,7 +641,7 @@ rm -rf ~/.cache/nvim/
 
 _No xauth data; using fake authentication data for X11 forwarding_
 
-Create an empty `~/.Xauthority` file in the local machine, and add the magic cookie.
+Create an empty `~/.Xauthority` file in the local machine, and [add the magic cookie](https://serverfault.com/a/990957).
 
 ```bash
 touch ~/.Xauthority
