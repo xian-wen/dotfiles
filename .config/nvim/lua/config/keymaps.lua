@@ -1,4 +1,5 @@
 local map = vim.keymap.set
+local unmap = vim.keymap.del
 
 -- Buffers
 map("n", "<C-n>", "<Cmd>bnext<CR>", { desc = "Next Buffer" })
@@ -21,6 +22,10 @@ map({ "n", "t" }, "<C-Up>", "<Cmd>resize +2<CR>", { desc = "Increase Window Heig
 map({ "n", "t" }, "<C-Down>", "<Cmd>resize -2<CR>", { desc = "Decrease Window Height" })
 map({ "n", "t" }, "<C-Right>", "<Cmd>vertical resize +2<CR>", { desc = "Increase Window Width" })
 map({ "n", "t" }, "<C-Left>", "<Cmd>vertical resize -2<CR>", { desc = "Decrease Window Width" })
+
+-- Unmap <C-w><C-d>, which is set to show line diagnostics by default,
+-- so that scroll down works in <C-w> or <Leader>w in which-key.
+unmap("n", "<C-w><C-d>")
 
 -- Tabs
 -- gt: Next Tab
