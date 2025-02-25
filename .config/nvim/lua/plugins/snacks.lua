@@ -603,6 +603,7 @@ return {
               ["<A-c>"] = { "toggle_cwd", mode = { "n", "i" } },
               ["<A-s>"] = { "flash", mode = { "n", "i" } },
               ["s"] = { "flash" },
+              ["<A-t>"] = { "trouble_open", mode = { "n", "i" } },
             },
           },
         },
@@ -631,6 +632,9 @@ return {
                 picker.list:_move(idx, true, true)
               end,
             })
+          end,
+          trouble_open = function(...)
+            return require("trouble.sources.snacks").actions.trouble_open.action(...)
           end,
         },
       },
