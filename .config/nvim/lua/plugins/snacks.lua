@@ -594,6 +594,9 @@ return {
     },
     opts = {
       picker = {
+        sources = {
+          todo_comments = { show_empty = true },
+        },
         win = {
           input = {
             keys = {
