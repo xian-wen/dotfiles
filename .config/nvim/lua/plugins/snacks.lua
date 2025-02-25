@@ -653,7 +653,7 @@ return {
             keywords = { "TODO", "FIX", "FIXME" },
           })
         end,
-        desc = "Todo / Fix / Fixme",
+        desc = "Todo/Fix/Fixme",
       },
     },
   },
