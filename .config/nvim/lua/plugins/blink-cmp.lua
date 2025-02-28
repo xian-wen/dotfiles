@@ -36,7 +36,6 @@ return {
         -- Add any nvim-cmp sources here to enable them with blink.compat.
         compat = {},
       },
-      cmdline = { enabled = false },
     },
     config = function(_, opts)
       -- Setup compat sources.
