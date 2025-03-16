@@ -5,7 +5,7 @@ return {
     cond = vim.g.ai_cmp == "codeium",
     event = "BufReadPost",
     cmd = "Codeium",
-    opts = {},
+    opts = { quiet = true },
   },
 
   {
