@@ -173,7 +173,6 @@ return {
       -- map("n", "gI", vim.lsp.buf.implementation, "Go to Implementation")
       -- map("n", "gr", vim.lsp.buf.references, "References")
       -- map("n", "gy", vim.lsp.buf.type_definition, "Go to T[y]pe Definition")
-      map("n", "K", vim.lsp.buf.hover, "Hover")
       map("n", "gK", vim.lsp.buf.signature_help, "Signature Help")
       map("i", "<C-k>", vim.lsp.buf.signature_help, "Signature Help")
       map("n", "<Leader>ci", "<Cmd>LspInfo<CR>", "LSP Info")

@@ -56,10 +56,6 @@ map("v", "<", "<gv")
 map("v", ">", ">gv")
 
 -- Quickfix/Location List
-map("n", "]q", "<Cmd>cnext<CR>", { desc = "Next Quickfix" })
-map("n", "[q", "<Cmd>cprevious<CR>", { desc = "Prev Quickfix" })
-map("n", "]l", "<Cmd>lnext<CR>", { desc = "Next Location" })
-map("n", "[l", "<Cmd>lprevious<CR>", { desc = "Prev Location" })
 map("n", "<Leader>xq", "<Cmd>copen<CR>", { desc = "Quickfix List" })
 map("n", "<Leader>xl", "<Cmd>lopen<CR>", { desc = "Location List" })
 
