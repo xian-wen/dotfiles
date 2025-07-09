@@ -37,7 +37,7 @@ return {
             end
           end
         end,
-        desc = "Previous Trouble/Quickfix",
+        desc = "Prev Trouble/Quickfix",
       },
       { "<Leader>cs", "<Cmd>Trouble symbols toggle<CR>", desc = "LSP Symbols (Trouble)" },
       { "<Leader>cS", "<Cmd>Trouble lsp toggle<CR>", desc = "LSP Definitions/References/... (Trouble)" },

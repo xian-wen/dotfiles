@@ -15,7 +15,7 @@ return {
       function()
         require("todo-comments").jump_prev()
       end,
-      desc = "Previous Todo Comment",
+      desc = "Prev Todo Comment",
     },
   },
   opts = {},
