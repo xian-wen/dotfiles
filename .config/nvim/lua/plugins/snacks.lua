@@ -96,13 +96,6 @@ return {
     "folke/snacks.nvim",
     keys = {
       {
-        "<Leader>gb",
-        function()
-          Snacks.git.blame_line()
-        end,
-        desc = "Git Blame Line",
-      },
-      {
         "<Leader>gB",
         function()
           Snacks.gitbrowse()
@@ -295,6 +288,13 @@ return {
         desc = "Recent (cwd)",
       },
       -- Git
+      {
+        "<Leader>gb",
+        function()
+          Snacks.picker.git_log_line()
+        end,
+        desc = "Git Blame Line",
+      },
       {
         "<Leader>gd",
         function()
