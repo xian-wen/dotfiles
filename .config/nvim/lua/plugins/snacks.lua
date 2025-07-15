@@ -183,27 +183,6 @@ return {
         end,
         desc = "Lazygit (cwd)",
       },
-      {
-        "<Leader>gf",
-        function()
-          Snacks.lazygit.log_file()
-        end,
-        desc = "Lazygit Current File History",
-      },
-      {
-        "<Leader>gl",
-        function()
-          Snacks.lazygit.log({ cwd = require("util").git_root() })
-        end,
-        desc = "Lazygit Log (Root Dir)",
-      },
-      {
-        "<Leader>gL",
-        function()
-          Snacks.lazygit.log()
-        end,
-        desc = "Lazygit Log (cwd)",
-      },
     },
     opts = {
       lazygit = {},
@@ -329,6 +308,27 @@ return {
           Snacks.picker.git_diff()
         end,
         desc = "Git Diff (hunks)",
+      },
+      {
+        "<Leader>gf",
+        function()
+          Snacks.picker.git_log_file()
+        end,
+        desc = "Git Current File History",
+      },
+      {
+        "<Leader>gl",
+        function()
+          Snacks.picker.git_log({ cwd = require("util").git_root() })
+        end,
+        desc = "Git Log (Root Dir)",
+      },
+      {
+        "<Leader>gL",
+        function()
+          Snacks.picker.git_log()
+        end,
+        desc = "Git Log (cwd)",
       },
       {
         "<Leader>gs",
