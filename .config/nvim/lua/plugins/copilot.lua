@@ -66,6 +66,14 @@ return {
         mode = { "n", "v" },
         desc = "Quick Chat (CopilotChat)",
       },
+      {
+        "<Leader>ax",
+        function()
+          return require("CopilotChat").reset()
+        end,
+        mode = { "n", "v" },
+        desc = "Clear (CopilotChat)",
+      },
     },
     opts = function()
       local user = vim.env.USER or "User"
