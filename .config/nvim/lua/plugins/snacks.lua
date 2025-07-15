@@ -65,7 +65,7 @@ return {
         function()
           Snacks.picker.explorer({ cwd = require("util").root() })
         end,
-        desc = "Explorer Snacks (root dir)",
+        desc = "Explorer Snacks (Root Dir)",
       },
       {
         "<Leader>fE",
