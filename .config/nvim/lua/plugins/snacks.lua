@@ -296,13 +296,6 @@ return {
       },
       -- Git
       {
-        "<Leader>gc",
-        function()
-          Snacks.picker.git_log()
-        end,
-        desc = "Git Log",
-      },
-      {
         "<Leader>gd",
         function()
           Snacks.picker.git_diff()
