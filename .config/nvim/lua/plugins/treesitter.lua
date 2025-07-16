@@ -18,10 +18,6 @@ return {
     -- Same as { "LazyFile", "VeryLazy" }.
     event = { "BufReadPost", "BufNewFile", "BufWritePre", "VeryLazy" },
     cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
-    keys = {
-      { "<C-Space>", mode = { "n", "x" }, desc = "Increment Selection" },
-      { "<BS>", mode = "x", desc = "Decrement Selection" },
-    },
     init = function(plugin)
       -- Add treesitter queries to the rtp and its custom query predicates early.
       require("lazy.core.loader").add_to_rtp(plugin)
