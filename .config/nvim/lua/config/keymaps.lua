@@ -55,9 +55,19 @@ map("i", ";", ";<C-g>u")
 map("v", "<", "<gv")
 map("v", ">", ">gv")
 
--- Quickfix/Location List
-map("n", "<Leader>xq", "<Cmd>copen<CR>", { desc = "Quickfix List" })
-map("n", "<Leader>xl", "<Cmd>lopen<CR>", { desc = "Location List" })
+-- Toggle Quickfix/Location List
+map("n", "<Leader>xq", function()
+  local ok, err = pcall(vim.fn.getqflist({ winid = 0 }).winid ~= 0 and vim.cmd.cclose or vim.cmd.copen)
+  if not ok and err then
+    vim.notify(err, vim.log.levels.ERROR)
+  end
+end, { desc = "Quickfix List" })
+map("n", "<Leader>xl", function()
+  local ok, err = pcall(vim.fn.getloclist(0, { winid = 0 }).winid ~= 0 and vim.cmd.lclose or vim.cmd.lopen)
+  if not ok and err then
+    vim.notify(err, vim.log.levels.ERROR)
+  end
+end, { desc = "Location List" })
 
 -- Diagnostic
 local diagnostic_goto = function(next, severity)
