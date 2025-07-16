@@ -56,6 +56,11 @@ return {
           end,
         },
         -- Better descriptions
+        { "gx", desc = "Open with system app" },
+      },
+
+      {
+        -- mode = { "n" },
         -- File in argument list
         { "]a", desc = "Next Arg File" },
         { "[a", desc = "Prev Arg File" },
@@ -94,8 +99,6 @@ return {
         { "[<C-t>", desc = "Prev Tag Preview" },
         -- LSP
         { "K", desc = "Hover" },
-        -- Others
-        { "gx", desc = "Open with system app" },
       },
     },
   },
