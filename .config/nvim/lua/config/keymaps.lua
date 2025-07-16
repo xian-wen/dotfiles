@@ -90,7 +90,11 @@ map("n", "[w", diagnostic_goto(false, "WARN"), { desc = "Prev Warning" })
 
 -- Highlights under cursor
 map("n", "<Leader>ui", vim.show_pos, { desc = "Inspect Pos" })
-map("n", "<Leader>uI", "<cmd>InspectTree<cr>", { desc = "Inspect Tree" })
+map("n", "<Leader>uI", function()
+  vim.treesitter.inspect_tree()
+  -- Equivalent to pressing "I" in the inspect tree.
+  vim.api.nvim_input("I")
+end, { desc = "Inspect Tree" })
 
 -- Toggle options
 map("n", "<Leader>ub", function()
