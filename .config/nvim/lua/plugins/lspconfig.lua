@@ -260,9 +260,9 @@ return {
 
     -- Get all the servers that are available through mason-lspconfig.
     local has_mason, mlsp = pcall(require, "mason-lspconfig")
-    local all_mslp_servers = {}
+    local all_mlsp_servers = {}
     if has_mason then
-      all_mslp_servers = vim.tbl_keys(require("mason-lspconfig.mappings.server").lspconfig_to_package)
+      all_mlsp_servers = vim.tbl_keys(require("mason-lspconfig.mappings.server").lspconfig_to_package)
     end
 
     local ensure_installed = {}
@@ -271,7 +271,7 @@ return {
         server_opts = server_opts == true and {} or server_opts
         if server_opts.enabled ~= false then
           -- Run manual setup if mason=false or if server cannot be installed with mason-lspconfig.
-          if server_opts.mason == false or not vim.tbl_contains(all_mslp_servers, server) then
+          if server_opts.mason == false or not vim.tbl_contains(all_mlsp_servers, server) then
             setup(server)
           else
             ensure_installed[#ensure_installed + 1] = server
