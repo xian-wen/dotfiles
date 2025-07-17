@@ -78,6 +78,8 @@ return {
     }
   end,
   config = function(_, opts)
+    ---@param fn fun(client: vim.lsp.Client, bufnr: integer)
+    ---@param name? string
     local on_attach = function(fn, name)
       return vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)
@@ -90,6 +92,8 @@ return {
       })
     end
 
+    ---@param fn fun(client: vim.lsp.Client, bufnr: integer): boolean?
+    ---@param options? { group?: integer }
     local on_dynamic_capability = function(fn, options)
       return vim.api.nvim_create_autocmd("User", {
         pattern = "LspDynamicCapability",
@@ -104,7 +108,11 @@ return {
       })
     end
 
+    ---@type table<string, table<vim.lsp.Client, table<integer, boolean>>>
     local _supports_method = {}
+
+    ---@param method string
+    ---@param fn fun(client: vim.lsp.Client, bufnr: integer)
     local on_supports_method = function(method, fn)
       -- __mode = "k" means weak key in table, see :h __mode
       _supports_method[method] = _supports_method[method] or setmetatable({}, { __mode = "k" })
@@ -120,6 +128,8 @@ return {
       })
     end
 
+    ---@param client vim.lsp.Client
+    ---@param bufnr integer
     local _check_methods = function(client, bufnr)
       if not vim.api.nvim_buf_is_valid(bufnr) then
         return
