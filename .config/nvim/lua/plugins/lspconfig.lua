@@ -128,6 +128,24 @@ return {
       })
     end
 
+    local register_capability = vim.lsp.handlers["client/registerCapability"]
+    vim.lsp.handlers["client/registerCapability"] = function(err, res, ctx)
+      local ret = register_capability(err, res, ctx)
+      local client = vim.lsp.get_client_by_id(ctx.client_id)
+      if client then
+        for bufnr in pairs(client.attached_buffers) do
+          vim.api.nvim_exec_autocmds("User", {
+            pattern = "LspDynamicCapability",
+            data = {
+              client_id = client.id,
+              bufnr = bufnr,
+            },
+          })
+        end
+      end
+      return ret
+    end
+
     ---@param client vim.lsp.Client
     ---@param bufnr integer
     local _check_methods = function(client, bufnr)
@@ -147,27 +165,15 @@ return {
             clients[client][bufnr] = true
             vim.api.nvim_exec_autocmds("User", {
               pattern = "LspSupportsMethod",
-              data = { client_id = client.id, bufnr = bufnr, method = method },
+              data = {
+                client_id = client.id,
+                bufnr = bufnr,
+                method = method,
+              },
             })
           end
         end
       end
-    end
-
-    -- LSP setup
-    local register_capability = vim.lsp.handlers["client/registerCapability"]
-    vim.lsp.handlers["client/registerCapability"] = function(err, res, ctx)
-      local ret = register_capability(err, res, ctx)
-      local client = vim.lsp.get_client_by_id(ctx.client_id)
-      if client then
-        for bufnr in pairs(client.attached_buffers) do
-          vim.api.nvim_exec_autocmds("User", {
-            pattern = "LspDynamicCapability",
-            data = { client_id = client.id, bufnr = bufnr },
-          })
-        end
-      end
-      return ret
     end
     on_attach(_check_methods)
     on_dynamic_capability(_check_methods)
@@ -192,10 +198,8 @@ return {
       map("n", "<Leader>cr", vim.lsp.buf.rename, "Rename")
     end
     on_attach(keymaps_on_attach)
-    on_dynamic_capability(keymaps_on_attach)
-
-    -- Diagnostics
-    vim.diagnostic.config(vim.deepcopy(opts.diagnostics))
+    -- Avoid setup keymaps multiple times.
+    -- on_dynamic_capability(keymaps_on_attach)
 
     -- Inlay hints
     if opts.inlay_hints.enabled then
@@ -220,6 +224,9 @@ return {
         })
       end)
     end
+
+    -- Diagnostics
+    vim.diagnostic.config(vim.deepcopy(opts.diagnostics))
 
     -- LSP server setup
     local servers = opts.servers
