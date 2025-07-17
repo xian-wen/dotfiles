@@ -69,7 +69,7 @@ return {
           require("render-markdown").toggle()
         end,
         ft = "markdown",
-        desc = "Markdown Preview",
+        desc = "Toggle Render Markdown",
       },
     },
     opts = {
