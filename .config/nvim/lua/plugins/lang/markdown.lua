@@ -48,7 +48,7 @@ return {
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     keys = {
       {
-        "<Leader>cp",
+        "<Leader>cm",
         "<Cmd>MarkdownPreviewToggle<CR>",
         ft = "markdown",
         desc = "Markdown Preview",
