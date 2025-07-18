@@ -56,17 +56,21 @@ return {
             "--fallback-style=llvm",
           },
           root_dir = function(fname)
-            return require("lspconfig.util").root_pattern(
+            return vim.fs.root(fname, {
+              -- Build system markers
               "Makefile",
               "configure.ac",
               "configure.in",
               "config.h.in",
               "meson.build",
               "meson_options.txt",
-              "build.ninja"
-            )(fname) or require("lspconfig.util").root_pattern("compile_commands.json", "compile_flags.txt")(
-              fname
-            ) or vim.fs.root(fname, ".git")
+              "build.ninja",
+              -- Complilation DB fallback
+              "compile_commands.json",
+              "compile_flags.txt",
+              -- VCS fallback
+              ".git",
+            })
           end,
           capabilities = {
             offsetEncoding = { "utf-16" },
