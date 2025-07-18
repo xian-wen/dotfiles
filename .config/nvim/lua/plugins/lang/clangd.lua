@@ -75,7 +75,7 @@ return {
             ".git",
           },
           capabilities = {
-            offsetEncoding = { "utf-16" },
+            offsetEncoding = "utf-16",
           },
           init_options = {
             usePlaceholders = true,
