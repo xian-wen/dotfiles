@@ -55,9 +55,9 @@ return {
             "--function-arg-placeholders",
             "--fallback-style=llvm",
           },
-          root_dir = function(fname)
-            return vim.fs.root(fname, {
-              -- Build system markers
+          root_markers = {
+            -- Build system markers
+            {
               "Makefile",
               "configure.ac",
               "configure.in",
@@ -65,13 +65,15 @@ return {
               "meson.build",
               "meson_options.txt",
               "build.ninja",
-              -- Complilation DB fallback
+            },
+            -- Complilation DB fallback
+            {
               "compile_commands.json",
               "compile_flags.txt",
-              -- VCS fallback
-              ".git",
-            })
-          end,
+            },
+            -- VCS fallback
+            ".git",
+          },
           capabilities = {
             offsetEncoding = { "utf-16" },
           },
