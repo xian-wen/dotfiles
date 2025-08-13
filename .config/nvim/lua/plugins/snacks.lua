@@ -307,7 +307,7 @@ return {
         function()
           Snacks.picker.git_log_file()
         end,
-        desc = "Git Current File History",
+        desc = "Git Log File",
       },
       {
         "<Leader>gl",
