@@ -343,7 +343,7 @@ return {
         function()
           Snacks.picker.lines()
         end,
-        desc = "Lines",
+        desc = "Buffer Lines",
       },
       {
         "<Leader>sB",
