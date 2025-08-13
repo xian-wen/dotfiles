@@ -799,6 +799,8 @@ return {
   {
     "folke/snacks.nvim",
     keys = {
+      { "<Leader>z", "<Leader>uz", desc = "Toggle Zen Mode", remap = true },
+      { "<Leader>Z", "<Leader>uZ", desc = "Toggle Zoom", remap = true },
       {
         "<Leader>uz",
         function()
