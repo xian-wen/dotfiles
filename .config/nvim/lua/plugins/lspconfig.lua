@@ -77,106 +77,9 @@ return {
       },
     }
   end,
-  config = function(_, opts)
-    ---@param fn fun(client: vim.lsp.Client, bufnr: integer)
-    ---@param name? string
-    local on_attach = function(fn, name)
-      return vim.api.nvim_create_autocmd("LspAttach", {
-        callback = function(args)
-          local bufnr = args.buf
-          local client = vim.lsp.get_client_by_id(args.data.client_id)
-          if client and (not name or client.name == name) then
-            return fn(client, bufnr)
-          end
-        end,
-      })
-    end
-
-    ---@param fn fun(client: vim.lsp.Client, bufnr: integer): boolean?
-    ---@param options? { group?: integer }
-    local on_dynamic_capability = function(fn, options)
-      return vim.api.nvim_create_autocmd("User", {
-        pattern = "LspDynamicCapability",
-        group = options and options.group or nil,
-        callback = function(args)
-          local bufnr = args.data.bufnr
-          local client = vim.lsp.get_client_by_id(args.data.client_id)
-          if client then
-            return fn(client, bufnr)
-          end
-        end,
-      })
-    end
-
-    ---@type table<string, table<vim.lsp.Client, table<integer, boolean>>>
-    local _supports_method = {}
-
-    ---@param method string
-    ---@param fn fun(client: vim.lsp.Client, bufnr: integer)
-    local on_supports_method = function(method, fn)
-      -- __mode = "k" means weak key in table, see :h __mode
-      _supports_method[method] = _supports_method[method] or setmetatable({}, { __mode = "k" })
-      return vim.api.nvim_create_autocmd("User", {
-        pattern = "LspSupportsMethod",
-        callback = function(args)
-          local bufnr = args.data.bufnr
-          local client = vim.lsp.get_client_by_id(args.data.client_id)
-          if client and method == args.data.method then
-            return fn(client, bufnr)
-          end
-        end,
-      })
-    end
-
-    local register_capability = vim.lsp.handlers["client/registerCapability"]
-    vim.lsp.handlers["client/registerCapability"] = function(err, res, ctx)
-      local ret = register_capability(err, res, ctx)
-      local client = vim.lsp.get_client_by_id(ctx.client_id)
-      if client then
-        for bufnr in pairs(client.attached_buffers) do
-          vim.api.nvim_exec_autocmds("User", {
-            pattern = "LspDynamicCapability",
-            data = {
-              client_id = client.id,
-              bufnr = bufnr,
-            },
-          })
-        end
-      end
-      return ret
-    end
-
-    ---@param client vim.lsp.Client
-    ---@param bufnr integer
-    local _check_methods = function(client, bufnr)
-      if not vim.api.nvim_buf_is_valid(bufnr) then
-        return
-      end
-      if not vim.bo[bufnr].buflisted then
-        return
-      end
-      if vim.bo[bufnr].buftype == "nofile" then
-        return
-      end
-      for method, clients in pairs(_supports_method) do
-        clients[client] = clients[client] or {}
-        if not clients[client][bufnr] then
-          if client.supports_method and client:supports_method(method, bufnr) then
-            clients[client][bufnr] = true
-            vim.api.nvim_exec_autocmds("User", {
-              pattern = "LspSupportsMethod",
-              data = {
-                client_id = client.id,
-                bufnr = bufnr,
-                method = method,
-              },
-            })
-          end
-        end
-      end
-    end
-    on_attach(_check_methods)
-    on_dynamic_capability(_check_methods)
+  config = vim.schedule_wrap(function(_, opts)
+    local lsp = require("util.lsp")
+    lsp.setup()
 
     -- Keymaps
     local keymaps_on_attach = function(_, bufnr)
@@ -197,13 +100,13 @@ return {
       map("n", "<Leader>cL", vim.lsp.codelens.refresh, "Refresh & Display Codelens")
       map("n", "<Leader>cr", vim.lsp.buf.rename, "Rename")
     end
-    on_attach(keymaps_on_attach)
+    lsp.on_attach(keymaps_on_attach)
     -- Avoid setup keymaps multiple times.
-    -- on_dynamic_capability(keymaps_on_attach)
+    -- lsp.on_dynamic_capability(keymaps_on_attach)
 
     -- Inlay hints
     if opts.inlay_hints.enabled then
-      on_supports_method("textDocument/inlayHint", function(_, bufnr)
+      lsp.on_supports_method("textDocument/inlayHint", function(_, bufnr)
         if
           vim.api.nvim_buf_is_valid(bufnr)
           and vim.bo[bufnr].buftype == ""
@@ -216,7 +119,7 @@ return {
 
     -- Code lens
     if opts.codelens.enabled and vim.lsp.codelens then
-      on_supports_method("textDocument/codeLens", function(_, bufnr)
+      lsp.on_supports_method("textDocument/codeLens", function(_, bufnr)
         vim.lsp.codelens.refresh()
         vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
           buffer = bufnr,
@@ -228,63 +131,48 @@ return {
     -- Diagnostics
     vim.diagnostic.config(vim.deepcopy(opts.diagnostics))
 
-    -- LSP server setup
-    local servers = opts.servers
-    local has_blink, blink = pcall(require, "blink.cmp")
-    local capabilities = vim.tbl_deep_extend(
-      "force",
-      {},
-      vim.lsp.protocol.make_client_capabilities(),
-      has_blink and blink.get_lsp_capabilities() or {},
-      opts.capabilities or {}
-    )
-
-    local setup = function(server)
-      local server_opts = vim.tbl_deep_extend("force", {
-        capabilities = vim.deepcopy(capabilities),
-      }, servers[server] or {})
-      if server_opts.enabled == false then
-        return
-      end
-      if opts.setup[server] then
-        if opts.setup[server](server, server_opts) then
-          return
-        end
-      elseif opts.setup["*"] then
-        if opts.setup["*"](server, server_opts) then
-          return
-        end
-      end
-      require("lspconfig")[server].setup(server_opts)
+    -- Capabilities
+    if opts.capabilities then
+      vim.lsp.config("*", { capabilities = opts.capabilities })
     end
 
     -- Get all the servers that are available through mason-lspconfig.
-    local has_mason, mlsp = pcall(require, "mason-lspconfig")
-    local all_mlsp_servers = {}
-    if has_mason then
-      all_mlsp_servers = vim.tbl_keys(require("mason-lspconfig.mappings.server").lspconfig_to_package)
-    end
+    local have_mason = require("util").has("mason-lspconfig.nvim")
+    local mason_all = have_mason
+        and vim.tbl_keys(require("mason-lspconfig.mappings").get_mason_map().lspconfig_to_package)
+      or {}
+    local mason_exclude = {}
 
-    local ensure_installed = {}
-    for server, server_opts in pairs(servers) do
-      if server_opts then
-        server_opts = server_opts == true and {} or server_opts
-        if server_opts.enabled ~= false then
-          -- Run manual setup if mason=false or if server cannot be installed with mason-lspconfig.
-          if server_opts.mason == false or not vim.tbl_contains(all_mlsp_servers, server) then
-            setup(server)
-          else
-            ensure_installed[#ensure_installed + 1] = server
-          end
+    ---@return boolean? exclude automatic setup
+    local configure = function(server)
+      local sopts = opts.servers[server]
+      sopts = sopts == true and {} or (not sopts) and { enabled = false } or sopts
+      if sopts.enabled == false then
+        mason_exclude[#mason_exclude + 1] = server
+        return
+      end
+      local use_mason = sopts.mason ~= false and vim.tbl_contains(mason_all, server)
+      local setup = opts.setup[server] or opts.setup["*"]
+      if setup and setup(server, sopts) then
+        mason_exclude[#mason_exclude + 1] = server
+      else
+        vim.lsp.config(server, sopts) -- configure the server
+        if not use_mason then
+          vim.lsp.enable(server)
         end
       end
+      return use_mason
     end
 
-    if has_mason then
-      mlsp.setup({
-        ensure_installed = vim.tbl_deep_extend("force", ensure_installed, mlsp.ensure_installed or {}),
-        handlers = { setup },
+    local install = vim.tbl_filter(configure, vim.tbl_keys(opts.servers))
+    if have_mason then
+      require("mason-lspconfig").setup({
+        ensure_installed = vim.list_extend(
+          install,
+          require("util").opts("mason-lspconfig.nvim").ensure_installed or {}
+        ),
+        automatic_enable = { exclude = mason_exclude },
       })
     end
-  end,
+  end),
 }
