@@ -1,7 +1,6 @@
 return {
   {
     "mason-org/mason.nvim",
-    version = "^1.0.0",
     build = ":MasonUpdate",
     cmd = "Mason",
     keys = {
@@ -35,8 +34,5 @@ return {
   },
 
   -- Configured in `nvim-lspconfig`.
-  {
-    "mason-org/mason-lspconfig.nvim",
-    version = "^1.0.0",
-  },
+  "mason-org/mason-lspconfig.nvim",
 }
