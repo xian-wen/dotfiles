@@ -16,8 +16,18 @@ M.foldexpr = function()
 end
 
 ---@param name string
+M.get_plugin = function(name)
+  return require("lazy.core.config").spec.plugins[name]
+end
+
+---@param plugin string
+M.has = function(plugin)
+  return M.get_plugin(plugin) ~= nil
+end
+
+---@param name string
 M.opts = function(name)
-  local plugin = require("lazy.core.config").spec.plugins[name]
+  local plugin = M.get_plugin(name)
   return plugin and require("lazy.core.plugin").values(plugin, "opts", false) or {}
 end
 
