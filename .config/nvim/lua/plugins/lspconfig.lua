@@ -63,6 +63,8 @@ return {
             },
           },
         },
+        -- stylua is now also an LSP.
+        stylua = {},
       },
       -- Additional LSP server setup
       -- Return true for server not to be setup with lspconfig.
