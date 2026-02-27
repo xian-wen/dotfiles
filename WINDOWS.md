@@ -1,5 +1,27 @@
 # Windows Installation
 
+## Windows
+
+### Install
+
+Open a command prompt.
+
+```text
+Shift+F10
+```
+
+Reconfig.
+
+```cmd
+oobe\\bypassnro
+```
+
+[Bypass Windows 11 Internet and Microsoft Account Requirements](https://massgrave.dev/clean_install_windows#bypass-windows-11-internet-and-microsoft-account-requirements).
+
+```cmd
+start ms-cxh:localonly
+```
+
 ## PowerShell
 
 ### Install
