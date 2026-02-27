@@ -22,6 +22,16 @@ oobe\\bypassnro
 start ms-cxh:localonly
 ```
 
+## Office
+
+### Activate
+
+[Microsoft Activation Scripts](https://massgrave.dev/#activation-methods).
+
+```powershell
+irm https://get.activated.win | iex
+```
+
 ## PowerShell
 
 ### Install
