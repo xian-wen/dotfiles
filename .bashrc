@@ -127,9 +127,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
-[ -f ~/.cs162.bashrc ] && . ~/.cs162.bashrc
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# CS162
+if [ -f ~/.cs162.bashrc ]; then
+  . ~/.cs162.bashrc
+fi
 
 # Aliases
 alias lazyvim='NVIM_APPNAME="lazyvim" nvim'
@@ -140,30 +141,46 @@ alias nvchad='NVIM_APPNAME="nvchad" nvim'
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # rustup
-[ -f ~/.cargo/env ] && . ~/.cargo/env
+if [ -f ~/.cargo/env ]; then
+  . ~/.cargo/env
+fi
 
 # pipx
-export PATH=$HOME/.local/bin:$PATH
-eval "$(register-python-argcomplete pipx)"
+if command -v register-python-argcomplete &> /dev/null; then
+  export PATH=$HOME/.local/bin:$PATH
+  eval "$(register-python-argcomplete pipx)"
+fi
 
 # Fast Node Manager
-eval "$(fnm env --use-on-cd --shell bash)"
-eval "$(fnm completions --shell bash)"
+if command -v register-python-argcomplete &> /dev/null; then
+  eval "$(fnm env --use-on-cd --shell bash)"
+  eval "$(fnm completions --shell bash)"
+fi
 
 # Set EDITOR to nvim if exists otherwise vim.
-export EDITOR=$(command -v nvim &>/dev/null && echo nvim || echo vim)
+if command -v nvim &> /dev/null; then
+  export EDITOR=nvim
+else
+  export EDITOR=vim
+fi
 
 # Codeium: No heartbeat executed
 export no_proxy=127.0.0.1
 
 # Replace man with batman.
-eval "$(batman --export-env)"
+if command -v batman &> /dev/null; then
+  eval "$(batman --export-env)"
+fi
 
 # Set up fzf key bindings and fuzzy completion.
-eval "$(fzf --bash)"
+if command -v fzf &> /dev/null; then
+  eval "$(fzf --bash)"
+fi
 
 # Startship
 # Avoid Executing command "/usr/bin/git" timed out.
 # Ref: https://starship.rs/faq/#why-do-i-see-executing-command-timed-out-warnings
-export STARSHIP_LOG=error
-eval "$(starship init bash)"
+if command -v starship &> /dev/null; then
+  export STARSHIP_LOG=error
+  eval "$(starship init bash)"
+fi
