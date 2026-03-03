@@ -141,8 +141,8 @@ alias nvchad='NVIM_APPNAME="nvchad" nvim'
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # rustup
-if [ -f ~/.cargo/env ]; then
-  . ~/.cargo/env
+if command -v rustup &>/dev/null; then
+  export PATH=$HOME/.cargo/bin:$PATH
 fi
 
 # pipx

@@ -18,8 +18,8 @@ end
 /home/linuxbrew/.linuxbrew/bin/brew shellenv | source
 
 # rustup
-if test -f "$HOME/.cargo/env.fish"
-  source "$HOME/.cargo/env.fish"
+if command -q rustup
+    set -gx PATH $HOME/.cargo/bin $PATH
 end
 
 # pipx

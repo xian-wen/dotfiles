@@ -133,7 +133,9 @@ alias nvchad='NVIM_APPNAME="nvchad" nvim'
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # rustup
-[[ -f ~/.cargo/env ]] && source ~/.cargo/env
+if command -v rustup &> /dev/null; then
+  export PATH=$HOME/.cargo/bin:$PATH
+fi
 
 # pipx
 if command -v register-python-argcomplete &> /dev/null; then
