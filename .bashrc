@@ -4,8 +4,8 @@
 
 # If not running interactively, don't do anything
 case $- in
-  *i*) ;;
-  *) return ;;
+*i*) ;;
+*) return ;;
 esac
 
 # don't put duplicate lines or lines starting with space in the history.
@@ -49,7 +49,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-  xterm-color | *-256color) color_prompt=yes ;;
+xterm-color | *-256color) color_prompt=yes ;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -77,10 +77,10 @@ unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
-  xterm* | rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-  *) ;;
+xterm* | rxvt*)
+  PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+  ;;
+*) ;;
 esac
 
 # enable color support of ls and also add handy aliases
@@ -146,19 +146,19 @@ if [ -f ~/.cargo/env ]; then
 fi
 
 # pipx
-if command -v register-python-argcomplete &> /dev/null; then
+if command -v register-python-argcomplete &>/dev/null; then
   export PATH=$HOME/.local/bin:$PATH
   eval "$(register-python-argcomplete pipx)"
 fi
 
 # Fast Node Manager
-if command -v register-python-argcomplete &> /dev/null; then
+if command -v register-python-argcomplete &>/dev/null; then
   eval "$(fnm env --use-on-cd --shell bash)"
   eval "$(fnm completions --shell bash)"
 fi
 
 # Set EDITOR to nvim if exists otherwise vim.
-if command -v nvim &> /dev/null; then
+if command -v nvim &>/dev/null; then
   export EDITOR=nvim
 else
   export EDITOR=vim
@@ -168,19 +168,19 @@ fi
 export no_proxy=127.0.0.1
 
 # Replace man with batman.
-if command -v batman &> /dev/null; then
+if command -v batman &>/dev/null; then
   eval "$(batman --export-env)"
 fi
 
 # Set up fzf key bindings and fuzzy completion.
-if command -v fzf &> /dev/null; then
+if command -v fzf &>/dev/null; then
   eval "$(fzf --bash)"
 fi
 
 # Startship
 # Avoid Executing command "/usr/bin/git" timed out.
 # Ref: https://starship.rs/faq/#why-do-i-see-executing-command-timed-out-warnings
-if command -v starship &> /dev/null; then
+if command -v starship &>/dev/null; then
   export STARSHIP_LOG=error
   eval "$(starship init bash)"
 fi
