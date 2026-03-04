@@ -6,9 +6,12 @@ return {
   },
   -- Same as LazyFile.
   event = { "BufReadPost", "BufNewFile", "BufWritePre" },
+  opts_extend = { "servers.*.keys" },
   opts = function()
     local icons = require("config").icons.diagnostics
     return {
+      -- Options for vim.diagnostic.config()
+      ---@type vim.diagnostic.Opts
       diagnostics = {
         virtual_text = {
           -- Only show sources if there is more than one source of diagnostics in the buffer.
@@ -34,6 +37,7 @@ return {
         exclude = {},
       },
       codelens = { enabled = false },
+      folds = { enabled = true },
       -- Global capabilities
       capabilities = {
         workspace = {
@@ -44,12 +48,40 @@ return {
         },
       },
       -- LSP server settings
+      -- Set the default configuration for an LSP client (or all clients if the special name "*" is used).
       servers = {
+        -- Configuration for all LSP servers
+        ["*"] = {
+          capabilities = {
+            workspace = {
+              fileOperations = {
+                didRename = true,
+                willRename = true,
+              },
+            },
+          },
+          keys = {
+            { "gd", vim.lsp.buf.definition, desc = "Go to Definition", has = "definition" },
+            { "gD", vim.lsp.buf.declaration, desc = "Go to Declaration" },
+            { "gI", vim.lsp.buf.implementation, desc = "Go to Implementation" },
+            { "gr", vim.lsp.buf.references, desc = "References", nowait = true },
+            { "gy", vim.lsp.buf.type_definition, desc = "Go to T[y]pe Definition" },
+            { "gK", vim.lsp.buf.signature_help, desc = "Signature Help", has = "signatureHelp" },
+            { "<C-k>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help", has = "signatureHelp" },
+            { "<Leader>ci", "<Cmd>LspInfo<CR>", desc = "LSP Info" },
+            { "<Leader>ca", vim.lsp.buf.code_action, mode = { "n", "x" }, desc = "Code Action", has = "codeAction" },
+            { "<Leader>cl", vim.lsp.codelens.run, mode = { "n", "x" }, desc = "Run Codelens", has = "codeLens" },
+            { "<Leader>cL", vim.lsp.codelens.refresh, desc = "Refresh & Display Codelens", has = "codeLens" },
+            { "<Leader>cr", vim.lsp.buf.rename, desc = "Rename", has = "rename" },
+          },
+        },
+        -- stylua is now also an LSP.
+        stylua = { enabled = false },
         -- Ref: https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#lua_ls
         -- Ref: https://luals.github.io/wiki/settings
         lua_ls = {
-          -- mason = false,
-          -- keys = {},
+          -- mason = false, -- set to false to not use mason to install
+          -- keys = {}, -- add any additional keymaps for specific lsp servers
           settings = {
             Lua = {
               diagnostics = {
@@ -63,11 +95,10 @@ return {
             },
           },
         },
-        -- stylua is now also an LSP.
-        stylua = {},
       },
       -- Additional LSP server setup
       -- Return true for server not to be setup with lspconfig.
+      ---@type table<string, fun(server: string, opts: vim.lsp.Config): boolean?>
       setup = {
         -- Example to setup with typescript.nvim
         -- tsserver = function(_, opts)
@@ -80,51 +111,42 @@ return {
     }
   end,
   config = vim.schedule_wrap(function(_, opts)
-    local lsp = require("util.lsp")
-    lsp.setup()
-
     -- Keymaps
-    local keymaps_on_attach = function(_, bufnr)
-      local map = function(mode, lhs, rhs, desc)
-        vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
+    for server, server_opts in pairs(opts.servers) do
+      if type(server_opts) == "table" and server_opts.keys then
+        require("util.lsp").map({ name = server ~= "*" and server or nil }, server_opts.keys)
       end
-      -- The following keymaps are replaced with those of picker (telescope/fzf-lua/Snacks.picker).
-      -- map("n", "gd", vim.lsp.buf.definition, "Go to Definition")
-      -- map("n", "gD", vim.lsp.buf.declaration, "Go to Declaration")
-      -- map("n", "gI", vim.lsp.buf.implementation, "Go to Implementation")
-      -- map("n", "gr", vim.lsp.buf.references, "References")
-      -- map("n", "gy", vim.lsp.buf.type_definition, "Go to T[y]pe Definition")
-      map("n", "gK", vim.lsp.buf.signature_help, "Signature Help")
-      map("i", "<C-k>", vim.lsp.buf.signature_help, "Signature Help")
-      map("n", "<Leader>ci", "<Cmd>LspInfo<CR>", "LSP Info")
-      map({ "n", "v" }, "<Leader>ca", vim.lsp.buf.code_action, "Code Action")
-      map({ "n", "v" }, "<Leader>cl", vim.lsp.codelens.run, "Run Codelens")
-      map("n", "<Leader>cL", vim.lsp.codelens.refresh, "Refresh & Display Codelens")
-      map("n", "<Leader>cr", vim.lsp.buf.rename, "Rename")
     end
-    lsp.on_attach(keymaps_on_attach)
-    -- Avoid setup keymaps multiple times.
-    -- lsp.on_dynamic_capability(keymaps_on_attach)
 
     -- Inlay hints
     if opts.inlay_hints.enabled then
-      lsp.on_supports_method("textDocument/inlayHint", function(_, bufnr)
+      Snacks.util.lsp.on({ method = "textDocument/inlayHint" }, function(buffer)
         if
-          vim.api.nvim_buf_is_valid(bufnr)
-          and vim.bo[bufnr].buftype == ""
-          and not vim.tbl_contains(opts.inlay_hints.exclude, vim.bo[bufnr].filetype)
+          vim.api.nvim_buf_is_valid(buffer)
+          and vim.bo[buffer].buftype == ""
+          and not vim.tbl_contains(opts.inlay_hints.exclude, vim.bo[buffer].filetype)
         then
-          vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+          vim.lsp.inlay_hint.enable(true, { bufnr = buffer })
+        end
+      end)
+    end
+
+    -- Folds
+    if opts.folds.enabled then
+      Snacks.util.lsp.on({ method = "textDocument/foldingRange" }, function()
+        local util = require("util")
+        if util.set_default("foldmethod", "expr") then
+          util.set_default("foldexpr", "v:lua.vim.lsp.foldexpr()")
         end
       end)
     end
 
     -- Code lens
     if opts.codelens.enabled and vim.lsp.codelens then
-      lsp.on_supports_method("textDocument/codeLens", function(_, bufnr)
+      Snacks.util.lsp.on({ method = "textDocument/codeLens" }, function(buffer)
         vim.lsp.codelens.refresh()
         vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
-          buffer = bufnr,
+          buffer = buffer,
           callback = vim.lsp.codelens.refresh,
         })
       end)
@@ -135,18 +157,27 @@ return {
 
     -- Capabilities
     if opts.capabilities then
-      vim.lsp.config("*", { capabilities = opts.capabilities })
+      opts.servers["*"] = vim.tbl_deep_extend("force", opts.servers["*"] or {}, {
+        capabilities = opts.capabilities,
+      })
+    end
+
+    if opts.servers["*"] then
+      vim.lsp.config("*", opts.servers["*"])
     end
 
     -- Get all the servers that are available through mason-lspconfig.
     local have_mason = require("util").has("mason-lspconfig.nvim")
     local mason_all = have_mason
         and vim.tbl_keys(require("mason-lspconfig.mappings").get_mason_map().lspconfig_to_package)
-      or {}
-    local mason_exclude = {}
+      or {} --[[ @as string[] ]]
+    local mason_exclude = {} ---@type string[]
 
     ---@return boolean? exclude automatic setup
     local configure = function(server)
+      if server == "*" then
+        return false
+      end
       local sopts = opts.servers[server]
       sopts = sopts == true and {} or (not sopts) and { enabled = false } or sopts
       if sopts.enabled == false then

@@ -17,6 +17,7 @@ return {
       input = {},
       quickfile = {},
       statuscolumn = {},
+      words = {},
     },
   },
 
@@ -516,64 +517,6 @@ return {
         end,
         desc = "Undo",
       },
-      -- LSP
-      {
-        "<Leader>cc",
-        function()
-          Snacks.picker.lsp_config()
-        end,
-        desc = "LSP Config",
-      },
-      {
-        "gd",
-        function()
-          Snacks.picker.lsp_definitions()
-        end,
-        desc = "LSP Definitions",
-      },
-      {
-        "gD",
-        function()
-          Snacks.picker.lsp_declarations()
-        end,
-        desc = "LSP Declarations",
-      },
-      {
-        "gI",
-        function()
-          Snacks.picker.lsp_implementations()
-        end,
-        desc = "LSP Implementations",
-      },
-      {
-        "gr",
-        function()
-          Snacks.picker.lsp_references()
-        end,
-        nowait = true,
-        desc = "LSP References",
-      },
-      {
-        "gy",
-        function()
-          Snacks.picker.lsp_type_definitions()
-        end,
-        desc = "LSP T[y]pe Definitions",
-      },
-      {
-        "<Leader>ss",
-        function()
-          Snacks.picker.lsp_symbols()
-        end,
-        desc = "LSP Symbols",
-      },
-      {
-        "<Leader>sS",
-        function()
-          Snacks.picker.lsp_workspace_symbols()
-        end,
-        desc = "LSP Workspace Symbols",
-      },
       -- UI
       {
         "<Leader>uc",
@@ -631,6 +574,140 @@ return {
       },
     },
   },
+
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        ["*"] = {
+          keys = {
+            -- LSP
+            {
+              "<Leader>cc",
+              function()
+                Snacks.picker.lsp_config()
+              end,
+              desc = "LSP Config",
+            },
+            {
+              "gd",
+              function()
+                Snacks.picker.lsp_definitions()
+              end,
+              desc = "LSP Definitions",
+            },
+            {
+              "gD",
+              function()
+                Snacks.picker.lsp_declarations()
+              end,
+              desc = "LSP Declarations",
+            },
+            {
+              "gI",
+              function()
+                Snacks.picker.lsp_implementations()
+              end,
+              desc = "LSP Implementations",
+            },
+            {
+              "gr",
+              function()
+                Snacks.picker.lsp_references()
+              end,
+              nowait = true,
+              desc = "LSP References",
+            },
+            {
+              "gy",
+              function()
+                Snacks.picker.lsp_type_definitions()
+              end,
+              desc = "LSP T[y]pe Definitions",
+            },
+            {
+              "gai",
+              function()
+                Snacks.picker.lsp_incoming_calls()
+              end,
+              desc = "LSP C[a]lls Incoming",
+              has = "callHierarchy/incomingCalls",
+            },
+            {
+              "gao",
+              function()
+                Snacks.picker.lsp_outgoing_calls()
+              end,
+              desc = "LSP C[a]lls Outgoing",
+              has = "callHierarchy/outgoingCalls",
+            },
+            {
+              "<Leader>ss",
+              function()
+                Snacks.picker.lsp_symbols()
+              end,
+              desc = "LSP Symbols",
+              has = "documentSymbol",
+            },
+            {
+              "<Leader>sS",
+              function()
+                Snacks.picker.lsp_workspace_symbols()
+              end,
+              desc = "LSP Workspace Symbols",
+              has = "workspace/symbols",
+            },
+            -- Rename
+            {
+              "<Leader>cR",
+              function()
+                Snacks.rename.rename_file()
+              end,
+              desc = "Rename File",
+              has = {
+                "workspace/didRenameFiles",
+                "workspace/willRenameFiles",
+              },
+            },
+            -- Words
+            {
+              "]]",
+              function()
+                Snacks.words.jump(vim.v.count1)
+              end,
+              desc = "Next Reference",
+              has = "documentHighlight",
+            },
+            {
+              "[[",
+              function()
+                Snacks.words.jump(-vim.v.count1)
+              end,
+              desc = "Prev Reference",
+              has = "documentHighlight",
+            },
+            {
+              "<A-n>",
+              function()
+                Snacks.words.jump(vim.v.count1, true)
+              end,
+              desc = "Next Reference",
+              has = "documentHighlight",
+            },
+            {
+              "<A-p>",
+              function()
+                Snacks.words.jump(-vim.v.count1, true)
+              end,
+              desc = "Prev Reference",
+              has = "documentHighlight",
+            },
+          },
+        },
+      },
+    },
+  },
+
   {
     "folke/todo-comments.nvim",
     keys = {
@@ -649,20 +726,6 @@ return {
           })
         end,
         desc = "Todo/Fix/Fixme",
-      },
-    },
-  },
-
-  -- Rename
-  {
-    "folke/snacks.nvim",
-    keys = {
-      {
-        "<Leader>cR",
-        function()
-          Snacks.rename.rename_file()
-        end,
-        desc = "Rename File",
       },
     },
   },
@@ -754,44 +817,6 @@ return {
     },
     opts = {
       win = {},
-    },
-  },
-
-  -- Words
-  {
-    "folke/snacks.nvim",
-    keys = {
-      {
-        "]]",
-        function()
-          Snacks.words.jump(vim.v.count1)
-        end,
-        desc = "Next Reference",
-      },
-      {
-        "[[",
-        function()
-          Snacks.words.jump(-vim.v.count1)
-        end,
-        desc = "Prev Reference",
-      },
-      {
-        "<A-n>",
-        function()
-          Snacks.words.jump(vim.v.count1, true)
-        end,
-        desc = "Next Reference",
-      },
-      {
-        "<A-p>",
-        function()
-          Snacks.words.jump(-vim.v.count1, true)
-        end,
-        desc = "Prev Reference",
-      },
-    },
-    opts = {
-      words = {},
     },
   },
 
