@@ -31,9 +31,11 @@ return {
       local TS = require("nvim-treesitter")
       local ts = require("util.treesitter")
       local util = require("util")
+
       -- Setup treesitter.
       TS.setup(opts)
       ts.get_installed(true) -- initialize the installed langs
+
       -- Install missing parsers.
       local install = vim.tbl_filter(function(lang)
         return not ts.have(lang)
@@ -43,6 +45,7 @@ return {
           ts.get_installed(true) -- refresh the installed langs
         end)
       end
+
       vim.api.nvim_create_autocmd("FileType", {
         group = vim.api.nvim_create_augroup("treesitter", { clear = true }),
         callback = function(ev)
@@ -95,8 +98,8 @@ return {
       },
     },
     config = function(_, opts)
-      local TS = require("nvim-treesitter-textobjects")
-      TS.setup(opts)
+      require("nvim-treesitter-textobjects").setup(opts)
+
       local attach = function(buf)
         local ts = require("util.treesitter")
         local ft = vim.bo[buf].filetype
@@ -130,12 +133,14 @@ return {
           end
         end
       end
+
       vim.api.nvim_create_autocmd("FileType", {
         group = vim.api.nvim_create_augroup("treesitter_textobjects", { clear = true }),
         callback = function(ev)
           attach(ev.buf)
         end,
       })
+
       vim.tbl_map(attach, vim.api.nvim_list_bufs())
     end,
   },
