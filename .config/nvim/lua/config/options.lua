@@ -25,9 +25,8 @@ o.fillchars = { -- characters to use for displaying special items
   foldsep = " ",
   eob = " ",
 }
-o.foldexpr = "v:lua.require('util').foldexpr()" -- expression used when 'foldmethod' is "expr"
 o.foldlevel = 99 -- close folds with a level higher than this
-o.foldmethod = "expr" -- folding type
+o.foldmethod = "indent" -- folding type
 o.foldtext = "" -- expression used to display for a closed fold
 o.formatexpr = "v:lua.vim.lsp.formatexpr()" -- expression used with "gq" command
 o.formatoptions = "tcroqnlj" -- how automatic formatting is to be done
