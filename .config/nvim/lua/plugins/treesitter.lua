@@ -67,12 +67,13 @@ return {
           end
           -- Indents
           if enabled("indent", "indents") then
-            util.set_default("indentexpr", "v:lua.ts.indentexpr()")
+            -- ts is local, cannot be used in set_default
+            util.set_default("indentexpr", "v:lua.require('util.treesitter').indentexpr()")
           end
           -- Folds
           if enabled("folds", "folds") then
             if util.set_default("foldmethod", "expr") then
-              util.set_default("foldexpr", "v:lua.ts.foldexpr()")
+              util.set_default("foldexpr", "v:lua.require('util.treesitter').foldexpr()")
             end
           end
         end,
