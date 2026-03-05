@@ -1214,6 +1214,32 @@ Uninstall Lazygit.
 brew uninstall lazygit
 ```
 
+## GitHub CLI
+
+### Install
+
+[Install GitHub CLI](https://github.com/cli/cli/blob/trunk/docs/install_linux.md#homebrew).
+
+```bash
+brew install gh
+```
+
+### Upgrade
+
+Upgrade GitHub CLI.
+
+```bash
+brew upgrade gh
+```
+
+### Uninstall
+
+Uninstall GitHub CLI.
+
+```bash
+brew uninstall gh
+```
+
 ## bear
 
 ### Install

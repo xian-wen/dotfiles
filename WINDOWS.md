@@ -309,3 +309,29 @@ Uninstall Lazygit.
 ```bash
 winget uninstall lazygit
 ```
+
+## GitHub CLI
+
+### Install
+
+[Install GitHub CLI](https://github.com/cli/cli/blob/trunk/docs/install_windows.md#winget).
+
+```bash
+winget install --id GitHub.cli
+```
+
+### Upgrade
+
+Upgrade GitHub CLI.
+
+```bash
+winget upgrade --id GitHub.cli
+```
+
+### Uninstall
+
+Uninstall GitHub CLI.
+
+```bash
+winget uninstall --id GitHub.cli
+```
