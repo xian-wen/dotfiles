@@ -10,7 +10,7 @@ return {
       function()
         require("neo-tree.command").execute({
           toggle = true,
-          dir = require("util").root(),
+          dir = require("util.root").root(),
         })
       end,
       desc = "Explorer NeoTree (Root Dir)",

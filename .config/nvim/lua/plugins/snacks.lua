@@ -62,7 +62,7 @@ return {
       {
         "<Leader>fe",
         function()
-          Snacks.picker.explorer({ cwd = require("util").root() })
+          Snacks.picker.explorer({ cwd = require("util.root").root() })
         end,
         desc = "Explorer Snacks (Root Dir)",
       },
@@ -210,7 +210,7 @@ return {
       {
         "<Leader>gg",
         function()
-          Snacks.lazygit({ cwd = require("util").git_root() })
+          Snacks.lazygit({ cwd = require("util.root").git_root() })
         end,
         desc = "Lazygit (Root Dir)",
       },
@@ -293,7 +293,7 @@ return {
       {
         "<Leader>ff",
         function()
-          Snacks.picker.files({ cwd = require("util").root() })
+          Snacks.picker.files({ cwd = require("util.root").root() })
         end,
         desc = "Files (Root Dir)",
       },
@@ -357,7 +357,7 @@ return {
       {
         "<Leader>gl",
         function()
-          Snacks.picker.git_log({ cwd = require("util").git_root() })
+          Snacks.picker.git_log({ cwd = require("util.root").git_root() })
         end,
         desc = "Git Log (Root Dir)",
       },
@@ -400,7 +400,7 @@ return {
       {
         "<Leader>sg",
         function()
-          Snacks.picker.grep({ cwd = require("util").root() })
+          Snacks.picker.grep({ cwd = require("util.root").root() })
         end,
         desc = "Grep (Root Dir)",
       },
@@ -421,7 +421,7 @@ return {
       {
         "<Leader>sw",
         function()
-          Snacks.picker.grep_word({ cwd = require("util").root() })
+          Snacks.picker.grep_word({ cwd = require("util.root").root() })
         end,
         mode = { "n", "x" },
         desc = "Grep word (Root Dir)",
@@ -587,7 +587,7 @@ return {
         },
         actions = {
           toggle_cwd = function(picker)
-            local root = require("util").root({ buf = picker.input.filter.current_buf })
+            local root = require("util.root").root({ buf = picker.input.filter.current_buf })
             local cwd = vim.fs.normalize(vim.uv.cwd() or ".")
             local current = picker:cwd()
             picker:set_cwd(current == root and cwd or root)
@@ -809,7 +809,7 @@ return {
       {
         "<Leader>ft",
         function()
-          Snacks.terminal(nil, { cwd = require("util").root() })
+          Snacks.terminal(nil, { cwd = require("util.root").root() })
         end,
         desc = "Terminal (Root Dir)",
       },
