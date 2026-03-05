@@ -127,6 +127,50 @@ return {
     },
   },
 
+  -- GitHub CLI
+  {
+    "folke/snacks.nvim",
+    keys = {
+      {
+        "<Leader>gi",
+        function()
+          Snacks.picker.gh_issue()
+        end,
+        desc = "GitHub Issues (open)",
+      },
+      {
+        "<Leader>gI",
+        function()
+          Snacks.picker.gh_issue({ state = "all" })
+        end,
+        desc = "GitHub Issues (all)",
+      },
+      {
+        "<Leader>gp",
+        function()
+          Snacks.picker.gh_pr()
+        end,
+        desc = "GitHub Pull Requests (open)",
+      },
+      {
+        "<Leader>gP",
+        function()
+          Snacks.picker.gh_pr({ state = "all" })
+        end,
+        desc = "GitHub Pull Requests (all)",
+      },
+    },
+    opts = {
+      gh = {},
+      picker = {
+        sources = {
+          gh_issue = {},
+          gh_pr = {},
+        },
+      },
+    },
+  },
+
   -- Indent
   {
     "folke/snacks.nvim",
