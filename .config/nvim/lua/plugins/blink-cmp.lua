@@ -3,7 +3,7 @@ return {
     "saghen/blink.cmp",
     version = "*",
     dependencies = { "rafamadriz/friendly-snippets" },
-    event = "InsertEnter",
+    event = { "InsertEnter", "CmdlineEnter" },
     opts_extend = {
       "sources.default",
       "sources.compat",
@@ -12,6 +12,18 @@ return {
       keymap = {
         preset = "enter",
         ["<C-y>"] = { "select_and_accept", "fallback" },
+      },
+      cmdline = {
+        completion = {
+          -- Do not automatically select the first item in the menu.
+          list = { selection = { preselect = false } },
+          menu = {
+            -- Only show menu in cmdline mode.
+            auto_show = function(ctx)
+              return vim.fn.getcmdtype() == ":"
+            end,
+          },
+        },
       },
       completion = {
         menu = {
@@ -30,12 +42,12 @@ return {
           auto_show_delay_ms = 200,
         },
       },
-      signature = { enabled = true },
       sources = {
         default = { "lsp", "path", "snippets", "buffer" },
         -- Add any nvim-cmp sources here to enable them with blink.compat.
         compat = {},
       },
+      signature = { enabled = true },
     },
     config = function(_, opts)
       -- Setup compat sources.
