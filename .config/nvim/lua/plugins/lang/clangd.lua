@@ -56,20 +56,21 @@ return {
             "--fallback-style=llvm",
           },
           root_markers = {
-            -- Build system markers
+            -- Complilation DB first
+            {
+              "compile_commands.json",
+              "compile_flags.txt",
+            },
+            -- Build system fallback
             {
               "Makefile",
               "configure.ac",
               "configure.in",
               "config.h.in",
+              "CMakeLists.txt", -- Cpp
               "meson.build",
               "meson_options.txt",
               "build.ninja",
-            },
-            -- Complilation DB fallback
-            {
-              "compile_commands.json",
-              "compile_flags.txt",
             },
             -- VCS fallback
             ".git",
