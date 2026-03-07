@@ -40,8 +40,6 @@ return {
         },
       },
     },
-    -- Configured in `nvim-lspconfig`.
-    config = function() end,
   },
 
   {
@@ -90,13 +88,6 @@ return {
             clangdFileStatus = true,
           },
         },
-      },
-      setup = {
-        clangd = function(_, opts)
-          local clangd_ext_opts = require("util").opts("clangd_extensions.nvim")
-          require("clangd_extensions").setup(vim.tbl_deep_extend("force", clangd_ext_opts or {}, { server = opts }))
-          return false
-        end,
       },
     },
   },
