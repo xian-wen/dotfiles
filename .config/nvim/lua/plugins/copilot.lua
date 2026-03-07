@@ -11,6 +11,17 @@ return {
     },
   },
 
+  -- copilot-language-server
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        -- copilot.lua only works with its own copilot LSP server.
+        copilot = { enabled = false },
+      },
+    },
+  },
+
   {
     "saghen/blink.cmp",
     dependencies = { "fang2hou/blink-copilot" },
