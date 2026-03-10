@@ -335,3 +335,37 @@ Uninstall GitHub CLI.
 ```bash
 winget uninstall --id GitHub.cli
 ```
+
+## Copilot CLI
+
+### Install
+
+[Install Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli#installing-with-winget-windows).
+
+```bash
+winget install GitHub.Copilot
+```
+
+### Authenticate
+
+If having [GitHub CLI](#github-cli) installed and authenticated, pass; otherwise [run](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli#authenticate-with-copilot-login)
+
+```bash
+copilot login
+```
+
+### Upgrade
+
+Upgrade Copilot CLI.
+
+```bash
+winget upgrade GitHub.Copilot
+```
+
+### Uninstall
+
+Uninstall Copilot CLI.
+
+```bash
+winget uninstall GitHub.Copilot
+```

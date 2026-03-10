@@ -1246,6 +1246,40 @@ Uninstall GitHub CLI.
 brew uninstall gh
 ```
 
+## Copilot CLI
+
+### Install
+
+[Install Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli#installing-with-homebrew-macos-and-linux).
+
+```bash
+brew install copilot-cli
+```
+
+### Authenticate
+
+If having [GitHub CLI](#github-cli) installed and authenticated, pass; otherwise [run](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli#authenticate-with-copilot-login)
+
+```bash
+copilot login
+```
+
+### Upgrade
+
+Upgrade Copilot CLI.
+
+```bash
+brew upgrade copilot-cli
+```
+
+### Uninstall
+
+Uninstall Copilot CLI.
+
+```bash
+brew uninstall copilot-cli
+```
+
 ## bear
 
 ### Install
