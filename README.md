@@ -1224,6 +1224,12 @@ cargo clean
 brew install gh
 ```
 
+### Authenticate
+
+```bash
+gh auth login
+```
+
 ### Upgrade
 
 Upgrade GitHub CLI.
