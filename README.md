@@ -503,7 +503,7 @@ sh -c 'rm "$(command -v 'starship')"'
 
 #### Prerequisites
 
-Install below, [Tree-sitter CLI](#tree-sitter-cli), [bat](#bat), [fd](#fd), [node](#fast-node-manager), [cargo](#rustup), and [GitHub CLI](#github-cli). (Ref: [heading ids and links in markdown](https://docs.gitlab.com/ee/user/markdown.html#heading-ids-and-links))
+Install below, [bat](#bat), [fd](#fd), [Lazygit](#lazygit), [node](#fast-node-manager), [cargo](#rustup), [Tree-sitter CLI](#tree-sitter-cli), and [GitHub CLI](#github-cli). (Ref: [heading ids and links in markdown](https://docs.gitlab.com/ee/user/markdown.html#heading-ids-and-links))
 
 ```bash
 brew install ripgrep xclip
