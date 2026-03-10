@@ -920,39 +920,6 @@ _YouCompleteMe unavailable: requires Vim compiled with Python (3.8.0+) support_
 
 Build Vim with python 3 support.
 
-## Tree-sitter CLI
-
-### Install
-
-Install prerequisites.
-
-```bash
-sudo apt install libclang-dev
-```
-
-[Install Tree-sitter CLI](https://github.com/tree-sitter/tree-sitter/blob/master/crates/cli/README.md#installation).
-
-```bash
-cargo install --locked tree-sitter-cli
-```
-
-### Upgrade
-
-Upgrade Tree-sitter CLI.
-
-```bash
-cargo install --locked tree-sitter-cli
-```
-
-### Uninstall
-
-Uninstall Tree-sitter CLI.
-
-```bash
-cargo uninstall --locked tree-sitter-cli
-cargo clean
-```
-
 ## Tmux
 
 ### Install
@@ -1212,6 +1179,39 @@ Uninstall Lazygit.
 
 ```bash
 brew uninstall lazygit
+```
+
+## Tree-sitter CLI
+
+### Install
+
+Install prerequisites.
+
+```bash
+sudo apt install libclang-dev
+```
+
+[Install Tree-sitter CLI](https://github.com/tree-sitter/tree-sitter/blob/master/crates/cli/README.md#installation).
+
+```bash
+cargo install --locked tree-sitter-cli
+```
+
+### Upgrade
+
+Upgrade Tree-sitter CLI.
+
+```bash
+cargo install --locked tree-sitter-cli
+```
+
+### Uninstall
+
+Uninstall Tree-sitter CLI.
+
+```bash
+cargo uninstall --locked tree-sitter-cli
+cargo clean
 ```
 
 ## GitHub CLI
