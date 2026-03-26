@@ -812,10 +812,14 @@ return {
   {
     "folke/snacks.nvim",
     keys = {
-      { "<C-_>", "<Leader>ft", desc = "which_key_ignore", remap = true },
       { "<C-/>", "<C-_>", desc = "Terminal (Root Dir)", remap = true },
-      { "<C-_>", "<Cmd>close<CR>", mode = "t", desc = "which_key_ignore" },
-      { "<C-/>", "<C-_>", mode = "t", desc = "Hide Terminal", remap = true },
+      {
+        "<C-_>",
+        function()
+          Snacks.terminal.focus(nil, { cwd = require("util.root").root() })
+        end,
+        desc = "which_key_ignore",
+      },
       {
         "<Leader>ft",
         function()
@@ -840,6 +844,8 @@ return {
             nav_j = { "<C-j>", term_nav("j"), mode = "t", expr = true, desc = "Go to Lower Window" },
             nav_k = { "<C-k>", term_nav("k"), mode = "t", expr = true, desc = "Go to Upper Window" },
             nav_l = { "<C-l>", term_nav("l"), mode = "t", expr = true, desc = "Go to Right Window" },
+            hide_slash = { "<C-/>", "hide", mode = "t", desc = "Hide Terminal" },
+            hide_underscore = { "<c-_>", "hide", mode = "t", desc = "which_key_ignore" },
           },
         },
       },
