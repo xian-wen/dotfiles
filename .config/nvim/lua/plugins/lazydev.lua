@@ -11,6 +11,8 @@ return {
         { path = "lazy.nvim", mods = { "lazy" } },
         -- Only load the snacks library when the `Snacks` global is found.
         { path = "snacks.nvim", words = { "Snacks" } },
+        -- Only load lspconfig types when the `lspconfig.settings` word is found.
+        { path = "nvim-lspconfig", words = { "lspconfig.settings" } },
       },
     },
   },
