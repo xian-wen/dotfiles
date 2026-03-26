@@ -112,7 +112,10 @@ return {
   end,
   config = vim.schedule_wrap(function(_, opts)
     -- Keymaps
-    for server, server_opts in pairs(opts.servers) do
+    local names = vim.tbl_keys(opts.servers)
+    table.sort(names)
+    for _, server in ipairs(names) do
+      local server_opts = opts.servers[server]
       if type(server_opts) == "table" and server_opts.keys then
         require("util.lsp").map({ name = server ~= "*" and server or nil }, server_opts.keys)
       end
