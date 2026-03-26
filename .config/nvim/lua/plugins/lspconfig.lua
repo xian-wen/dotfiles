@@ -4,8 +4,7 @@ return {
     "mason.nvim",
     "mason-lspconfig.nvim",
   },
-  -- Same as LazyFile.
-  event = { "BufReadPost", "BufNewFile", "BufWritePre" },
+  event = { "BufReadPre", "BufNewFile" },
   opts_extend = { "servers.*.keys" },
   opts = function()
     local icons = require("config").icons.diagnostics
