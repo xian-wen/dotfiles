@@ -1286,6 +1286,46 @@ Uninstall Copilot CLI.
 brew uninstall copilot-cli
 ```
 
+## Claude Code CLI
+
+### Install
+
+[Install Claude Code CLI](https://code.claude.com/docs/en/overview#homebrew).
+
+```bash
+brew install --cask claude-code
+```
+
+Or [install with curl](https://code.claude.com/docs/en/overview#native-install-recommended).
+
+```bash
+curl -fsSL https://claude.ai/install.sh | bash
+```
+
+### Authenticate
+
+[Log in](https://code.claude.com/docs/en/quickstart#step-2-log-in-to-your-account).
+
+```bash
+/login
+```
+
+### Upgrade
+
+Upgrade Claude Code CLI.
+
+```bash
+brew upgrade claude-code
+```
+
+### Uninstall
+
+Uninstall Claude Code CLI.
+
+```bash
+brew uninstall claude-code
+```
+
 ## bear
 
 ### Install
