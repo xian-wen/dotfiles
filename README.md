@@ -1256,6 +1256,12 @@ brew uninstall gh
 brew install copilot-cli
 ```
 
+Or [install with curl](https://github.com/features/copilot/cli).
+
+```bash
+curl -fsSL https://gh.io/copilot-install | bash
+```
+
 ### Authenticate
 
 If having [GitHub CLI](#github-cli) installed and authenticated, pass; otherwise [run](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli#authenticate-with-copilot-login)

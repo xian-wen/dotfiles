@@ -346,6 +346,12 @@ winget uninstall --id GitHub.cli
 winget install GitHub.Copilot
 ```
 
+Or [install with irm](https://github.com/features/copilot/cli).
+
+```powershell
+irm https://gh.io/copilot-install | iex
+```
+
 ### Authenticate
 
 If having [GitHub CLI](#github-cli) installed and authenticated, pass; otherwise [run](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli#authenticate-with-copilot-login)
