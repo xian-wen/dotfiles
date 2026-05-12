@@ -76,7 +76,7 @@ winget uninstall --id Microsoft.Powershell --source winget
 
 [Install Starship](https://starship.rs/#install-via-package-manager).
 
-```bash
+```powershell
 winget install starship
 ```
 
@@ -90,7 +90,7 @@ cp ~/.dotfiles/windows/powershell/Microsoft.PowerShell_profile.ps1 /mnt/c/Users/
 
 Upgrade Starship.
 
-```bash
+```powershell
 winget upgrade starship
 ```
 
@@ -100,7 +100,7 @@ Remove the initialization of Starship in `$PROFILE` before [uninstall](https://s
 
 Uninstall Starship.
 
-```bash
+```powershell
 winget uninstall starship
 ```
 
@@ -238,7 +238,7 @@ Uninstall-Module PSReadLine
 
 [Install Nushell](https://www.nushell.sh/#windows)
 
-```bash
+```powershell
 winget install nushell
 ```
 
@@ -246,7 +246,7 @@ winget install nushell
 
 Upgrade Nushell.
 
-```bash
+```powershell
 winget upgrade nushell
 ```
 
@@ -254,7 +254,7 @@ winget upgrade nushell
 
 Uninstall Nushell.
 
-```bash
+```powershell
 winget uninstall nushell
 ```
 
@@ -290,7 +290,7 @@ winget uninstall fzf
 
 [Install Lazygit](https://github.com/jesseduffield/lazygit?tab=readme-ov-file#winget-windows-10-1709-or-later).
 
-```bash
+```powershell
 winget install lazygit
 ```
 
@@ -298,7 +298,7 @@ winget install lazygit
 
 Upgrade Lazygit.
 
-```bash
+```powershell
 winget upgrade lazygit
 ```
 
@@ -306,7 +306,7 @@ winget upgrade lazygit
 
 Uninstall Lazygit.
 
-```bash
+```powershell
 winget uninstall lazygit
 ```
 
@@ -316,7 +316,7 @@ winget uninstall lazygit
 
 [Install GitHub CLI](https://github.com/cli/cli/blob/trunk/docs/install_windows.md#winget).
 
-```bash
+```powershell
 winget install --id GitHub.cli
 ```
 
@@ -324,7 +324,7 @@ winget install --id GitHub.cli
 
 Upgrade GitHub CLI.
 
-```bash
+```powershell
 winget upgrade --id GitHub.cli
 ```
 
@@ -332,7 +332,7 @@ winget upgrade --id GitHub.cli
 
 Uninstall GitHub CLI.
 
-```bash
+```powershell
 winget uninstall --id GitHub.cli
 ```
 
@@ -342,7 +342,7 @@ winget uninstall --id GitHub.cli
 
 [Install Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli#installing-with-winget-windows).
 
-```bash
+```powershell
 winget install GitHub.Copilot
 ```
 
@@ -350,7 +350,7 @@ winget install GitHub.Copilot
 
 If having [GitHub CLI](#github-cli) installed and authenticated, pass; otherwise [run](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli#authenticate-with-copilot-login)
 
-```bash
+```powershell
 copilot login
 ```
 
@@ -358,7 +358,7 @@ copilot login
 
 Upgrade Copilot CLI.
 
-```bash
+```powershell
 winget upgrade GitHub.Copilot
 ```
 
@@ -366,6 +366,6 @@ winget upgrade GitHub.Copilot
 
 Uninstall Copilot CLI.
 
-```bash
+```powershell
 winget uninstall GitHub.Copilot
 ```
