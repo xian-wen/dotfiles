@@ -1302,6 +1302,14 @@ Or [install with curl](https://code.claude.com/docs/en/overview#native-install-r
 curl -fsSL https://claude.ai/install.sh | bash
 ```
 
+Create a symbolic link to update configuration.
+
+```bash
+ln -sf /home/xianwen/.dotfiles/.claude/settings.json ~/.claude/
+```
+
+[Replace the API key](https://openrouter.ai/docs/cookbook/coding-agents/claude-code-integration#step-2-connect-claude-to-openrouter) with your own key.
+
 ### Authenticate
 
 [Log in](https://code.claude.com/docs/en/quickstart#step-2-log-in-to-your-account).
