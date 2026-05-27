@@ -70,7 +70,14 @@ return {
             { "<Leader>ci", "<Cmd>LspInfo<CR>", desc = "LSP Info" },
             { "<Leader>ca", vim.lsp.buf.code_action, mode = { "n", "x" }, desc = "Code Action", has = "codeAction" },
             { "<Leader>cl", vim.lsp.codelens.run, mode = { "n", "x" }, desc = "Run Codelens", has = "codeLens" },
-            { "<Leader>cL", vim.lsp.codelens.refresh, desc = "Refresh & Display Codelens", has = "codeLens" },
+            {
+              "<Leader>cL",
+              function()
+                vim.lsp.codelens.enable()
+              end,
+              desc = "Refresh & Display Codelens",
+              has = "codeLens",
+            },
             { "<Leader>cr", vim.lsp.buf.rename, desc = "Rename", has = "rename" },
           },
         },
@@ -146,11 +153,7 @@ return {
     -- Code lens
     if opts.codelens.enabled and vim.lsp.codelens then
       Snacks.util.lsp.on({ method = "textDocument/codeLens" }, function(buffer)
-        vim.lsp.codelens.refresh()
-        vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
-          buffer = buffer,
-          callback = vim.lsp.codelens.refresh,
-        })
+        vim.lsp.codelens.enable(true, { bufnr = buffer })
       end)
     end
 
