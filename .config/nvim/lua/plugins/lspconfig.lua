@@ -67,7 +67,6 @@ return {
             { "gy", vim.lsp.buf.type_definition, desc = "Go to T[y]pe Definition" },
             { "gK", vim.lsp.buf.signature_help, desc = "Signature Help", has = "signatureHelp" },
             { "<C-k>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help", has = "signatureHelp" },
-            { "<Leader>ci", "<Cmd>LspInfo<CR>", desc = "LSP Info" },
             { "<Leader>ca", vim.lsp.buf.code_action, mode = { "n", "x" }, desc = "Code Action", has = "codeAction" },
             { "<Leader>cl", vim.lsp.codelens.run, mode = { "n", "x" }, desc = "Run Codelens", has = "codeLens" },
             {
