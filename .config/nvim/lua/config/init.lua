@@ -1,6 +1,11 @@
 local M = {}
 
 M.icons = {
+  ai = {
+    codeium = "󰘦 ",
+    copilot = " ",
+    sidekick = " ",
+  },
   diagnostics = {
     ERROR = " ",
     WARN = " ",
@@ -16,13 +21,11 @@ M.icons = {
     Array = " ",
     Boolean = "󰨙 ",
     Class = " ",
-    Codeium = "󰘦 ",
     Collapsed = " ",
     Color = " ",
     Constant = "󰏿 ",
     Constructor = " ",
     Control = " ",
-    Copilot = " ",
     Enum = " ",
     EnumMember = " ",
     Event = " ",
