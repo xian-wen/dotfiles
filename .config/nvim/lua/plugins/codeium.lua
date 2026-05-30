@@ -8,7 +8,7 @@ return {
     opts = { quiet = true },
   },
 
-  {
+  vim.g.ai_cmp == "codeium" and {
     "saghen/blink.cmp",
     dependencies = { "codeium.nvim" },
     opts = {
@@ -23,5 +23,5 @@ return {
         },
       },
     },
-  },
+  } or nil,
 }
