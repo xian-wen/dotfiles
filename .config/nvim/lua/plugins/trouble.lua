@@ -68,4 +68,24 @@ return {
       },
     },
   },
+
+  {
+    "folke/snacks.nvim",
+    opts = {
+      picker = {
+        win = {
+          input = {
+            keys = {
+              ["<A-t>"] = { "trouble_open", mode = { "n", "i" } },
+            },
+          },
+        },
+        actions = {
+          trouble_open = function(...)
+            return require("trouble.sources.snacks").actions.trouble_open.action(...)
+          end,
+        },
+      },
+    },
+  },
 }

@@ -589,7 +589,6 @@ return {
           input = {
             keys = {
               ["<A-c>"] = { "toggle_cwd", mode = { "n", "i" } },
-              ["<A-t>"] = { "trouble_open", mode = { "n", "i" } },
             },
           },
         },
@@ -600,9 +599,6 @@ return {
             local current = picker:cwd()
             picker:set_cwd(current == root and cwd or root)
             picker:find()
-          end,
-          trouble_open = function(...)
-            return require("trouble.sources.snacks").actions.trouble_open.action(...)
           end,
         },
       },
