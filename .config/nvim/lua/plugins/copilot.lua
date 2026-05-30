@@ -11,32 +11,34 @@ return {
     },
   },
 
-  -- copilot-language-server
-  {
-    "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        -- copilot.lua only works with its own copilot LSP server.
-        copilot = { enabled = false },
+  vim.g.ai_cmp == "copilot" and {
+    -- copilot-language-server
+    {
+      "neovim/nvim-lspconfig",
+      opts = {
+        servers = {
+          -- copilot.lua only works with its own copilot LSP server.
+          copilot = { enabled = false },
+        },
       },
     },
-  },
 
-  {
-    "saghen/blink.cmp",
-    dependencies = { "fang2hou/blink-copilot" },
-    opts = {
-      sources = {
-        default = { "copilot" },
-        providers = {
-          copilot = {
-            name = "copilot",
-            module = "blink-copilot",
-            score_offset = 100,
-            async = true,
+    {
+      "saghen/blink.cmp",
+      dependencies = { "fang2hou/blink-copilot" },
+      opts = {
+        sources = {
+          default = { "copilot" },
+          providers = {
+            copilot = {
+              name = "copilot",
+              module = "blink-copilot",
+              score_offset = 100,
+              async = true,
+            },
           },
         },
       },
     },
-  },
+  } or nil,
 }
