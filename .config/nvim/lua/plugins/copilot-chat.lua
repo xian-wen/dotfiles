@@ -1,6 +1,7 @@
 return {
   {
     "CopilotC-Nvim/CopilotChat.nvim",
+    enabled = false,
     build = "make tiktoken",
     cmd = "CopilotChat",
     keys = {
