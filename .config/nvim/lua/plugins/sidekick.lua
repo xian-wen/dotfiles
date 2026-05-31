@@ -76,15 +76,18 @@ return {
         mode = { "x" },
         desc = "Send Visual Selection",
       },
-      {
-        "<Leader>uS",
-        function()
-          require("sidekick.nes").toggle()
-        end,
-        desc = "Toggle Sidekick NES",
-      },
     },
-    opts = {},
+    opts = function()
+      Snacks.toggle({
+        name = "Sidekick NES",
+        get = function()
+          return require("sidekick.nes").enabled
+        end,
+        set = function(state)
+          require("sidekick.nes").enable(state)
+        end,
+      }):map("<Leader>uS")
+    end,
   },
 
   -- copilot-language-server

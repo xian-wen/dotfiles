@@ -95,31 +95,28 @@ map("n", "<Leader>uI", function()
   vim.api.nvim_input("I")
 end, { desc = "Inspect Tree" })
 
--- Toggle options
-map("n", "<Leader>ub", function()
-  vim.o.background = vim.o.background == "dark" and "light" or "dark"
-end, { desc = "Toggle Background" })
-map("n", "<Leader>ud", function()
-  vim.diagnostic.enable(not vim.diagnostic.is_enabled())
-end, { desc = "Toggle Diagnostics" })
-map("n", "<Leader>uh", function()
-  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-end, { desc = "Toggle Inlay Hints" })
-map("n", "<Leader>ul", "<Cmd>set list!<CR>", { desc = "Toggle List" })
-map("n", "<Leader>un", "<Cmd>set number!<CR>", { desc = "Toggle Number" })
-map("n", "<Leader>ur", "<Cmd>set relativenumber!<CR>", { desc = "Toggle Relative Number" })
-map("n", "<Leader>us", "<Cmd>set spell!<CR>", { desc = "Toggle Spell" })
-map("n", "<Leader>ut", function()
-  if vim.b.ts_highlight then
-    vim.treesitter.stop()
-  else
-    vim.treesitter.start()
-  end
-end, { desc = "Toggle Treesitter Highlight" })
-map("n", "<Leader>uw", "<Cmd>set wrap!<CR>", { desc = "Toggle Wrap" })
-
 -- Keywordprg
 map("n", "<Leader>K", "<Cmd>normal! K<CR>", { desc = "Keywordprg" })
 
 -- Lazy
 map("n", "<Leader>L", "<Cmd>Lazy<CR>", { desc = "Lazy" })
+
+-- Toggle options
+Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map("<Leader>ub")
+Snacks.toggle.option("list", { name = "List" }):map("<Leader>ul")
+Snacks.toggle.option("number", { name = "Number" }):map("<Leader>un")
+Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<Leader>ur")
+Snacks.toggle.option("spell", { name = "Spelling" }):map("<Leader>us")
+Snacks.toggle
+  .option("showtabline", { off = 0, on = vim.o.showtabline > 0 and vim.o.showtabline or 2, name = "Tabline" })
+  :map("<Leader>ut")
+Snacks.toggle.option("wrap", { name = "Wrap" }):map("<Leader>uw")
+
+-- Toggle others
+Snacks.toggle.diagnostics():map("<Leader>ud")
+Snacks.toggle.dim():map("<Leader>uD")
+Snacks.toggle.indent():map("<Leader>ug")
+Snacks.toggle.inlay_hints():map("<Leader>uh")
+Snacks.toggle.treesitter():map("<Leader>uT")
+Snacks.toggle.zen():map("<Leader>uz")
+Snacks.toggle.zoom():map("<Leader>uZ")

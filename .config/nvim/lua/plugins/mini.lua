@@ -121,18 +121,20 @@ return {
   {
     "echasnovski/mini.pairs",
     event = "VeryLazy",
-    keys = {
-      {
-        "<Leader>up",
-        function()
-          vim.g.minipairs_disable = not vim.g.minipairs_disable
+    opts = function()
+      Snacks.toggle({
+        name = "Mini Pairs",
+        get = function()
+          return not vim.g.minipairs_disable
         end,
-        desc = "Toggle Mini Pairs",
-      },
-    },
-    opts = {
-      modes = { insert = true, command = true, terminal = false },
-    },
+        set = function(state)
+          vim.g.minipairs_disable = not state
+        end,
+      }):map("<Leader>up")
+      return {
+        modes = { insert = true, command = true, terminal = false },
+      }
+    end,
   },
 
   {

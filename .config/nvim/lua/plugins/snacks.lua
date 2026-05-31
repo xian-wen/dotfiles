@@ -174,19 +174,6 @@ return {
   -- Indent
   {
     "folke/snacks.nvim",
-    keys = {
-      {
-        "<Leader>ug",
-        function()
-          if Snacks.indent.enabled then
-            Snacks.indent.disable()
-          else
-            Snacks.indent.enable()
-          end
-        end,
-        desc = "Toggle Indent Guides",
-      },
-    },
     opts = {
       indent = {
         enabled = false,
@@ -852,24 +839,6 @@ return {
   -- Zen
   {
     "folke/snacks.nvim",
-    keys = {
-      { "<Leader>z", "<Leader>uz", desc = "Toggle Zen Mode", remap = true },
-      { "<Leader>Z", "<Leader>uZ", desc = "Toggle Zoom", remap = true },
-      {
-        "<Leader>uz",
-        function()
-          Snacks.zen()
-        end,
-        desc = "Toggle Zen Mode",
-      },
-      {
-        "<Leader>uZ",
-        function()
-          Snacks.zen.zoom()
-        end,
-        desc = "Toggle Zoom",
-      },
-    },
     opts = {
       zen = {
         -- Full screen.
