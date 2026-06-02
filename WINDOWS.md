@@ -415,3 +415,29 @@ Uninstall Claude Code.
 ```powershell
 winget uninstall Anthropic.ClaudeCode
 ```
+
+## Crush
+
+### Install
+
+[Install Crush](https://charmbracelet-crush.mintlify.app/installation#windows-installation).
+
+```powershell
+winget install Charmbracelet.Crush
+```
+
+### Upgrade
+
+Upgrade Crush.
+
+```powershell
+winget upgrade Charmbracelet.Crush
+```
+
+### Uninstall
+
+Uninstall Crush.
+
+```powershell
+winget uninstall Charmbracelet.Crush
+```

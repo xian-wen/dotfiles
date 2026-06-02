@@ -1334,6 +1334,32 @@ Uninstall Claude Code.
 brew uninstall claude-code
 ```
 
+## Crush
+
+### Install
+
+[Install Crush](https://charmbracelet-crush.mintlify.app/installation#package-managers).
+
+```bash
+brew install charmbracelet/tap/crush
+```
+
+### Upgrade
+
+Upgrade Crush.
+
+```bash
+brew upgrade charmbracelet/tap/crush
+```
+
+### Uninstall
+
+Uninstall Crush.
+
+```bash
+brew uninstall charmbracelet/tap/crush
+```
+
 ## bear
 
 ### Install
