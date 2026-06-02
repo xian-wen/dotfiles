@@ -376,11 +376,11 @@ Uninstall Copilot CLI.
 winget uninstall GitHub.Copilot
 ```
 
-## Claude Code CLI
+## Claude Code
 
 ### Install
 
-[Install Claude Code CLI](https://code.claude.com/docs/en/overview#winget).
+[Install Claude Code](https://code.claude.com/docs/en/overview#winget).
 
 ```powershell
 winget install Anthropic.ClaudeCode
@@ -402,7 +402,7 @@ irm https://claude.ai/install.ps1 | iex
 
 ### Upgrade
 
-Upgrade Claude Code CLI.
+Upgrade Claude Code.
 
 ```powershell
 winget upgrade Anthropic.ClaudeCode
@@ -410,7 +410,7 @@ winget upgrade Anthropic.ClaudeCode
 
 ### Uninstall
 
-Uninstall Claude Code CLI.
+Uninstall Claude Code.
 
 ```powershell
 winget uninstall Anthropic.ClaudeCode
