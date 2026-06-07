@@ -441,3 +441,55 @@ Uninstall Crush.
 ```powershell
 winget uninstall Charmbracelet.Crush
 ```
+
+## Fast Node Manager
+
+### Install
+
+[Install Fast Node Manager](https://github.com/Schniz/fnm#using-winget-windows).
+
+```powershell
+winget install Schniz.fnm
+```
+
+Copy `windows/powershell/Microsoft.PowerShell_profile.ps1` into the directory of `$PROFILE` to [do shell setup](https://github.com/Schniz/fnm#powershell) and [enable completions](https://github.com/Schniz/fnm#completions).
+
+```powershell
+cp ~/.dotfiles/windows/powershell/Microsoft.PowerShell_profile.ps1 /mnt/c/Users/Xianwen/Documents/PowerShell
+```
+
+[Install Node.js](https://github.com/Schniz/fnm/blob/master/docs/commands.md#fnm-install) (latest LTS version).
+
+```powershell
+fnm install --lts
+```
+
+### Upgrade
+
+Upgrade Fast Node Manager.
+
+```powershell
+winget upgrade Schniz.fnm
+```
+
+Upgrade Node.js, rerun
+
+```powershell
+fnm install --lts
+```
+
+### Uninstall
+
+[Uninstall Node.js](https://github.com/Schniz/fnm/blob/master/docs/commands.md#fnm-uninstall).
+
+```powershell
+fnm uninstall $(fnm current)
+```
+
+Remove the setup of Fast Node Manager in `$PROFILE` before [uninstall](https://github.com/Schniz/fnm#removing).
+
+Uninstall Fast Node Manager.
+
+```powershell
+winget uninstall Schniz.fnm
+```

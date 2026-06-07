@@ -28,6 +28,10 @@ Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 # Put this at the last line.
 # oh-my-posh init pwsh | Invoke-Expression
 
+# Fast Node Manager
+fnm env --use-on-cd --shell powershell | Out-String | Invoke-Expression
+fnm completions --shell powershell | Out-String | Invoke-Expression
+
 # Starship
 # Put this to the end.
 Invoke-Expression (&starship init powershell)
