@@ -1360,6 +1360,40 @@ Uninstall Crush.
 brew uninstall charmbracelet/tap/crush
 ```
 
+## MiMo Code
+
+### Install
+
+[Install MiMo Code](https://mimo.xiaomi.com/mimocode/install).
+
+```bash
+curl -fsSL https://mimo.xiaomi.com/install | bash -s -- --no-modify-path
+```
+
+Create a symbolic link to add MiMo Code to PATH.
+
+```bash
+ln -sf /home/xianwen/.dotfiles/.bashrc ~/
+ln -sf /home/xianwen/.dotfiles/.config/fish/ ~/.config/
+ln -sf /home/xianwen/.dotfiles/.zshrc ~/
+```
+
+### Upgrade
+
+Upgrade MiMo Code.
+
+```bash
+mimo upgrade
+```
+
+### Uninstall
+
+Uninstall MiMo Code.
+
+```bash
+mimo uninstall
+```
+
 ## bear
 
 ### Install

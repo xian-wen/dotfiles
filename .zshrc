@@ -159,6 +159,11 @@ fi
 # Codeium: No heartbeat executed
 export no_proxy=127.0.0.1
 
+# MiMo Code
+if [ -d "$HOME/.mimocode/bin" ]; then
+  export PATH=$HOME/.mimocode/bin:$PATH
+fi
+
 # Replace man with batman.
 if command -v batman &> /dev/null; then
   eval "$(batman --export-env)"

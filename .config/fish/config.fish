@@ -44,6 +44,11 @@ end
 # Codeium: No heartbeat executed
 set -gx no_proxy 127.0.0.1
 
+# MiMo Code
+if test -d "$HOME/.mimocode/bin"
+    set -gx PATH $HOME/.mimocode/bin $PATH
+end
+
 # Replace man with batman.
 if command -q batman
     batman --export-env | source
