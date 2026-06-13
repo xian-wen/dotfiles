@@ -182,6 +182,17 @@ if command -v fzf &>/dev/null; then
   eval "$(fzf --bash)"
 fi
 
+# Flutter & Android SDK
+if [ -d "$HOME/flutter/bin" ]; then
+  export PATH="$HOME/flutter/bin:$PATH"
+fi
+if [ -d "$HOME/android-sdk" ]; then
+  export ANDROID_HOME="$HOME/android-sdk"
+  export ANDROID_SDK_ROOT="$ANDROID_HOME"
+  export PATH="$ANDROID_HOME/platform-tools:$PATH"
+  export PATH="$ANDROID_HOME/cmdline-tools/latest/bin:$PATH"
+fi
+
 # Starship
 # Avoid Executing command "/usr/bin/git" timed out.
 # Ref: https://starship.rs/faq/#why-do-i-see-executing-command-timed-out-warnings

@@ -59,6 +59,17 @@ if command -q fzf
     fzf --fish | source
 end
 
+# Flutter & Android SDK
+if test -d "$HOME/flutter/bin"
+    set -gx PATH $HOME/flutter/bin $PATH
+end
+if test -d "$HOME/android-sdk"
+    set -gx ANDROID_HOME $HOME/android-sdk
+    set -gx ANDROID_SDK_ROOT $ANDROID_HOME
+    set -gx PATH $ANDROID_HOME/platform-tools $PATH
+    set -gx PATH $ANDROID_HOME/cmdline-tools/latest/bin $PATH
+end
+
 # Starship
 # Avoid Executing command "/usr/bin/git" timed out.
 # Ref: https://starship.rs/faq/#why-do-i-see-executing-command-timed-out-warnings
