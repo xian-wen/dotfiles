@@ -182,7 +182,7 @@ if command -v fzf &>/dev/null; then
   eval "$(fzf --bash)"
 fi
 
-# Startship
+# Starship
 # Avoid Executing command "/usr/bin/git" timed out.
 # Ref: https://starship.rs/faq/#why-do-i-see-executing-command-timed-out-warnings
 if command -v starship &>/dev/null; then
