@@ -63,11 +63,15 @@ end
 if test -d "$HOME/flutter/bin"
     set -gx PATH $HOME/flutter/bin $PATH
 end
-if test -d "$HOME/android-sdk"
-    set -gx ANDROID_HOME $HOME/android-sdk
+if test -d "/mnt/c/Users/$USER/AppData/Local/Android/Sdk"
+    set -gx ANDROID_HOME "/mnt/c/Users/$USER/AppData/Local/Android/Sdk"
     set -gx ANDROID_SDK_ROOT $ANDROID_HOME
     set -gx PATH $ANDROID_HOME/platform-tools $PATH
     set -gx PATH $ANDROID_HOME/cmdline-tools/latest/bin $PATH
+    set -gx PATH $ANDROID_HOME/emulator $PATH
+    alias adb='adb.exe'
+    alias emulator='emulator.exe'
+    alias fastboot='fastboot.exe'
 end
 
 # Starship

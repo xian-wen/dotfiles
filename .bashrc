@@ -186,11 +186,15 @@ fi
 if [ -d "$HOME/flutter/bin" ]; then
   export PATH="$HOME/flutter/bin:$PATH"
 fi
-if [ -d "$HOME/android-sdk" ]; then
-  export ANDROID_HOME="$HOME/android-sdk"
+if [ -d "/mnt/c/Users/$USER/AppData/Local/Android/Sdk" ]; then
+  export ANDROID_HOME="/mnt/c/Users/$USER/AppData/Local/Android/Sdk"
   export ANDROID_SDK_ROOT="$ANDROID_HOME"
   export PATH="$ANDROID_HOME/platform-tools:$PATH"
   export PATH="$ANDROID_HOME/cmdline-tools/latest/bin:$PATH"
+  export PATH="$ANDROID_HOME/emulator:$PATH"
+  alias adb='adb.exe'
+  alias emulator='emulator.exe'
+  alias fastboot='fastboot.exe'
 fi
 
 # Starship
