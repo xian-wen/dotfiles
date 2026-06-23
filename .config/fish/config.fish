@@ -69,9 +69,9 @@ if test -d "/mnt/c/Users/$USER/AppData/Local/Android/Sdk"
     set -gx PATH $ANDROID_HOME/platform-tools $PATH
     set -gx PATH $ANDROID_HOME/cmdline-tools/latest/bin $PATH
     set -gx PATH $ANDROID_HOME/emulator $PATH
-    alias adb='adb.exe'
-    alias emulator='emulator.exe'
-    alias fastboot='fastboot.exe'
+    abbr -a adb adb.exe
+    abbr -a emulator emulator.exe
+    abbr -a fastboot fastboot.exe
 end
 
 # Starship
