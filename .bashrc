@@ -192,9 +192,6 @@ if [ -d "/mnt/c/Users/$USER/AppData/Local/Android/Sdk" ]; then
   export PATH="$ANDROID_HOME/platform-tools:$PATH"
   export PATH="$ANDROID_HOME/cmdline-tools/latest/bin:$PATH"
   export PATH="$ANDROID_HOME/emulator:$PATH"
-  alias adb='adb.exe'
-  alias emulator='emulator.exe'
-  alias fastboot='fastboot.exe'
 fi
 
 # Starship
