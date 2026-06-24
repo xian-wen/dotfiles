@@ -16,11 +16,8 @@ return {
   },
 
   {
-    "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        dartls = {},
-      },
-    },
+    "nvim-flutter/flutter-tools.nvim",
+    lazy = false,
+    config = {},
   },
 }
